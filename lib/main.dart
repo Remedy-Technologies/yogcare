@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/dolist.dart';
-import 'package:yoga_app/pages/habit.dart';
+import 'package:yoga_app/pages/register_page.dart';
+import 'package:yoga_app/pages/tracker.dart';
+import 'package:yoga_app/pages/healthdet.dart';
 import 'package:yoga_app/pages/home.dart';
+import 'package:yoga_app/pages/parqResult.dart';
+import 'package:yoga_app/pages/personaldet.dart';
 import 'package:yoga_app/pages/settings.dart';
+import 'package:yoga_app/utils/authenticate.dart';
 //import 'package:velocity_x/velocity_x.dart';
 
 //import 'package:google_fonts/google_fonts.dart';
@@ -14,19 +19,28 @@ import 'package:yoga_app/utils/routes.dart';
 import 'package:yoga_app/widgets/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'pages/login.dart';
+import 'package:firebase_core/firebase_core.dart'; // 
+ import 'firebase_options.dart'; // Generated file
+
+
+import 'pages/login_page.dart';
 //import 'pages/settings.dart';
 
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   //initalizing hive
   await Hive.initFlutter();
   await Hive.openBox("Habit_db");
   //do list db
   var doListBox= await Hive.openBox("DoList_db");
-  //do list db
+  //tracker list db
   var habitBox= await Hive.openBox("Habit_db");
+
+  var parqBox= await Hive.openBox("PARQ_db");
 
   //SharedPreferences sp = await SharedPreferences.getInstance();
   //isDark=sp.getBool("theme")??false;
@@ -55,13 +69,16 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",                              //this route will open first
       
       routes: {                                       //creating routes for different pages in app
-        "/": (context) => HomePage(),                //main root
+        "/": (context) => AuthPage(),                //main root
         Myroutes.homeRoute: (context) => HomePage(),
-        Myroutes.loginRoute: (context) => LoginPage(),
+       // Myroutes.loginRoute: (context) => LoginPage(),
+      //  Myroutes.registerRoute: (context) => RegisterPage(),
         Myroutes.doListRoute: (context) => DoListPage(),
         Myroutes.habitRoute: (context) => HabitPage(),
         Myroutes.settingsRoute: (context) => SettingsPage(),
-        
+        Myroutes.personalDetailsRoute: (context) => PersonalDetails(),
+        Myroutes.healthDetailsRoute: (context) => HealthDetails(),
+        Myroutes.parqResultsRoute: (context) => ResultsPage(),        
       },
     );   
   }

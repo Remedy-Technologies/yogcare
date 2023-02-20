@@ -34,13 +34,6 @@ class ToDoDatabase{
 
 
 
-
-
-
-
-
-
-
 final habitbox = Hive.box("Habit_db");
 
 class HabitDatabase {
@@ -142,4 +135,29 @@ class HabitDatabase {
       print(heatMapDataSet);
     }
   }
+}
+
+
+class ParqDatabase{
+  String userName="";
+
+  //reference the box
+   final mybox = Hive.box("PARQ_db");
+
+
+   //create initial data
+   void createInitialParq(){
+    userName="Test";
+   }
+
+   //load data from db
+   void loadDataParq(){
+    userName =mybox.get("PARQDB");
+   }
+
+   //update data
+   void updateDb(){
+    mybox.put("PARQDB", userName);
+   }
+
 }

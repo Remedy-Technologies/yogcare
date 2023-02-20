@@ -2,12 +2,14 @@
 // ignore_for_file: sort_child_properties_last
 
 //import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/widgets/themes.dart';
 
 import '../main.dart';
@@ -26,15 +28,12 @@ bool isSwitched = false;
 IconData iconlight = Icons.wb_sunny;
 IconData icondark = Icons.nights_stay;
 
+
+
+
+
 class _SettingsPageState extends State<SettingsPage> {
 
-  
-
-  //void themeCheckSettings()
-  //async{
-    //SharedPreferences sp = await SharedPreferences.getInstance();
-    //isSwitched=sp.getBool("theme")!;
- // }
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +101,19 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: "Privacy Policy".text.xl2.make().py16().px16(),     
                  ),            
               ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+
+              //GestureDetector(
+                //onTap: ()async{
+                  //signUserout();
+                  //setState(() {});
+               // },
+                //child: VxBox(                  
+                  //child:  ListTile(
+                   // leading: Icon(CupertinoIcons.doc_on_doc_fill, color: context.primaryColor,).py16(),
+                   // title: "Sign Out".text.xl2.make().py16().px16(),     
+                  // ),            
+               // ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              //),
           ],
         )
       ).py32(),

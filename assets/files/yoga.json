@@ -1,0 +1,27 @@
+{
+    "yoga_sections": [
+        {
+            "id": 100,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 101,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 102,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        }
+        
+        
+    ]
+}

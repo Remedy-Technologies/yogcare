@@ -3,7 +3,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yoga_app/pages/habit.dart';
+import 'package:yoga_app/pages/tracker.dart';
+import 'package:yoga_app/pages/personaldet.dart';
 import 'package:yoga_app/pages/settings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -13,7 +14,7 @@ import 'package:yoga_app/models/catalog.dart';
 
 import '../widgets/drawer.dart';
 import 'dolist.dart';
-import 'home_details.dart';
+import 'yoga_details.dart';
 import 'package:yoga_app/utils/routes.dart';
 
 
@@ -111,7 +112,7 @@ class CatalogList extends StatelessWidget {
         if (catalog.id.toString()=="1"){
             return InkWell(    
               onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SettingsPage(),)
+                context, MaterialPageRoute(builder: (context) => PersonalDetails(),)
                 ),
               child: CatalogItem(catalog: catalog)
             );
@@ -125,19 +126,10 @@ class CatalogList extends StatelessWidget {
             );
           }
     
-
-          //if (catalog.id.toString()=="3"){
-            //return InkWell(    
-            //  onTap: () => Navigator.push(
-              //  context, MaterialPageRoute(builder: (context) => HomeDetails(catalog: catalog,),)
-               // ),
-             // child: CatalogItem(catalog: catalog)
-           // );
-          //}
         else{
           return InkWell(   
             onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomeDetails(catalog: catalog,),)
+              context, MaterialPageRoute(builder: (context) => DoListPage())
               ),
             child: CatalogItem(catalog: catalog)
             );

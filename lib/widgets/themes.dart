@@ -13,12 +13,12 @@ class Mytheme{
         primaryTextTheme: GoogleFonts.robotoTextTheme(),
         //colours for light theme
         primaryColor: Color.fromRGBO(53, 1, 61, 1),        //text colour
-        cardColor: Color.fromRGBO(245,245,245, 1),        //background colour
+        cardColor: Color.fromRGBO(238,238,238, 1),        //background colour
         canvasColor: Colors.white,
         buttonColor:  Color.fromRGBO(53, 1, 61, 1),
-        dividerColor: Color.fromRGBO(255,249,196, 1),     //Alternate colour for list tile
+        dividerColor: Color.fromRGBO(255,229,180, 1),     //Alternate colour for list tile
         unselectedWidgetColor: Colors.red,
-        focusColor: Colors.deepPurple,                         //active colour for  checkbox
+        focusColor: Colors.deepPurple,                        //active colour for  checkbox
         
         appBarTheme: AppBarTheme(
           color: Colors.white,

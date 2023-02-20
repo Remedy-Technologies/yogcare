@@ -39,6 +39,16 @@ dependencies:
   shared_preferences: ^2.0.17
   #heat map
   flutter_heatmap_calendar: ^1.0.5
+  #calendar
+  intl: ^0.17.0
+  #multiselect form
+  multiselect_formfield: ^0.1.7
+  #firebase core
+  firebase_core: ^2.6.1
+  #firebase authentication
+  firebase_auth: ^4.2.8
+  #google sign in
+  google_sign_in: ^5.4.4
   
 
 dev_dependencies:

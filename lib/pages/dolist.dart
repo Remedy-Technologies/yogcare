@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yoga_app/db/db.dart';
-import 'package:yoga_app/utils/form_buttons.dart';
+import 'package:yoga_app/widgets/form_buttons.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../utils/routes.dart';
 import '../utils/todo_tile.dart';
