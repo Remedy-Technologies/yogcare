@@ -27,7 +27,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   #easy ui design
   velocity_x: ^3.6.0
   #slidable widget
@@ -74,3 +74,4 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
+    - assets/google_fonts/
