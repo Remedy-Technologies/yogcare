@@ -74,3 +74,5 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
+    - assets/google_fonts/
+

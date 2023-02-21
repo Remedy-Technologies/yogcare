@@ -82,10 +82,11 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const SizedBox(height: 10,),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 25,left: 25, bottom: 20),
+                  padding: const EdgeInsets.only(top: 0, right: 25,left: 25, bottom: 10),
                   child: Image.asset(    //top image
-                  "assets/images/signup2_image.png",            
-                  fit: BoxFit.contain,       
+                  "assets/images/bgless_app_logo.png",            
+                  fit: BoxFit.contain,
+                  height: 290,       
                   ),
                 ),
           

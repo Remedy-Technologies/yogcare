@@ -78,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 25,left: 25, bottom: 20),
                   child: Image.asset(    //top image
-                  "assets/images/signup2_image.png",            
+                  "assets/images/bgless_app_logo.png",            
                   fit: BoxFit.contain,
                   height: 200,       
                   ),
