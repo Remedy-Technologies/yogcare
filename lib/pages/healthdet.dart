@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yoga_app/db/db.dart';
 
 import '../utils/routes.dart';
 
@@ -13,15 +15,36 @@ class _HealthDetailsState extends State<HealthDetails> {
   List? _myActivities;
   late String _myActivitiesResult;
   final formKey = new GlobalKey<FormState>();
+  bool isTest= false;
+
+  //reference the hive box
+  final mybox = Hive.box("PARQ_db");
+  //list of to do tasks
+  ParqDatabase db = ParqDatabase();
 
   @override
   void initState() {
+    //retake Test?
+    if(mybox.get("ISTEST")==null){
+      db.createInitialTest();
+      isTest = db.isTest;
+    }
+    //test already taken
+    else{ 
+      db.loadDataTest();
+      isTest = db.isTest;
+    }
     super.initState();
     _myActivities = [];
     _myActivitiesResult = '';
+     db.updateDbTest();
   }
 
   _saveForm() {
+    setState(() {
+      db.isTest=!db.isTest;   
+    });
+    db.updateDbTest();
     var form = formKey.currentState!;
     if (form.validate()) {
       form.save();

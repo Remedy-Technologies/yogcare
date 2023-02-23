@@ -4,21 +4,349 @@
             "id": 100,
             "name": "Padmashan",
             "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
-            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
             "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
-        },
+        },       
         {
             "id": 101,
-            "name": "Padmashan",
-            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
-            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "name": "Vajrasana",
+            "desc": "It's a sitting yoga pose and its name comes from the Sanskrit word vajra, which means thunderbolt. ",
+            "longdesc":"1. Start by kneeling on the floor. Consider using a yoga mat for comfort.\n\n2. Pull your knees and ankles together and point your feet in line with your legs. The bottoms of your feet should face upward with your big toes touching.",
             "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
         },
         {
             "id": 102,
+            "name": "Bhujangasana",
+            "desc": "Bhujangasana gives your body (especially the back), a good stretch that melts your stress away almost instantly. ",
+            "longdesc":"1. Lie down on your stomach with your toes flat on the floor, soles facing upwards; rest your forehead on the ground.\n\n2. Keep your legs close together, with your feet and heels lightly touching each other.\n\n3. Place both hands in such a way that palms are touching ground under your shoulders, elbows should be parallel and close to your torso.\n\n4. Taking a deep breath in, slowly lift your head, chest.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 103,
+            "name": "Uttanasana",
+            "desc": "Uttanasana (Standing Forward Bend) may be one of the very first postures a new yogi learns. ",
+            "longdesc":"1. Bend your knees slightly and fold your torso over your legs, hingeing from the hips, not the lower back.\n\n2.Your hands may land next to your feet or on the ground in front of you\n\n3. Inhale and extend your chest to lengthen your spine.\n\n4. Exhale and gently press both legs toward straight without hyperextending. Lift the kneecaps and gently spiral your upper, inner thighs back.\n\n5. On an exhalation, extend your torso down without rounding your back. Lengthen your neck, extending the crown of your head toward the ground, while you draw your shoulders down your back toward your hips.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 104,
+            "name": "Naukasana",
+            "desc": "Naukasana comes from two Sanskrit words nauka and asana meaning boat and posture. ",
+            "longdesc":"1. First, start by lying flat on a yoga mat with your back on the floor. Next, put your feet together and the arms to the sides.\n\n2.Then, keep the arms straight with the fingers stretching outwards towards the toes.\n\n3. Start by lifting both your chest and feet from the floor. Next, stretch the arms towards the feet. Now, you should feel the tension in the stomach area. \n\n4. After this, you have to let your body rest on your butt. While doing this make sure that your eye is in line with your fingers and toes. Hold your breath for a few seconds and remain in this position.\n\n5. Gently exhale as you go back to the starting position and relax. You can perform 3 to 4 reps every day. But ensure that you do not overdo it.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 105,
+            "name": "Vakrasana",
+            "desc": "Vakrasana is among flexible yoga twist poses where twisting is observed in the spinal region",
+            "longdesc":"1. Start in a sitting position with legs stretched out and hands resting on the ground by the side.\n\n2. Slightly bend your left leg while keeping the sole of your feet resting on the ground. Keep your right leg straight on the ground.\n\n3. Twist your torso towards the left and bring in your right hand over the left leg.\n\n4. The right hand should be placed over the left toe or you can hold the left ankle with your right hand. Position the left hand behind to support the body. The neck is in a twisted position, in line with the torso.\n\n5. Keep a normal breath in this position and maintain the pose for at least 30 seconds.\n\n6. Now, release the pose by slowing releasing the hands. Twist towards your right and assume the normal forwards looking position. Bring the hands to the side of the body, resting on the ground. Lower the left leg and let it rest on the ground.\n\n7. Repeat the same steps on the right side as well. Do as many rounds of Vakrasanaas comfortable.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 106,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        
+        {
+            "id": 120,
             "name": "Padmashan",
             "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
-            "longdesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non erat scelerisque, sollicitudin mi eu, venenatis justo. Fusce consequat mauris vitae blandit ullamcorper. Praesent viverra mauris in sagittis ultrices. Etiam sagittis sed odio quis iaculis. Fusce quis magna sed lorem condimentum imperdiet ac ac est. Cras at ultricies nibh. Aliquam scelerisque lacus id odio varius feugiat. Duis bibendum, erat non semper volutpat, ante lacus luctus leo, eget ultricies lacus enim vitae erat. Aenean ut sapien in lectus gravida hendrerit id sit amet urna. Integer gravida purus quam, sed porta erat aliquam commodo. Phasellus scelerisque iaculis tincidunt. Vivamus pharetra quam ut enim volutpat interdum. Proin neque leo, condimentum eu tellus a, laoreet faucibus diam.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 121,
+            "name": "Vrksasana ",
+            "desc": "Vrksasana teaches you to simultaneously press down and feel rooted as you reach tall like the branches of a mighty tree ",
+            "longdesc":"1. Stand in Tadasana. Spread your toes, press your feet into the mat and firm your leg muscles. Raise your front hip points toward your lower ribs to gently lift in your lower belly.\n\n2. Inhale deeply, lifting your chest, and exhale as you draw your shoulder blades down your back. Look straight ahead at a steady gazing spot.\n\n3. Place your hands on your hips and raise your right foot high onto your left thigh or shin. Avoid making contact with the knee.\n\n4. Press your right foot and left leg into each other.\n\n5. Check that your pelvis is level and squared to the front.\n\n6. When you feel steady, place your hands into Anjali Mudra at the heart or stretch your arms overhead like branches reaching into the sun.\n\n7. Hold for several breaths, then step back into Mountain Pose and repeat on the other side.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 122,
+            "name": "Bharmanasana",
+            "desc": "This is the pose that helps the beginner to align the hands and legs in the right measurements. ",
+            "longdesc":"1. At first, start your asana by sitting in the kneeling position.\n\n2. Now place your both palms in the front on the ground palms facing outward.\n\n3. Then raising yourself from the buttocks, support yourself on your knees and your palms\n\n4. Adjusting your posture, bring your palms right under the shoulders.\n\n5. Now take your tail bone backward as well as stretch the neck forward to make your spine straight.\n\n6. You can set your gaze at the wall in front of you or on the ground right between your palms.\n\n7. At this point in time breathe in general.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 123,
+            "name": "Virabhadrasana",
+            "desc": "This pose strengthens the arms, shoulders, thighs and back muscles, all in one go.",
+            "longdesc":"1. Stand straight with your legs wide apart by a distance of at least 3-4 feet\n\n2. Turn your right foot out by 90 degrees and left foot in by about 15 degrees.\n\n3. Lift both arms sideways to shoulder height with your palms facing upwards.\n\n4. Breathing out, bend your right knee.\n\n5. Turn your head and look to your right.\n\n6. As you settle down in the yoga posture stretch your arms further.\n\n7. Make a gentle effort to push your pelvis down. Hold the yoga posture with the determination of a warrior\n\n8. Repeat the yoga posture for the left side ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 124,
+            "name": "Salabhasana ",
+            "desc": "Salabhasana is popularly referred to as the locust pose as the posture imitates a locust with a backward bending pose.",
+            "longdesc":"1. Lie down flat on your abdomen. Place your hands beneath your thighs.\n\n2. Rest your head on your chin - that is, your face must not be on the floor.\n\n3. Breathe deeply or a while.\n\n4. Inhale. Raise your legs as high as you can.\n\n5. Make sure your knees remain straight as your legs are lifted.\n\n6. Maintain the posture for about 5 seconds at the outset.\n\n7. Exhale. Lower your legs gradually onto the floor. Relax. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 125,
+            "name": "Bhujangasana",
+            "desc": "Bhujangasana gives your body (especially the back), a good stretch that melts your stress away almost instantly. ",
+            "longdesc":"1. Lie down on your stomach with your toes flat on the floor, soles facing upwards; rest your forehead on the ground.\n\n2. Keep your legs close together, with your feet and heels lightly touching each other.\n\n3. Place both hands in such a way that palms are touching ground under your shoulders, elbows should be parallel and close to your torso.\n\n4. Taking a deep breath in, slowly lift your head, chest.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 126,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+
+        {
+            "id": 130,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 131,
+            "name": "Adho Mukha Svanasana  ",
+            "desc": "This pose is similar to that of a dog facing downward. It comes into the class of prone postures.",
+            "longdesc":"1. Straighten your arms and legs on a yoga mat or the floor and extend your hips upwards as you exhale.\n\n2. Then, lower your head between your arms so that your ears are parallel to your arms.\n\n3. Press your heels on the floor.\n\n4. Allow yourself to breathe deeply and feel the stretch in your calves, thighs, shoulders, and arms.\n\n5. Keep your neck relaxed and free throughout the process.\n\n6.The body resembles the mountain.\n\n7. Slowly, come to the original position. This is one round of downward dog pose. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 132,
+            "name": "Trikosana",
+            "desc": "Trikonasana or Utthita Trikonasana, [Extended] Triangle Pose is a standing asana in modern yoga as exercise.",
+            "longdesc":"1. Stand straight. Separate your feet comfortably wide apart (about 31/2 to 4 feet).\n\n2. Turn your right foot out 90 degrees and left foot in by 15 degrees\n\n3. Now align the center of your right heel with the center of your arch of left foot.\n\n4. Ensure that your feet are pressing the ground and the weight of your body is equally balanced on both the feet.\n\n5. Inhale deeply and as you exhale, bend your body to the right, downward from the hips, keeping the waist straight, allowing your left hand to come up in the air while your right hand comes down towards floor. Keep both arms in straight line.\n\n6. Rest your right hand on your shin, ankle, or the floor outside your right foot, whatever is possible without distorting the sides of the waist. Stretch your left arm toward the ceiling, in line with the tops of your shoulders. Keep your head in a neutral position or turn ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 133,
+            "name": "Parvatasana",
+            "desc": "Parvatasana is a Sanskrit word in which Parvata means mountain and asana means pose or posture. ",
+            "longdesc":"1. Start by sitting in the Padmasana pose (legs crossed with left foot on right thigh and right foot on left thigh). Keep your hands on respective sides, chest forward, neck straight and eyes fixed on a single point with a straight head.\n\n2. Inhale and raise both arms together and make an upward stretch.\n\n3. Join the palms with each other in this upward stretch position. You can either interlace the fingers or keep the palms joined.\n\n4. Bring the hands close to the ears and keep your back straight.\n\n5. Avoid bending the arms at the elbow and wrists, keeping them straight and stretched and gaze fixed at a single point.\n\n6. Hold this fully stretched position with joined palms for at least 6 seconds and retain the breath. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 134,
+            "name": "Baddha Konasana  ",
+            "desc": "Baddha Konasana (Bound Angle Pose) is a go-to pose for opening the hips and stretching the inner thigh muscles.",
+            "longdesc":"1. Begin in Staff Pose. Sit directly on top of your sitting bones, rather than behind them.\n\n2. Bend your knees and allow them to fall open to the sides.\n\n3. Draw the soles of your feet together and use your hands to open them as if you were opening the pages of a book.\n\n4. Press your shoulder blades against your upper back to lift through your sternum or chest. Clasp your ankles to help you find lift along your torso.\n\n5. To exit the pose, gently release your feet and come back to Staff Pose.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 135,
+            "name": "Salamba Bhujangasana ",
+            "desc": "This pose is also good for people who have lower back ache as it has less arch and therefore reduces the pressure on the spine.",
+            "longdesc":"1. Lie on your stomach with your toes flat on the floor and forehead resting on the ground.\n\n2. Keep your legs close together, with your feet and heels lightly touching each other.\n\n3. Stretch your hands in front of you with palms facing downward and arms touching the ground.\n\n4. Taking a deep breath in, slowly lift your head, chest and abdomen while keeping your navel on the floor.\n\n5. Pull your torso back and off the floor with support of your arms.\n\n6. Keep breathing with awareness, as you curve your spine vertebra by vertebra.\n\n7. Ensure that your feet are still close together and head facing straight ahead.\n\n8. Breathing out, gently bring down your abdomen, chest and head back to the floor.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 136,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+
+        {
+            "id": 140,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 141,
+            "name": "Ardha Pincha Mayurasana",
+            "desc": "Dolphin Pose, or Ardha Pincha Mayurasana, strengthens, and stretches the shoulders, upper back and legs.",
+            "longdesc":"1. keep your feet and legs hip-distance apart and gaze at your feet.\n\n2. Root down and forward with your elbows, moving your chest back toward your thighs.\n\n3. Stay here for 5 breaths, then lower down to your knees to rest.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 142,
+            "name": "Utkatasana",
+            "desc": "Utkatasana, Chair Pose, or fierce pose, is a standing asana in modern yoga as exercise.",
+            "longdesc":"1: Stand straight. Separate your feet comfortably wide apart (about 31/2 to 4 feet).\n\n2: Turn your right foot out 90 degrees and left foot in by 15 degrees\n\n3: Now align the center of your right heel with the center of your arch of left foot.\n\n4: Ensure that your feet are pressing the ground and the weight of your body is equally balanced on both the feet.\n\n5: Inhale deeply and as you exhale, bend your body to the right, downward from the hips, keeping the waist straight, allowing your left hand to come up in the air while your right hand comes down towards floor. Keep both arms in straight line.\n\n6: Rest your right hand on your shin, ankle, or the floor outside your right foot, whatever is possible without distorting the sides of the waist. Stretch your left arm toward the ceiling, in line with the tops of your shoulders. Keep your head in a neutral position or turn ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 143,
+            "name": "Vrikshasana",
+            "desc": "Tree pose or vrikshasana strengthens the legs, the hips and stretches the inner thigh and groin muscles. ",
+            "longdesc":"1: Stand tall at the top of your mat. Shift your weight into your left foot and bring your right knee up in front of you.\n\n2: Grab your right ankle with your right hand and place your foot on your upper inner left thigh.\n\n3: Place your hands in Prayer Pose in front of your heart. If this feels easy, raise your arms overhead, keeping your hands shoulder-width distance, and spread your fingers wide, reaching your fingertips toward the ceiling.\n\n4:  Breathe evenly here, releasing the posture after 5 to 10 breaths. Then, switch sides",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 144,
+            "name": "Anjaneyasana",
+            "desc": "Anjaneyasana releases tension in your hips and stretches your hamstrings, quads, and groin.",
+            "longdesc":"1: Keep your hips and shoulders squared forward toward the front of your mat. Your stance should be long enough that your front leg is at a 90 degree angle.\n\n2:  Stack your knee on top of your ankle and point the center of your front knee toward the second and third toe of that foot.\n\n3: Lift your lower belly up and away from the front of your front leg, and make sure your torso is vertical and perpendicular to the floor.\n\n4: Lift your inner back thigh towards the ceiling and press back with your back heel toward the wall behind you.\n\n5:  Then repeat, moving with your breath, 5 to 10 times before switching sides.  ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 145,
+            "name": "Vatayanasana",
+            "desc": "Horse pose or vatayanasana helps strengthen the muscles in your legs and open up your inner thighs.",
+            "longdesc":"1: Face the side edge of your mat and take a wide stance, with your feet about 3 to 4 feet apart. The taller you are, the wider you will want your stance to be.\n\n 2: Open both feet out to about 45 degrees, then start to bend your knees, making sure your knees are pointing toward your toes (dont let them fall in or out).\n\n3:Stack your knees over your heels and lift up through your low belly, making sure your torso is upright.\n\n4:Place your hands in Prayer Pose in front of your heart center and stay here for 1 minute or longer. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 146,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+
+        {
+            "id": 150,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 151,
+            "name": "Bhujangasana",
+            "desc": "Bhujangasana s one of the back stretching postures that can boost your metabolism & burn fat.",
+            "longdesc":"1. Lie down on your stomach with your toes flat on the floor, soles facing upwards; rest your forehead on the ground.\n\n2. Keep your legs close together, with your feet and heels lightly touching each other.\n\n3. Place both hands in such a way that palms are touching ground under your shoulders, elbows should be parallel and close to your torso.\n\n4. Taking a deep breath in, slowly lift your head, chest.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 152,
+            "name": "Bandha Sarvangasana",
+            "desc": "it is easy to perform and is very effective in weight loss and can energize your body and make you more flexible.",
+            "longdesc":"1: Lay on your back. Bend your knees & place your feet flat on the floor. They should be hip-width apart\n\n2: Draw your feet towards your hips. Keep your feet parallel to each other.\n\n3: Now, try to lift yourself with your stomach facing towards the ceiling.\n\n4: Your chin & chest should be in the proper position.\n\n5: Relax, and try to repeat this pose 10 to 15 times",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 153,
+            "name": "Adho Mukha Svanasana",
+            "desc": "Adho Mukha Svanasana can help you tone your arms and legs, stomach. Also, it can strengthen your shoulder muscles.",
+            "longdesc":"1. Straighten your arms and legs on a yoga mat or the floor and extend your hips upwards as you exhale.\n\n2. Then, lower your head between your arms so that your ears are parallel to your arms.\n\n3. Press your heels on the floor.\n\n4. Allow yourself to breathe deeply and feel the stretch in your calves, thighs, shoulders, and arms.\n\n5. Keep your neck relaxed and free throughout the process.\n\n6.The body resembles the mountain.\n\n7. Slowly, come to the original position. This is one round of downward dog pose. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 154,
+            "name": "Phalakasana",
+            "desc": "Plank pose or phalakasana is perfect for building your core strength and losing belly and arms fat.",
+            "longdesc":"1: Get into the push-up position.\n\n2: Next, with the help of your palms, try to lift your upper body from the floor.\n\n3: Look downward at the floor and try to relax your neck.\n\n4: Hold this position for 10 to 15 seconds.\n\n5: Repeat this yoga pose 10 to 15 times.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 155,
+            "name": "Dhanurasana",
+            "desc": "Bow pose or Dhanurasana can strengthen your back and abdominal muscles while giving them a strong toning effect.",
+            "longdesc":"1: Lie on the floor on your belly. Press your toes to the floor and try to bend your knees.\n\n2: Now, grab your ankles with your hands.\n\n3: Inhale and lift your upper body from the floor.\n\n4: Now, exhale and stretch your back and legs. Keep holding your legs firmly.\n\n5: Lift your head and gaze ahead. Stay in this position for 10 seconds.\n\n6: Try this pose 10 to 15 times.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 156,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+
+        {
+            "id": 160,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 161,
+            "name": "Bitilasana ",
+            "desc": "Stretches the front of the torso and neck. Gently massages the spine, increasing mobility.",
+            "longdesc":"1. Get on all fours\n\n2. Place your wrists underneath your shoulders and your knees underneath your hips.\n\n3. Balance your weight evenly between all four points.\n\n4.Inhale as you look up and let your stomach drop down toward the mat.\n\n5. Exhale as you tuck your chin into your chest, draw your navel toward your spine, and arch your spine toward the ceiling\n\n6. Maintain awareness of your body as you do this movement.\n\n7.Focus on noting and releasing tension in your body.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 162,
+            "name": "Baddha Konasana  ",
+            "desc": "Baddha Konasana (Bound Angle Pose) is a go-to pose for opening the hips and stretching the inner thigh muscles.",
+            "longdesc":"1. Begin in Staff Pose. Sit directly on top of your sitting bones, rather than behind them.\n\n2. Bend your knees and allow them to fall open to the sides.\n\n3. Draw the soles of your feet together and use your hands to open them as if you were opening the pages of a book.\n\n4. Press your shoulder blades against your upper back to lift through your sternum or chest. Clasp your ankles to help you find lift along your torso.\n\n5. To exit the pose, gently release your feet and come back to Staff Pose.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 163,
+            "name": "Vrikshasana",
+            "desc": "Tree pose or vrikshasana strengthens the legs, the hips and stretches the inner thigh and groin muscles. ",
+            "longdesc":"1: Stand tall at the top of your mat. Shift your weight into your left foot and bring your right knee up in front of you.\n\n2: Grab your right ankle with your right hand and place your foot on your upper inner left thigh.\n\n3: Place your hands in Prayer Pose in front of your heart. If this feels easy, raise your arms overhead, keeping your hands shoulder-width distance, and spread your fingers wide, reaching your fingertips toward the ceiling.\n\n4:  Breathe evenly here, releasing the posture after 5 to 10 breaths. Then, switch sides",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 164,
+            "name": "Balasana",
+            "desc": "Balasana is yoga's most important resting posture and it is a nice way to gently stretch various parts of your body.",
+            "longdesc":"1: From hands and knees, bring your big toes to touch and widen your legs slightly wider than hip-distance.\n\n2:Exhale and sit your hips back toward your heels, keeping your arms extended forward. Your outer ribs should rest comfortably on your inner thighs.\n\n3: Arms can remain forward or be moved to rest alongside your body.\n\n4: Lengthen your sacrum toward your heels as you elongate your spine.\n\n5: Tuck your chin in slightly to lengthen the back of your neck. Rest your forehead on the floor.\n\n6:  With each inhale, feel your ribcage expand out to your thighs, and with each exhale, let your body relax toward the floor. Stay here for 1 to 3 minutes. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 165,
+            "name": "Paschimottanasana",
+            "desc": "Paschimottanasana involves intense stretching of both legs and the back of the body.",
+            "longdesc":"1: Begin in Dandasana (Staff Pose), sitting on the floor with your legs out in front of you.\n\n2: Sit up straight, pressing your heels away from your body and your fingertips into the floor beside your hips.\n\n3: Inhale. On an exhale, bend forward from your hips, keeping your torso long and your spine straight.\n\n4: Walk your hands along the outside of your legs, reaching as far as they can go while maintaining the length in your spine. If you can reach them, hold the sides of your feet with your hands.\n\n5: With each inhalation, lift and lengthen your front torso just slightly; with each exhalation, release a little more fully into the forward bend. Stay 1-3 minutes. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 166,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+
+        {
+            "id": 170,
+            "name": "Padmashan",
+            "desc": "Padmasana is the Sanskrit name for a renowned yoga asana, otherwise known as Lotus Pose.",
+            "longdesc":"1. Sit on the floor or on a mat with legs stretched out in front of you while keeping the spine erect.\n\n2.Bend the right knee and place it on the left thigh. Make sure that the sole of the feet point upward and the heel is close to the abdomen.\n\n3. Now, repeat the same step with the other leg.\n\n4. With both the legs crossed and feet placed on opposite thighs, place your hands on the knees in mudra position.\n\n5. Keep the head straight and spine erect.\n\n 6. Hold and continue with gentle long breaths in and out.",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },       
+        {
+            "id": 171,
+            "name": "Halasana ",
+            "desc": "Halasana helps prevent and relieve tightness in your neck, shoulders, and back.",
+            "longdesc":"1. From shoulderstand, bring your feet to the floor above your head.\n\n2. If your feet dont reach the floor, use a pillow or block for support.\n\n3. Keep your hands on your lower back for added support.\n\n4. Remain in the pose for 1 to 5 minutes.\n\n5. To release, roll your spine back down to your mat and raise your legs up to form a 90-degree angle.\n\n6. Lower your legs back  down to your mat",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 172,
+            "name": "Utkatasana",
+            "desc": "Utkatasana, on being performed, appears like someone is sitting on an imaginary chair and is also known as chair pose yoga.",
+            "longdesc":"1: Stand with your feet and legs together and your chest lifted.\n\n2: Sit back and down (as if you arere sitting in a chair). Beginners may find more support and stability with feet hip-width apart.\n\n3: Keep weight in your heels and raise arms overhead. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 173,
+            "name": "Paschimottanasana",
+            "desc": "Paschimottanasana involves intense stretching of both legs and the back of the body.",
+            "longdesc":"1: Begin in Dandasana (Staff Pose), sitting on the floor with your legs out in front of you.\n\n2: Sit up straight, pressing your heels away from your body and your fingertips into the floor beside your hips.\n\n3: Inhale. On an exhale, bend forward from your hips, keeping your torso long and your spine straight.\n\n4: Walk your hands along the outside of your legs, reaching as far as they can go while maintaining the length in your spine. If you can reach them, hold the sides of your feet with your hands.\n\n5: With each inhalation, lift and lengthen your front torso just slightly; with each exhalation, release a little more fully into the forward bend. Stay 1-3 minutes. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 174,
+            "name": "Balasana",
+            "desc": "Balasana is yoga's most important resting posture and it is a nice way to gently stretch various parts of your body.",
+            "longdesc":"1: From hands and knees, bring your big toes to touch and widen your legs slightly wider than hip-distance.\n\n2:Exhale and sit your hips back toward your heels, keeping your arms extended forward. Your outer ribs should rest comfortably on your inner thighs.\n\n3: Arms can remain forward or be moved to rest alongside your body.\n\n4: Lengthen your sacrum toward your heels as you elongate your spine.\n\n5: Tuck your chin in slightly to lengthen the back of your neck. Rest your forehead on the floor.\n\n6:  With each inhale, feel your ribcage expand out to your thighs, and with each exhale, let your body relax toward the floor. Stay here for 1 to 3 minutes. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 175,
+            "name": "Jathara Parivartanasana",
+            "desc": "Jathara Parivartanasana is a supine yoga asana in which you have to twist your abdomen.",
+            "longdesc":"1: Lie on your back on a mat, and draw your knees to your chest and lower your legs to one side.\n\n2: Keeping your hips stacked, one side over the other, stretch your arms straight out to the sides of the mat with your palms facing up.\n\n3: Gaze up toward the ceiling or over to the hand opposite your knees.\n\n4: Stay here for six breaths, and repeat on the other side. ",
+            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+        },
+        {
+            "id": 176,
+            "name": "Savasana",
+            "desc": "Savasana is a practice of gradually relaxing one body part at a time, one muscle at a time, and one thought at a time.",
+            "longdesc":"1. Lie on your back with your knees bent or legs extended.\n\n2. Keep your head centered, not allowing it to fall to either side.\n\n3. Extend your arms to the sides.",
             "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
         }
         

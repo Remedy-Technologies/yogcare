@@ -302,10 +302,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                   ),
                 ),
 
-                Container(
-                padding: EdgeInsets.all(16),
-                child: Text(usercontroller.text),
-                )
+               
                  
                ],
               ).px8(),

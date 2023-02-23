@@ -145,7 +145,6 @@ class ParqDatabase{
   //reference the box
    final mybox = Hive.box("PARQ_db");
 
-
    //create initial data
    void createInitialParq(){
     userName="Test";
@@ -161,4 +160,14 @@ class ParqDatabase{
     mybox.put("PARQDB", userName);
    }
 
+   //isTest methods
+  void createInitialTest(){
+    isTest = false;
+   }
+   void loadDataTest(){
+    isTest =mybox.get("ISTEST");
+   }
+   void updateDbTest(){
+    mybox.put("ISTEST", isTest);
+   }
 }

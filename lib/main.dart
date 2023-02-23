@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
         Myroutes.personalDetailsRoute: (context) => PersonalDetails(),
         Myroutes.healthDetailsRoute: (context) => HealthDetails(),
         Myroutes.parqResultsRoute: (context) => ResultsPage(),
-        Myroutes.parqCheckRoute: (context) => ParqCheck(sam: false,),        
+        Myroutes.parqCheckRoute: (context) => ParqCheck(),        
       },
     );   
   }
