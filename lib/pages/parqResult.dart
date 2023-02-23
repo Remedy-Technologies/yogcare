@@ -12,6 +12,7 @@ import 'dart:convert';                                     //json decode encode
 import 'package:yoga_app/models/catalog.dart';
 
 import '../models/yoga_model.dart';
+import '../utils/routes.dart';
 import 'yoga_details.dart';
 
 
@@ -29,6 +30,9 @@ class _ResultsPageState extends State<ResultsPage> {
   //list of to do tasks
   ParqDatabase db = ParqDatabase();
   String name="";
+  bool isTest= false;
+
+  
   
   @override
   void initState() {
@@ -36,17 +40,39 @@ class _ResultsPageState extends State<ResultsPage> {
     if(mybox.get("PARQDB")==null){
       db.createInitialParq();
       name = db.userName;
-
     }
     //already exist data
     else{ 
       db.loadDataParq();
       name = db.userName;
-
     }
+
+    //retake Test?
+    if(mybox.get("ISTEST")==null){
+      db.createInitialTest();
+      isTest = db.isTest;
+    }
+    //test already taken
+    else{ 
+      db.loadDataTest();
+      isTest = db.isTest;
+    }
+
+
     super.initState();
     loadData();
-     db.updateDb();
+    db.updateDb();
+    db.updateDbTest();
+  }
+
+  void retakeTest() async{
+    setState(() {
+      db.isTest=!db.isTest;   
+    });
+    db.updateDbTest();
+    Future.delayed(Duration(seconds: 1));
+    Navigator.pushNamed(context, Myroutes.parqCheckRoute);
+    
   }
 
   //String name="Paras";
@@ -74,15 +100,36 @@ class _ResultsPageState extends State<ResultsPage> {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CatalogHeader(name:name),
-              if(CatalogModels.items.isNotEmpty)          
-                CatalogList().expand()          
-              else
-                Center(child: CircularProgressIndicator(),)             
-            ],
+          child: Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CatalogHeader(name:name),
+                if(CatalogModels.items.isNotEmpty)  
+                  CatalogList().expand()
+
+                         
+                else
+                  Center(child: CircularProgressIndicator(),) ,
+          
+                  GestureDetector(                                          //retake button
+                    onTap: retakeTest,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.symmetric(horizontal:15),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
+                        color: context.theme.buttonColor,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: Center(
+                        child: Text("RetakeTest",style: TextStyle(color: context.canvasColor,fontSize: 20,fontWeight: FontWeight.bold),)
+                      ),
+                    ),
+                  ),      
+              ],
+            ),
           ),
         ),
       ),                                 
@@ -109,23 +156,31 @@ class CatalogHeader extends StatelessWidget {
 }
 
 class CatalogList extends StatelessWidget {
-  const CatalogList({super.key});
-
+  
+ CatalogList({super.key});
+  //stands for 100-General Yoga
+  int io=7;
   @override
   Widget build(BuildContext context) {
+    String yog="YogaModels";
+    
     return ListView.builder(
-      shrinkWrap: true,
-      itemCount: YogaModels.items.length,
-      itemBuilder: (context, index){
-        final yogas = YogaModels.items[index];       
+      //controller: scrollController,
+      shrinkWrap: false,
+      itemCount: 5,
+      itemBuilder: (context, i){
+        final yogas = YogaModels.items[io];   
+        io=io+1;       
         return InkWell(    
           onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => YogaDetails(yogas: yogas,),)
           ),
           child: CatalogItem(yogas: yogas)
-        );         
+        );      
       },
-      ).py12();
+    ).py12();
+    
+   
   }
 }
 
@@ -156,7 +211,9 @@ class CatalogItem extends StatelessWidget {
               Text(yogas.desc,style: TextStyle(fontSize: 10),).py8(),                         //yoga description
               ]
             )
-          )
+          ),
+
+          
         ],
       )
       ).color(context.canvasColor).roundedLg.square(120).make().py16();

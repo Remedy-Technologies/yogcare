@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       //String appName = "organizer";
       //final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
 
-    return Scaffold(                                  //Velocity X
+    return Scaffold(                                  //Velocity Xp
       appBar: AppBar(
         backgroundColor: Colors.transparent,                                                        
       ),
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
       //floating button
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, Myroutes.doListRoute),
-        child: Icon(CupertinoIcons.cart,color: Colors.white,),
+        child: Icon(CupertinoIcons.mail_solid,color: Colors.white,),
         backgroundColor: context.theme.buttonColor,
       ),
 
@@ -92,7 +92,7 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      "Yoga App".text.xl5.color(context.primaryColor).make(),              // same as Text() but easy to use
+      "YogCare".text.xl5.color(context.primaryColor).make(),              // same as Text() but easy to use
       "Creating a Healthy Lifestyle".text.xl.make()             
       ],
     );
@@ -113,7 +113,7 @@ class CatalogList extends StatelessWidget {
         if (catalog.id.toString()=="1"){
             return InkWell(    
               onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => PersonalDetails(),)
+                context, MaterialPageRoute(builder: (context) => ParqCheck())
                 ),
               child: CatalogItem(catalog: catalog)
             );
@@ -130,7 +130,7 @@ class CatalogList extends StatelessWidget {
         else{
           return InkWell(   
             onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ParqCheck(sam: true,))
+              context, MaterialPageRoute(builder: (context) => DoListPage())
               ),
             child: CatalogItem(catalog: catalog)
             );
@@ -164,9 +164,6 @@ class CatalogItem extends StatelessWidget {
               .textStyle(context.captionStyle)
               .bold.color(context.theme.buttonColor).make(),     //prod name
               catalog.desc.text.make().py8(),                         //prod description
-              
-              
-
               ]
             )
           )
