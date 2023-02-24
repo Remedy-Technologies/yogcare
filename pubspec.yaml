@@ -27,7 +27,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   #easy ui design
   velocity_x: ^3.6.0
   #slidable widget
@@ -49,6 +49,8 @@ dependencies:
   firebase_auth: ^4.2.8
   #google sign in
   google_sign_in: ^5.4.4
+  #percent indicator
+  percent_indicator: ^3.0.1
   
 
 dev_dependencies:

@@ -27,77 +27,83 @@ class _HabitPageState extends State<HabitPage> {
 
   @override
   void initState() {
-    if(habitbox.get("HABITLIST")==null){
+    if (habitbox.get("HABITLIST") == null) {
       db.createInitialData();
     }
     //already exist data
-    else{ 
+    else {
       db.loadData();
     }
     // TODO: implement initState
     super.initState();
   }
+
   //checkbox tapped
-  void checkBoxTapped(bool? value, int index)
-  {
+  void checkBoxTapped(bool? value, int index) {
     setState(() {
       //changing to opposite of current value
-      db.habitList[index][1]= value;
+      db.habitList[index][1] = value;
     });
-    db.updateDb(); 
+    db.updateDb();
   }
 
   //text controller
-  final controller=TextEditingController();
-  final newcontroller=TextEditingController();
+  final controller = TextEditingController();
+  final newcontroller = TextEditingController();
 
   //create new task
-  void createNewHabit(){
+  void createNewHabit() {
     showDialog(
-      context: context,
-       builder: ((context) {
-              
-        //Dialog Box   
-         return AlertDialog(
-          //callback text
-         
-          backgroundColor: context.cardColor,
-          content: SizedBox(
-            height: 200,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [             
-                Text("New Yoga",style: TextStyle(fontSize: 16),),
-                //input
-                TextField(
-                  style: TextStyle(color: context.primaryColor),
-                  controller: controller,
-                  decoration: InputDecoration(hintText: "Add a New Yoga", hintStyle: TextStyle(color: Colors.grey )),
-                ),
+        context: context,
+        builder: ((context) {
+          //Dialog Box
+          return AlertDialog(
+            //callback text
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  //save button
-                  children: [
-                    MyButton(text: "Save", onPressed: saveNewHabit),
-                    SizedBox(width: 8),
-                    MyButton(text: "Cancel", onPressed: () => Navigator.pop(context),)
-                  ],
-                )
-              ],
+            backgroundColor: context.cardColor,
+            content: SizedBox(
+              height: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "New Yoga",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  //input
+                  TextField(
+                    style: TextStyle(color: context.primaryColor),
+                    controller: controller,
+                    decoration: InputDecoration(
+                        hintText: "Add a New Yoga",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //save button
+                    children: [
+                      MyButton(text: "Save", onPressed: saveNewHabit),
+                      SizedBox(width: 8),
+                      MyButton(
+                        text: "Cancel",
+                        onPressed: () => Navigator.pop(context),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-         );
-       })
-    );
+          );
+        }));
     db.updateDb();
   }
 
   //save habit
-  void saveNewHabit(){
+  void saveNewHabit() {
     setState(() {
-      db.habitList.add([controller.text,false]);
+      db.habitList.add([controller.text, false]);
       controller.clear();
     });
     Navigator.of(context, rootNavigator: true).pop(context);
@@ -105,84 +111,91 @@ class _HabitPageState extends State<HabitPage> {
   }
 
   //alert box for updating habit
-  void settingsHabit(int index)
-  {
+  void settingsHabit(int index) {
     showDialog(
-      context: context,
-       builder: ((context) {
-              
-        //Dialog Box   
-         return AlertDialog(
-          //callback text
-         
-          backgroundColor: context.cardColor,
-          content: SizedBox(
-            height: 200,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [             
-                Text("Update Yoga",style: TextStyle(fontSize: 16),),
-                //input
-                TextField(
-                  style: TextStyle(color: context.primaryColor),
-                  controller: newcontroller,
-                  decoration: InputDecoration(hintText: "Change the Yoga", hintStyle: TextStyle(color: Colors.grey )),
-                ),
+        context: context,
+        builder: ((context) {
+          //Dialog Box
+          return AlertDialog(
+            //callback text
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  //save button
-                  children: [
-                    MyButton(text: "Save", onPressed:() => saveExistingHabit(index)),
-                    SizedBox(width: 8),
-                    MyButton(text: "Cancel", onPressed: () => Navigator.pop(context),)
-                  ],
-                )
-              ],
+            backgroundColor: context.cardColor,
+            content: SizedBox(
+              height: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Update Yoga",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  //input
+                  TextField(
+                    style: TextStyle(color: context.primaryColor),
+                    controller: newcontroller,
+                    decoration: InputDecoration(
+                        hintText: "Change the Yoga",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //save button
+                    children: [
+                      MyButton(
+                          text: "Save",
+                          onPressed: () => saveExistingHabit(index)),
+                      SizedBox(width: 8),
+                      MyButton(
+                        text: "Cancel",
+                        onPressed: () => Navigator.pop(context),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-         );
-       })
-    );
+          );
+        }));
     db.updateDb();
   }
 
   //save existing habit
-  void saveExistingHabit( int index)
-  {
+  void saveExistingHabit(int index) {
     setState(() {
-      db.habitList[index][0]= newcontroller.text;
+      db.habitList[index][0] = newcontroller.text;
       controller.clear();
     });
     newcontroller.clear();
     Navigator.of(context, rootNavigator: true).pop(context);
     db.updateDb();
   }
+
   //delete habit
-  void deleteHabit(int index)
-  {
+  void deleteHabit(int index) {
     setState(() {
       db.habitList.removeAt(index);
     });
     db.updateDb();
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.cardColor,
-      
-        appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
-         title: "Yoga Tracker".text.xl2.color(context.primaryColor).make(),                                                        
+        title: "Yoga Tracker".text.xl2.color(context.primaryColor).make(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewHabit,
-        child: Icon(CupertinoIcons.plus,color: Colors.white,),
+        child: Icon(
+          CupertinoIcons.plus,
+          color: Colors.white,
+        ),
         backgroundColor: context.theme.buttonColor,
       ),
-
       body: ListView(
         children: [
           // monthly summary heat map
