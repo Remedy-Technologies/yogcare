@@ -33,17 +33,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void setState(VoidCallback fn) {
-    //reference the hive box
-    final habitbox = Hive.box("Habit_db");
-
-    //call db
-    HabitDatabase db = HabitDatabase();
-    db.updateDb();
-    super.setState(fn);
-  }
-
-  @override
   void initState() {
     super.initState();
     loadData();
@@ -134,9 +123,6 @@ class CatalogHeader extends StatelessWidget {
 
 class CatalogList extends StatelessWidget {
   const CatalogList({super.key});
-
-  _getRequests() async {}
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -157,7 +143,7 @@ class CatalogList extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => HabitPage(),
-                  )).then((val) => val ? _getRequests() : null),
+                  )),
               child: CatalogItem(catalog: catalog));
         } else {
           return InkWell(
