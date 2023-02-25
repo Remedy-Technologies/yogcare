@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hive/hive.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/personaldet.dart';
@@ -54,7 +55,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //String appName = "organizer";
     //final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
-
+    final habitbox = Hive.box("Habit_db");
+    HabitDatabase db = HabitDatabase();
     return Scaffold(
       //Velocity Xp
       appBar: AppBar(
@@ -64,32 +66,30 @@ class _HomePageState extends State<HomePage> {
           ),
 
       backgroundColor: context.cardColor,
-      //floating button
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, Myroutes.doListRoute),
-        child: Icon(
-          CupertinoIcons.mail_solid,
-          color: Colors.white,
-        ),
-        backgroundColor: context.theme.buttonColor,
-      ),
 
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(32),
+          padding: EdgeInsets.fromLTRB(16, 5, 16, 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CatalogHeader(),
               Center(
-                child: CircularPercentIndicator(
-                  radius: 80,
-                  lineWidth: 7.0,
-                  percent: double.parse(habitbox
-                      .get("PERCENTAGE_SUMMARY_${todaysDateFormatted()}")),
-                  center: Text(habitbox
-                      .get("PERCENTAGE_SUMMARY_${todaysDateFormatted()}")),
-                  progressColor: Colors.purpleAccent,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+                  child: CircularPercentIndicator(
+                    radius: 200.0,
+                    lineWidth: 12.0,
+                    percent: double.parse(habitbox
+                        .get("PERCENTAGE_SUMMARY_${todaysDateFormatted()}")),
+                    center: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Image.asset("assets/images/bgless_app_logo.png"),
+                    ),
+                    progressColor: Colors.deepPurple,
+                    backgroundColor: Colors.purpleAccent,
+                    circularStrokeCap: CircularStrokeCap.round,
+                  ),
                 ),
               ),
               if (CatalogModels.items.isNotEmpty) CatalogList().expand(),
@@ -109,20 +109,29 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "YogCare"
+        "yogcare"
             .text
             .xl5
-            .color(context.primaryColor)
-            .textStyle(GoogleFonts.comfortaa())
+            .color(Colors.deepPurple)
+            .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
             .make(), // same as Text() but easy to use
-        "Creating a Healthy Lifestyle".text.xl.make()
+        "Creating a Healthy Lifestyle"
+            .text
+            .xl
+            .textStyle(GoogleFonts.comfortaa())
+            .make()
       ],
     );
   }
 }
 
-class CatalogList extends StatelessWidget {
+class CatalogList extends StatefulWidget {
   const CatalogList({super.key});
+  @override
+  State<StatefulWidget> createState() => _CatalogListState();
+}
+
+class _CatalogListState extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -139,11 +148,9 @@ class CatalogList extends StatelessWidget {
         }
         if (catalog.id.toString() == "2") {
           return InkWell(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HabitPage(),
-                  )),
+              onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HabitPage()))
+                  .then((value) => setState(() {})),
               child: CatalogItem(catalog: catalog));
         } else {
           return InkWell(

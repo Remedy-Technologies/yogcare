@@ -51,6 +51,8 @@ dependencies:
   google_sign_in: ^5.4.4
   #percent indicator
   percent_indicator: ^3.0.1
+  #auto reload
+  auto_reload: ^1.0.0
   
 
 dev_dependencies:
