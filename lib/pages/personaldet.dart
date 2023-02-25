@@ -28,43 +28,47 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   final formKey = new GlobalKey<FormState>();
   //Name controller
   TextEditingController usercontroller=TextEditingController();
+  //Height controller
+  TextEditingController heightcontroller=TextEditingController();
+  //Weight controller
+  TextEditingController weightcontroller=TextEditingController();
   //Date controler
   TextEditingController _date=TextEditingController();
 
   List<String> genderList = ["Select Gender","Male","Female","Other"];
   String? selectedGender="Select Gender";
 
-  List<String> heightList = ["Select Height","< 130cm","130-140 cm","130-150 cm","150-160 cm","160-170 cm","170-180 cm","180-190 cm","190-200 cm","200-210 cm","210 cm <"];
-  String? selectedHeight="Select Height";
-
-  List<String> weightList = ["Select Weight","< 40kg","40-50 kg","50-60 kg","60-70 kg","70-80 kg","80-90 kg","90-100 kg","100 kg <",];
-  String? selectedWeight="Select Weight";
+  String userAge="";
 
   @override
   void initState() {
     //first time app? default data
-    if(mybox.get("PARQDB")==null){
+    if(mybox.get("NAMEDB")==null||mybox.get("AGEDB")==null||mybox.get("HEIGHTDB")==null||mybox.get("WEIGHTDB")==null){
       db.createInitialParq();
     }
     //already exist data
     else{ 
       db.loadDataParq();
-    }
-    
+    }  
     super.initState();
     db.updateDb();
   }
 
-  _saveForm() async{
+  _saveForm() {
     setState(() {
       db.userName=usercontroller.text;
-      
+      db.userAge=userAge;
+      db.userHeight=weightcontroller.text;
+      db.userWeight=heightcontroller.text;
+
     });
     if(formKey.currentState!.validate()){     
      Future.delayed(Duration(seconds: 1));
        Navigator.pushNamed(context, Myroutes.healthDetailsRoute);
     }
-   usercontroller.clear();
+    usercontroller.clear();
+    weightcontroller.clear();
+    heightcontroller.clear();
     db.updateDb();
   }
 
@@ -109,6 +113,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       borderSide: BorderSide(color: context.primaryColor, width: 3.0),
                     ),
                   ),
+                  //keyboardType: TextInputType.number,
 
                   validator: (value) {
                     if(value == null || value.isEmpty){
@@ -120,10 +125,10 @@ class _PersonalDetailsState extends State<PersonalDetails> {
 
                  SizedBox(height: 40),
          
-                TextFormField(                                    //Age
+                TextFormField(                                    //date of birth
                   controller: _date,
                   decoration: InputDecoration(
-                    labelText: "Age",
+                    labelText: "DOB",
                     labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
                     filled: true, 
                     fillColor: context.canvasColor,
@@ -152,13 +157,13 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                     if(pickedDate!=null)
                     {
                       setState(() {
-                        _date.text =DateFormat("yyyy-MM-dd").format(pickedDate);
+                        _date.text =DateFormat("yyyy").format(pickedDate);
                       });
                      
                     }
                     int currentDay =int.parse(DateTime.now().year.toString());
-                    int userage = int.parse(_date.text)-currentDay;
-                   //print(userage);
+                    int userage = currentDay-int.parse(_date.text);
+                    userAge=userage.toString();
                   },
 
                   validator: (value) {
@@ -213,78 +218,73 @@ class _PersonalDetailsState extends State<PersonalDetails> {
 
                 SizedBox(height: 40,),
 
-                DropdownButtonFormField(                          //Height
-                  value: selectedHeight,
-                  items: heightList.map((selectedHeight) => DropdownMenuItem(
-                    value: selectedHeight,
-                    child: Text(selectedHeight),
-                  )).toList(),
-                  onChanged: (newValue) {
-                     setState(() =>  selectedHeight= newValue);
-                  },
-
+                TextFormField(                                            //Height
+                  controller: heightcontroller,
                   decoration: InputDecoration(
-                    labelText: "Height",
+                    labelText: "Height in cm",
                     labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
+                   
                     filled: true, 
-                    fillColor: context.canvasColor,        
-                    prefixIcon: Icon(Icons.height),
+                    fillColor: context.canvasColor,
+                    prefixIcon: Icon(Icons.person),
 
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     borderSide: BorderSide.none,
                     ),
 
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                    focusedBorder: OutlineInputBorder(                  
                       borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
                     ),
-
                   ),
+                  keyboardType: TextInputType.number,
+
                   validator: (value) {
-                    if(value == "Select Height"){
+                    if(value == null || value.isEmpty){
                         return "This Field Required *";
                       }
+                      if(int.parse(value)<0||int.parse(value)>240)
+                      {
+                        return "Please give valid body height *";
+                      }
                     return null;
-                  },  
+                  },        
                 ),
 
                 SizedBox(height: 40,),
 
-                DropdownButtonFormField(                          //Weight
-                  value: selectedWeight,
-                  items: weightList.map((selectedWeight) => DropdownMenuItem(
-                    value: selectedWeight,
-                    child: Text(selectedWeight),
-                  )).toList(),
-                  onChanged: (newValue) {
-                     setState(() =>  selectedWeight= newValue);
-                  },
-
+                TextFormField(                                            //Weight
+                  controller: weightcontroller,
                   decoration: InputDecoration(
-                    labelText: "Weight",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
+                    labelText: "Weight in kg",
+                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),       
                     filled: true, 
                     fillColor: context.canvasColor,
-                    prefixIcon: Icon(Icons.scale),
+                    prefixIcon: Icon(Icons.person),
 
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     borderSide: BorderSide.none,
                     ),
 
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                    focusedBorder: OutlineInputBorder(                  
                       borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
                     ),
-
                   ),
+                  keyboardType: TextInputType.number,
+
                   validator: (value) {
-                    if(value == "Select Weight"){
+                    if(value == null || value.isEmpty){
                         return "This Field Required *";
                       }
+                      if(int.parse(value)<0||int.parse(value)>300)
+                      {
+                        return "Please give valid body weight*";
+                      }
                     return null;
-                  },  
+                  },        
                 ),
 
                 SizedBox(height: 40,),

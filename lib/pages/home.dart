@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 //import 'dart:html';
-
+import 'package:hive/hive.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/personaldet.dart';
 import 'package:yoga_app/pages/settings.dart';
@@ -12,25 +15,41 @@ import 'package:flutter/services.dart';                    // take json
 import 'dart:convert';                                     //json decode encode
 import 'package:yoga_app/models/catalog.dart';
 
+import '../utils/date_time.dart';
 import '../utils/parq_check.dart';
 import '../widgets/drawer.dart';
 import 'dolist.dart';
 import 'yoga_details.dart';
 import 'package:yoga_app/utils/routes.dart';
+import 'dart:async';
 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(); 
 }
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
+  void initState() {  
     super.initState();
     loadData();
   }
+
+  //reference the hive box
+  final habitbox = Hive.box("Habit_db");
+  //call db
+  HabitDatabase db = HabitDatabase();
+
+  void updateSet(){
+    setState(() {
+      
+    });
+  }
+  //callback(va){
+    //setState(() {});
+  //}
 
   loadData() async{                                           // Extracting json file
     //await Future.delayed(Duration(seconds: 2));
@@ -49,6 +68,7 @@ class _HomePageState extends State<HomePage> {
       //final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
 
     return Scaffold(                                  //Velocity Xp
+    
       appBar: AppBar(
         backgroundColor: Colors.transparent,                                                        
       ),
@@ -57,19 +77,52 @@ class _HomePageState extends State<HomePage> {
                              
       backgroundColor: context.cardColor,
       //floating button
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, Myroutes.doListRoute),
-        child: Icon(CupertinoIcons.mail_solid,color: Colors.white,),
-        backgroundColor: context.theme.buttonColor,
-      ),
+      
 
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(32),
           child: Column(
+            
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: [        
               CatalogHeader(),
+
+              Padding(                                          //progress bar text
+                padding: const EdgeInsets.only(top: 25),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text("Daily Progress bar",style: TextStyle( color: context.primaryColor,),),
+                      const SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: updateSet,
+                        child: Text(
+                          "Update",
+                          style: TextStyle( color: Colors.blue,fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+              ),
+              
+              Padding(
+                  padding: const EdgeInsets.only(top: 5,bottom: 10),          //progress bar
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      LinearPercentIndicator(
+                        lineHeight: 20,
+                        percent: double.tryParse(habitbox.get(
+                            "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
+                            (0.0),
+                        progressColor: Colors.purpleAccent,
+                      ),
+                    ],
+                  ),
+                ),
+                
               if(CatalogModels.items.isNotEmpty)          
                 CatalogList().expand()          
               else

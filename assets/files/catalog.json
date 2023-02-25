@@ -6,7 +6,7 @@
             "desc": "Take a 5 min fitness test",
             "price": 999,
             "color": "#33505a",
-            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+            "image": "https://i.postimg.cc/j58jzrHF/parq-test.png"
         },
         {
             "id": 2,
@@ -14,15 +14,15 @@
             "desc": "keep track of your yoga daily",
             "price": 699,
             "color": "#00ac51",
-            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+            "image": "https://i.postimg.cc/kX6RtJG6/tracker.png"
         },
         {
             "id": 3,
-            "name": "Yoga Library",
-            "desc": "Learn all about yoga poses",
+            "name": "Meditation",
+            "desc": "Relax yourself with meditation",
             "price": 1099,
             "color": "#e0bfae",
-            "image": "https://i.ibb.co/NsfHbbz/about-img11.png"
+            "image": "https://i.postimg.cc/1XTgYTC3/meditation.png"
         }
         
         

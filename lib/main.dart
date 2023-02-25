@@ -21,11 +21,13 @@ import 'package:yoga_app/widgets/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:firebase_core/firebase_core.dart'; // 
- import 'firebase_options.dart'; // Generated file
+import 'firebase_options.dart'; // Generated file
 
 
 import 'pages/login_page.dart';
 //import 'pages/settings.dart';
+
+
 
 
 void main()async {
@@ -72,7 +74,7 @@ class MyApp extends StatelessWidget {
       routes: {                                       //creating routes for different pages in app
         "/": (context) => AuthPage(),                //main root
         Myroutes.homeRoute: (context) => HomePage(),
-       // Myroutes.loginRoute: (context) => LoginPage(),
+      // Myroutes.loginRoute: (context) => LoginPage(),
       //  Myroutes.registerRoute: (context) => RegisterPage(),
         Myroutes.doListRoute: (context) => DoListPage(),
         Myroutes.habitRoute: (context) => HabitPage(),

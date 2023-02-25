@@ -1,4 +1,7 @@
-0-6 General yoga
-7-13 Children Yoga
-14-20 Senior yoga
-21-27 Muscle Gain
+0-6     General yoga-           100:120 series
+7-13    Children Yoga-          120 series
+14-20   Senior yoga-            130 series 
+21-27   Muscle Gain-            140 series
+28-34   Weight Loss-            150 series
+35-41   Easy yoga(disease)-     160 series
+42-48   Diabetes,thyroid etc-   170 series   

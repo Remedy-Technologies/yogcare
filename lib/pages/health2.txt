@@ -17,20 +17,14 @@ class _HealthDetailsState extends State<HealthDetails> {
   final formKey = new GlobalKey<FormState>();
   bool isTest= false;
   
+
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
   //list of to do tasks
   ParqDatabase db = ParqDatabase();
 
-  String medicalVal="";
-  String healthVal="";
-
   @override
   void initState() {
-    
-    //first time app? default data
-    
-
     //retake Test?
     if(mybox.get("ISTEST")==null){
       db.createInitialTest();
@@ -45,7 +39,6 @@ class _HealthDetailsState extends State<HealthDetails> {
     _myActivities = [];
     _myActivitiesResult = '';
      db.updateDbTest();
-     //db.updateDb();
   }
 
   _saveForm() {
@@ -62,7 +55,6 @@ class _HealthDetailsState extends State<HealthDetails> {
       Future.delayed(Duration(seconds: 1));
        Navigator.pushNamed(context, Myroutes.parqResultsRoute);
     }
-    //db.updateDb();
   }
 
   @override
@@ -95,23 +87,8 @@ class _HealthDetailsState extends State<HealthDetails> {
                     style: TextStyle(fontSize: 20,color: context.primaryColor),
                   ),
                   validator: (value) {
-                    if (value == null || value.length==0) {
+                    if (value == null || value =="0") {
                       return 'Please select one or more options';
-                    }
-                    for(int i=0;i<value.length;i++){
-                      if (value[i]=="0") {
-                        //medicalVal=value[i];
-                        for(int j=0;j<value.length;j++)
-                        {
-                          if(value[j]!="0")
-                          {
-                           return "Invalid Selections *";
-                          }
-                       }
-                      }
-                      else{
-                        //medicalVal="1"; //1 represents true
-                      }             
                     }
                     return null;
                   },
@@ -172,24 +149,9 @@ class _HealthDetailsState extends State<HealthDetails> {
                     "Health History",
                     style: TextStyle(fontSize: 20,color: context.primaryColor),
                   ),
-                 validator: (value) {
-                    if (value == null || value.length==0) {
+                  validator: (value) {
+                    if (value == null || value=="0") {
                       return 'Please select one or more options';
-                    }
-                    for(int i=0;i<value.length;i++){
-                      if (value[i]=="0") {
-                        //healthVal=value[i];
-                        for(int j=0;j<value.length;j++)
-                        {
-                          if(value[j]!="0")
-                          {
-                           return "Invalid Selections *";
-                          }
-                       }
-                      }
-                      else{
-                        //healthVal="1";        //1 represents true
-                      }             
                     }
                     return null;
                   },
