@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/personaldet.dart';
 import 'package:yoga_app/pages/settings.dart';
@@ -31,26 +32,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {  
-    super.initState();
-    loadData();
-  }
-
   //reference the hive box
   final habitbox = Hive.box("Habit_db");
   //call db
   HabitDatabase db = HabitDatabase();
+  @override
+  void initState() { 
+    if(habitbox.get("HABITLIST")==null){
+      db.createInitialData();
+    }
+    //already exist data
+    else{ 
+      db.loadData();
+    } 
+    super.initState();
+    loadData();
+
+    db.updateDb();
+  }
+
 
   void updateSet(){
-    setState(() {
-      
-    });
+    setState(() {});
+    db.updateDb();
   }
-  //callback(va){
-    //setState(() {});
-  //}
-
+  
   loadData() async{                                           // Extracting json file
     //await Future.delayed(Duration(seconds: 2));
     var catalogJson =await rootBundle.loadString("assets/files/catalog.json");
@@ -115,8 +121,7 @@ class _HomePageState extends State<HomePage> {
                       LinearPercentIndicator(
                         lineHeight: 20,
                         percent: double.tryParse(habitbox.get(
-                            "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
-                            (0.0),
+                            "PERCENTAGE_SUMMARY_${todaysDateFormatted()}"))??(0.0),
                         progressColor: Colors.purpleAccent,
                       ),
                     ],
@@ -183,7 +188,7 @@ class CatalogList extends StatelessWidget {
         else{
           return InkWell(   
             onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => DoListPage())
+              context, MaterialPageRoute(builder: (context) => MeditationPage())
               ),
             child: CatalogItem(catalog: catalog)
             );

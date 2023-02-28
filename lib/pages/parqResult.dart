@@ -34,8 +34,8 @@ class _ResultsPageState extends State<ResultsPage> {
   String userAge="";
   String userHeight="";
   String userWeight="";
-  //String medicalVal="";
-  //String healthVal="";
+  String medicalVal="tum";
+  String healthVal="tum";
 
   
   
@@ -48,8 +48,6 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge=db.userAge;
       userHeight=db.userHeight;
       userWeight=db.userWeight;
-      //medicalVal=db.medicalVal;
-      //healthVal=db.healthVal;
     }
     //already exist data
     else{ 
@@ -58,9 +56,20 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge=db.userAge;
       userHeight=db.userHeight;
       userWeight=db.userWeight;
-      //medicalVal=db.medicalVal;
-      //healthVal=db.healthVal;
     }
+
+    if(mybox.get("MED")==null || mybox.get("HEL")==null){
+      db.createInitialHealth();
+      medicalVal=db.medicalVal;
+      healthVal=db.healthVal;
+    }
+    else{ 
+      db.loadDataHealth();
+      medicalVal=db.medicalVal;
+      healthVal=db.healthVal;
+    }
+
+
 
     //retake Test?
     if(mybox.get("ISTEST")==null){
@@ -78,6 +87,7 @@ class _ResultsPageState extends State<ResultsPage> {
     loadData();
     db.updateDb();
     db.updateDbTest();
+    db.updateDbHealth();
   }
 
   void retakeTest() async{
@@ -124,11 +134,18 @@ class _ResultsPageState extends State<ResultsPage> {
                   userAge: userAge,
                   userHeight: userHeight,
                   userWeight: userWeight,
-                  //medicalVal: medicalVal,
-                  //healthVal: healthVal,
+                  medicalVal: medicalVal,
+                  healthVal: healthVal,
                 ),
                 if(CatalogModels.items.isNotEmpty)  
-                  CatalogList().expand()
+                  CatalogList(
+                    name:name,
+                    userAge: userAge,
+                    userHeight: userHeight,
+                    userWeight: userWeight,
+                    medicalVal: medicalVal,
+                    healthVal: healthVal,
+                  ).expand()
 
                          
                 else
@@ -172,8 +189,8 @@ class CatalogHeader extends StatelessWidget {
     required this.userAge,
     required this.userHeight,
     required this.userWeight,
-    //required this.medicalVal,
-    //required this.healthVal,
+    required this.medicalVal,
+    required this.healthVal,
     
   });
 
@@ -181,8 +198,8 @@ class CatalogHeader extends StatelessWidget {
   final String userAge;
   final String userHeight;
   final String userWeight;
-  //final String medicalVal; 
-  //final String healthVal;
+  final String medicalVal; 
+  final String healthVal;
   
 
   @override
@@ -191,7 +208,7 @@ class CatalogHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [    
       "Hi $name".text.xl3.color(context.primaryColor).make(),              // same as Text() but easy to use
-      "$userHeight $userWeight This are some recomended yoga's for you".text.xl.make()             
+      "$userAge $userWeight $medicalVal $healthVal This are some recomended yoga's for you".text.xl.make()             
       ],
     );
   }
@@ -199,11 +216,68 @@ class CatalogHeader extends StatelessWidget {
 
 class CatalogList extends StatelessWidget {
   
- CatalogList({super.key});
+ CatalogList({
+  super.key, 
+    required this.name,
+    required this.userAge,
+    required this.userHeight,
+    required this.userWeight,
+    required this.medicalVal,
+    required this.healthVal,
+  });
+  final String name;
+  final String userAge;
+  final String userHeight;
+  final String userWeight;
+  final String medicalVal; 
+  final String healthVal;
   //offset json for diff categories
-  int offfset=8;
+  int offsets=1;
+  
+  
   @override
   Widget build(BuildContext context) {
+
+    int heightInt=int.parse(userHeight);
+    int weightint=int.parse(userWeight);
+   
+     if(medicalVal=="true")
+     {
+      offsets=36;
+     }
+     else if(healthVal=="true"){
+      offsets=43;
+     }
+     else if(int.parse(userAge)<=10){
+      offsets=8;
+     }
+     else if(int.parse(userAge)>=60){
+      offsets=15;
+     }
+     else{
+      if(heightInt>=130 && heightInt<140){
+        if(weightint>40){offsets=29;}               //offset for overweight
+        if(weightint<25){offsets=22;}               //offset for overweight
+      }
+      if(heightInt>=140 && heightInt<150){
+        if(weightint>52){offsets=29;}               //offset for overweight
+        if(weightint<30){offsets=22;}               //offset for overweight
+      }
+      if(heightInt>=150 && heightInt<160){
+        if(weightint>63){offsets=29;}               //offset for overweight
+        if(weightint<39){offsets=22;}               //offset for overweight
+      }
+      if(heightInt>=150 && heightInt<160){
+        if(weightint>63){offsets=29;}               //offset for overweight
+        if(weightint<39){offsets=22;}               //offset for overweight
+      }
+      if(heightInt>=150 && heightInt<160){
+        if(weightint>63){offsets=29;}               //offset for overweight
+        if(weightint<39){offsets=22;}               //offset for overweight
+      }
+     }
+  
+  
     //String yog="YogaModels";
     
     return ListView.builder(
@@ -211,8 +285,8 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: false,
       itemCount: 5,
       itemBuilder: (context, INDEX){
-        final yogas = YogaModels.items[offfset];   
-        offfset=offfset+1;       
+        final yogas = YogaModels.items[offsets];   
+        offsets=offsets+1;       
         return InkWell(    
           onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => YogaDetails(yogas: yogas,),)

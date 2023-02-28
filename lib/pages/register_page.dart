@@ -205,7 +205,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 SizedBox(height: 40,),
 
-                Row(                                                   //google login
+                 Row(                                                   //google login
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(

@@ -58,8 +58,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
     setState(() {
       db.userName=usercontroller.text;
       db.userAge=userAge;
-      db.userHeight=weightcontroller.text;
-      db.userWeight=heightcontroller.text;
+      db.userHeight=heightcontroller.text;
+      db.userWeight=weightcontroller.text;
 
     });
     if(formKey.currentState!.validate()){     
@@ -128,7 +128,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                 TextFormField(                                    //date of birth
                   controller: _date,
                   decoration: InputDecoration(
-                    labelText: "DOB",
+                    labelText: "Year of birth",
                     labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
                     filled: true, 
                     fillColor: context.canvasColor,
@@ -244,7 +244,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                     if(value == null || value.isEmpty){
                         return "This Field Required *";
                       }
-                      if(int.parse(value)<0||int.parse(value)>240)
+                      if(int.parse(value)<0||int.parse(value)>220)
                       {
                         return "Please give valid body height *";
                       }
@@ -279,7 +279,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                     if(value == null || value.isEmpty){
                         return "This Field Required *";
                       }
-                      if(int.parse(value)<0||int.parse(value)>300)
+                      if(int.parse(value)<0||int.parse(value)>200)
                       {
                         return "Please give valid body weight*";
                       }
@@ -289,15 +289,20 @@ class _PersonalDetailsState extends State<PersonalDetails> {
 
                 SizedBox(height: 40,),
        
-                ElevatedButton(         
-                  onPressed: _saveForm,
-                  child: "Next".text.xl2.make().px8(),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-                    padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                      (Set<MaterialState> states) {
-                        return EdgeInsets.symmetric(horizontal: 40,vertical: 10);
-                      },
+                 Padding(
+                  padding: const EdgeInsets.only(top: 10,bottom: 10),
+                  child: ElevatedButton(                
+                      onPressed: (() {
+                        _saveForm();
+                      }),
+                      child: "Next".text.xl.make().px8(),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+                        padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+                          (Set<MaterialState> states) {
+                            return EdgeInsets.symmetric(horizontal: 60,vertical: 15);
+                          },
+                        ),
                     ),
                   ),
                 ),

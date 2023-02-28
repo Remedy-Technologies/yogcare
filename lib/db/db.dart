@@ -144,8 +144,9 @@ class ParqDatabase{
   String userAge="";
   String userHeight ="";
   String userWeight ="";
-  //String medicalVal="";
-  //String healthVal="";
+
+  String medicalVal="";
+  String healthVal="";
 
   //reference the box
    final mybox = Hive.box("PARQ_db");
@@ -156,8 +157,6 @@ class ParqDatabase{
     userAge="";
     userHeight ="";
     userWeight ="";
-    //medicalVal="";
-    //healthVal="";
    }
    //load data from db
    void loadDataParq(){
@@ -165,8 +164,6 @@ class ParqDatabase{
     userAge =mybox.get("AGEDB");
     userHeight =mybox.get("HEIGHTDB");
     userWeight =mybox.get("WEIGHTDB");
-    //medicalVal =mybox.get("MEDVAL");
-   // healthVal =mybox.get("HELVAL");
    }
    //update data
    void updateDb(){
@@ -174,8 +171,22 @@ class ParqDatabase{
     mybox.put("AGEDB", userAge);
     mybox.put("HEIGHTDB", userHeight);
     mybox.put("WEIGHTDB", userWeight);
-   // mybox.put("MEDVAL", medicalVal);
-    //mybox.put("HELVAL", healthVal);
+   }
+
+
+   void createInitialHealth(){
+    medicalVal="no val";
+    healthVal="no val";
+   }
+   //load data from db
+   void loadDataHealth(){
+    medicalVal =mybox.get("MED");
+    healthVal =mybox.get("HEL");
+   }
+   //update data
+   void updateDbHealth(){   
+    mybox.put("MED", medicalVal);
+    mybox.put("HEL", healthVal);
    }
 
 
