@@ -208,7 +208,7 @@ class CatalogHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [    
       "Hi $name".text.xl3.color(context.primaryColor).make(),              // same as Text() but easy to use
-      "$userAge $userWeight $medicalVal $healthVal This are some recomended yoga's for you".text.xl.make()             
+      "This are some recomended yoga's for you".text.xl.make()             
       ],
     );
   }
