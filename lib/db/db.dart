@@ -4,32 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 
 
-class ToDoDatabase{
-  List toDoList =[];
 
-  //reference the box
-   final mybox = Hive.box("DoList_db");
-
-
-   //create initial data
-   void createInitialData(){
-    toDoList=[
-      ["Complete Assignment",false],
-      ["Learn java",false]
-    ];
-   }
-
-   //load data from db
-   void loadData(){
-    toDoList =mybox.get("TODOLIST");
-   }
-
-   //update data
-   void updateDb(){
-    mybox.put("TODOLIST", toDoList);
-   }
-
-}
 
 
 

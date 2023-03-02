@@ -17,11 +17,8 @@ class YogaDetails extends StatelessWidget {
       appBar: AppBar(backgroundColor: Colors.transparent,),
       
       
-      floatingActionButton: FloatingActionButton(onPressed: () {},
-        child: Icon(Icons.library_books),
-        backgroundColor: Color.fromRGBO(53, 1, 61, 1),
-      ),
-      backgroundColor: Color.fromRGBO(245,245,245, 1),
+     
+      backgroundColor: context.cardColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -37,7 +34,7 @@ class YogaDetails extends StatelessWidget {
                       arcType: VxArcType.CONVEY,
         
                       child: Container(
-                        color: Colors.white,
+                        color: context.canvasColor,
                         width: context.screenWidth,
         
                         child: Padding(
@@ -45,7 +42,7 @@ class YogaDetails extends StatelessWidget {
                           child: Column(children: [
                             yogas.name.text.xl3
                             .textStyle(context.captionStyle)
-                            .bold.color(Color.fromRGBO(53, 1, 61, 1)).make(),     //prod name
+                            .bold.color(context.primaryColor).make(),     //prod name
                              Text(
                               yogas.desc,
                               style: TextStyle(

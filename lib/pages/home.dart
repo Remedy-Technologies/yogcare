@@ -19,7 +19,6 @@ import 'package:yoga_app/models/catalog.dart';
 import '../utils/date_time.dart';
 import '../utils/parq_check.dart';
 import '../widgets/drawer.dart';
-import 'dolist.dart';
 import 'yoga_details.dart';
 import 'package:yoga_app/utils/routes.dart';
 import 'dart:async';

@@ -1,7 +1,7 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MeditationPage extends StatefulWidget {
@@ -12,72 +12,195 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
-  late AudioPlayer _audioPlayer;
+  final audioplayer=AudioPlayer();
+
+  bool isPlaying=false;
+  double value=0;
+  //Duration duration=Duration.zero;
+  //Duration position=Duration.zero;
+
+  
+  //duration setting
+  Duration? duration=Duration(seconds: 0);
+
+  // function to initialize music
+  void initPlayer() async{
+    await audioplayer.setSource(AssetSource("Senorita.mp3"));
+    duration=await audioplayer.getDuration();
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _audioPlayer= AudioPlayer()..setAsset('assets/audio/Senorita.mp3');
+    initPlayer();
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _audioPlayer.dispose();
-    super.dispose();
-  }
+ 
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.cardColor,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: context.cardColor,
 
        appBar: AppBar(
         backgroundColor: Colors.transparent,
          title: "Meditation".text.xl2.color(context.primaryColor).make(),                                                        
       ),
 
-      body: Container(),
-    );
-  }
-}
+        body: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
 
-class Controls extends StatelessWidget {
-  const Controls({super.key,required this.audioPlayer});
+              Padding(                                          //Image
+                padding: const EdgeInsets.only(top: 50),
+                child: Center(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    // ignore: sort_child_properties_last
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset("assets/images/med_back.jpg")
+                    ),
+                    height: 300,
+                    width: 300,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: context.cardColor,
+                      boxShadow: [
+                        BoxShadow(color: Colors.grey,blurRadius: 15,offset: Offset(-5,5)),
+                        BoxShadow(color: context.canvasColor,blurRadius: 15,offset: Offset(5,-5)),
+                      ]
+                    ),
+                  ),
+                ),
+              ),
 
-  final AudioPlayer audioPlayer;
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<PlayerState>(
-      stream: audioPlayer.playerStateStream,
-      builder: (context, snapshot) {
-        final playerState=snapshot.data;
-        final processingState=playerState?.processingState;
-        final playing=playerState?.playing;
-        if(!(playing ?? false)){
-          return IconButton(
-            onPressed: audioPlayer.play, 
-            icon: Icon(Icons.play_arrow_rounded),
-            color: Colors.blue,
-            iconSize: 80,
-          );
-        }
-        else if(processingState!=ProcessingState.completed)
-        {
-          return IconButton(
-            onPressed: audioPlayer.play, 
-            icon: Icon(Icons.pause_circle_rounded),
-            color: Colors.blue,
-            iconSize: 80,
-          );
-        }
-        return Icon(
-            Icons.play_arrow_rounded,
-            color: Colors.blue,
-            size: 80,
-          );
-      },
+              const SizedBox(height: 30,),
+
+              Text(                                                   //Text
+                "MEDITATION MUSIC",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: context.primaryColor,
+                  letterSpacing: 5 
+                ),
+              ),
+              const SizedBox(height: 10,),
+              Text(
+                "Relax with a deep state of meditation",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: context.primaryColor  
+                ),
+              ),
+
+              Padding(                                                  //Progress Bar
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Slider(
+                  min: 0.0,
+                  max: duration!.inSeconds.toDouble(),
+                  value: value,
+                  onChanged: ((newvalue) {
+                    value=newvalue;
+                  }),
+                  onChangeEnd: (newValue) async{
+                    setState(() {
+                      value=newValue;
+                    });
+                    audioplayer.pause();
+                    await audioplayer.seek(Duration(seconds: newValue.toInt()));
+                    if(isPlaying){
+                      await audioplayer.pause();
+                      setState(() {
+                        isPlaying=false;
+                      });
+                    }
+                    else{
+                      await audioplayer.resume();
+                      setState(() {
+                        isPlaying=true;
+                      });
+                      audioplayer.onPositionChanged.listen(
+                        (position) {
+                          setState(() {
+                            value=position.inSeconds.toDouble();
+                          });
+                        },
+                      );
+                      
+                    }
+                   //await audioplayer.resume();
+                  },
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("${(value / 60).floor()}: ${(value % 60).floor()}"),
+                    
+                    Text("${duration!.inMinutes} : ${duration!.inSeconds % 60}"),
+                  ],
+                ),
+              ),
+
+              //SizedBox(height: 10,),
+
+              Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(70),
+                  color: context.theme.buttonColor.withOpacity(0.8)
+                ),
+                child: InkWell(
+                  onTap: () async{
+
+                    if(isPlaying){
+                      await audioplayer.pause();
+                      setState(() {
+                        isPlaying=false;
+                      });
+                    }
+                    else{
+                      await audioplayer.resume();
+                      setState(() {
+                        isPlaying=true;
+                      });
+                      audioplayer.onPositionChanged.listen(
+                        (position) {
+                          setState(() {
+                            value=position.inSeconds.toDouble();
+                          });
+                        },
+                      );
+                      
+                    }
+                    
+
+                  },
+                  child: Icon(
+                    isPlaying?Icons.pause:Icons.play_arrow_rounded,
+                    color: Colors.white,
+                    ),
+                  
+                ),
+              )
+
+              
+
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

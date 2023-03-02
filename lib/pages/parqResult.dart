@@ -207,7 +207,7 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [    
-      "Hi $name".text.xl3.color(context.primaryColor).make(),              // same as Text() but easy to use
+      "Hi $name".text.xl3.color(context.primaryColor).make(),              
       "This are some recomended yoga's for you".text.xl.make()             
       ],
     );
@@ -255,26 +255,7 @@ class CatalogList extends StatelessWidget {
       offsets=15;
      }
      else{
-      if(heightInt>=130 && heightInt<140){
-        if(weightint>40){offsets=29;}               //offset for overweight
-        if(weightint<25){offsets=22;}               //offset for overweight
-      }
-      if(heightInt>=140 && heightInt<150){
-        if(weightint>52){offsets=29;}               //offset for overweight
-        if(weightint<30){offsets=22;}               //offset for overweight
-      }
-      if(heightInt>=150 && heightInt<160){
-        if(weightint>63){offsets=29;}               //offset for overweight
-        if(weightint<39){offsets=22;}               //offset for overweight
-      }
-      if(heightInt>=150 && heightInt<160){
-        if(weightint>63){offsets=29;}               //offset for overweight
-        if(weightint<39){offsets=22;}               //offset for overweight
-      }
-      if(heightInt>=150 && heightInt<160){
-        if(weightint>63){offsets=29;}               //offset for overweight
-        if(weightint<39){offsets=22;}               //offset for overweight
-      }
+      offsets=1;
      }
   
   

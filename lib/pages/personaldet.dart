@@ -295,12 +295,15 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       onPressed: (() {
                         _saveForm();
                       }),
-                      child: "Next".text.xl.make().px8(),
+                      child: "Next".text.xl2.make().px8(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),)
+                        ),
                         padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
                           (Set<MaterialState> states) {
-                            return EdgeInsets.symmetric(horizontal: 60,vertical: 15);
+                            return EdgeInsets.symmetric(horizontal: 100,vertical: 15);
                           },
                         ),
                     ),

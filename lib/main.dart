@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:yoga_app/db/db.dart';
-import 'package:yoga_app/pages/dolist.dart';
 import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/register_page.dart';
 import 'package:yoga_app/pages/tracker.dart';
