@@ -4,8 +4,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/utils/date_time.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yoga_app/pages/home.dart';
 
 import '../widgets/form_buttons.dart';
 import '../utils/tracker_tile.dart';
@@ -21,7 +23,7 @@ class HabitPage extends StatefulWidget {
 class _HabitPageState extends State<HabitPage> {
   //reference the hive box
   final habitbox = Hive.box("Habit_db");
- 
+
   //call db
   HabitDatabase db = HabitDatabase();
 

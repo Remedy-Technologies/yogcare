@@ -4,32 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 
 
-class ToDoDatabase{
-  List toDoList =[];
 
-  //reference the box
-   final mybox = Hive.box("DoList_db");
-
-
-   //create initial data
-   void createInitialData(){
-    toDoList=[
-      ["Complete Assignment",false],
-      ["Learn java",false]
-    ];
-   }
-
-   //load data from db
-   void loadData(){
-    toDoList =mybox.get("TODOLIST");
-   }
-
-   //update data
-   void updateDb(){
-    mybox.put("TODOLIST", toDoList);
-   }
-
-}
 
 
 
@@ -141,26 +116,56 @@ class HabitDatabase {
 class ParqDatabase{
   String userName="";
   bool isTest = false;
+  String userAge="";
+  String userHeight ="";
+  String userWeight ="";
+
+  String medicalVal="";
+  String healthVal="";
 
   //reference the box
    final mybox = Hive.box("PARQ_db");
 
    //create initial data
    void createInitialParq(){
-    userName="Test";
+    userName="User";
+    userAge="";
+    userHeight ="";
+    userWeight ="";
    }
-
    //load data from db
    void loadDataParq(){
-    userName =mybox.get("PARQDB");
+    userName =mybox.get("NAMEDB");
+    userAge =mybox.get("AGEDB");
+    userHeight =mybox.get("HEIGHTDB");
+    userWeight =mybox.get("WEIGHTDB");
    }
-
    //update data
    void updateDb(){
-    mybox.put("PARQDB", userName);
+    mybox.put("NAMEDB", userName);
+    mybox.put("AGEDB", userAge);
+    mybox.put("HEIGHTDB", userHeight);
+    mybox.put("WEIGHTDB", userWeight);
    }
 
-   //isTest methods
+
+   void createInitialHealth(){
+    medicalVal="no val";
+    healthVal="no val";
+   }
+   //load data from db
+   void loadDataHealth(){
+    medicalVal =mybox.get("MED");
+    healthVal =mybox.get("HEL");
+   }
+   //update data
+   void updateDbHealth(){   
+    mybox.put("MED", medicalVal);
+    mybox.put("HEL", healthVal);
+   }
+
+
+   //isTest method for checking state of parq test
   void createInitialTest(){
     isTest = false;
    }

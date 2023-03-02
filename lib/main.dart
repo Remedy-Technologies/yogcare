@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:yoga_app/db/db.dart';
-import 'package:yoga_app/pages/dolist.dart';
+import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/register_page.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/healthdet.dart';
@@ -21,11 +21,13 @@ import 'package:yoga_app/widgets/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:firebase_core/firebase_core.dart'; // 
- import 'firebase_options.dart'; // Generated file
+import 'firebase_options.dart'; // Generated file
 
 
 import 'pages/login_page.dart';
 //import 'pages/settings.dart';
+
+
 
 
 void main()async {
@@ -72,9 +74,9 @@ class MyApp extends StatelessWidget {
       routes: {                                       //creating routes for different pages in app
         "/": (context) => AuthPage(),                //main root
         Myroutes.homeRoute: (context) => HomePage(),
-       // Myroutes.loginRoute: (context) => LoginPage(),
+      // Myroutes.loginRoute: (context) => LoginPage(),
       //  Myroutes.registerRoute: (context) => RegisterPage(),
-        Myroutes.doListRoute: (context) => DoListPage(),
+        Myroutes.meditationRoute: (context) => MeditationPage(),
         Myroutes.habitRoute: (context) => HabitPage(),
         Myroutes.settingsRoute: (context) => SettingsPage(),
         Myroutes.personalDetailsRoute: (context) => PersonalDetails(),

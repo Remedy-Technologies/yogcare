@@ -3,7 +3,11 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+<<<<<<< HEAD
   connectivity_plus_windows
+=======
+  audioplayers_windows
+>>>>>>> upstream/master
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

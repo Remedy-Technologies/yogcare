@@ -32,12 +32,12 @@ void signUserout() async{
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                accountName: Text("Priyanshu Dutta", style: TextStyle(
+                accountName: Text("Username", style: TextStyle(
                   color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold
-                  ),),
+                ),),
                 accountEmail: Text(user.email!, style: TextStyle(color: Colors.white),),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/profile-pic2.jpg"),
+                  backgroundImage: AssetImage("assets/images/user_imae.jpg"),
                 ),
               ),
             ),

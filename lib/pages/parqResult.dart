@@ -31,21 +31,45 @@ class _ResultsPageState extends State<ResultsPage> {
   ParqDatabase db = ParqDatabase();
   String name="";
   bool isTest= false;
+  String userAge="";
+  String userHeight="";
+  String userWeight="";
+  String medicalVal="tum";
+  String healthVal="tum";
 
   
   
   @override
   void initState() {
      //first time app? default data
-    if(mybox.get("PARQDB")==null){
+    if(mybox.get("NAMEDB")==null ||mybox.get("AGEDB")==null){
       db.createInitialParq();
       name = db.userName;
+      userAge=db.userAge;
+      userHeight=db.userHeight;
+      userWeight=db.userWeight;
     }
     //already exist data
     else{ 
       db.loadDataParq();
       name = db.userName;
+      userAge=db.userAge;
+      userHeight=db.userHeight;
+      userWeight=db.userWeight;
     }
+
+    if(mybox.get("MED")==null || mybox.get("HEL")==null){
+      db.createInitialHealth();
+      medicalVal=db.medicalVal;
+      healthVal=db.healthVal;
+    }
+    else{ 
+      db.loadDataHealth();
+      medicalVal=db.medicalVal;
+      healthVal=db.healthVal;
+    }
+
+
 
     //retake Test?
     if(mybox.get("ISTEST")==null){
@@ -63,6 +87,7 @@ class _ResultsPageState extends State<ResultsPage> {
     loadData();
     db.updateDb();
     db.updateDbTest();
+    db.updateDbHealth();
   }
 
   void retakeTest() async{
@@ -104,9 +129,23 @@ class _ResultsPageState extends State<ResultsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CatalogHeader(name:name),
+                CatalogHeader(
+                  name:name,
+                  userAge: userAge,
+                  userHeight: userHeight,
+                  userWeight: userWeight,
+                  medicalVal: medicalVal,
+                  healthVal: healthVal,
+                ),
                 if(CatalogModels.items.isNotEmpty)  
-                  CatalogList().expand()
+                  CatalogList(
+                    name:name,
+                    userAge: userAge,
+                    userHeight: userHeight,
+                    userWeight: userWeight,
+                    medicalVal: medicalVal,
+                    healthVal: healthVal,
+                  ).expand()
 
                          
                 else
@@ -124,7 +163,11 @@ class _ResultsPageState extends State<ResultsPage> {
                         borderRadius: BorderRadius.circular(15)
                       ),
                       child: Center(
-                        child: Text("RetakeTest",style: TextStyle(color: context.canvasColor,fontSize: 20,fontWeight: FontWeight.bold),)
+                        child: Text(
+                          "RetakeTest",
+                          style: TextStyle(
+                            color: context.canvasColor,fontSize: 20,fontWeight: FontWeight.bold
+                          ),)
                       ),
                     ),
                   ),      
@@ -140,15 +183,31 @@ class _ResultsPageState extends State<ResultsPage> {
 
 
 class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({super.key, required this.name});
+  const CatalogHeader({
+    super.key, 
+    required this.name,
+    required this.userAge,
+    required this.userHeight,
+    required this.userWeight,
+    required this.medicalVal,
+    required this.healthVal,
+    
+  });
+
   final String name;
+  final String userAge;
+  final String userHeight;
+  final String userWeight;
+  final String medicalVal; 
+  final String healthVal;
+  
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [    
-      "Hi $name".text.xl3.color(context.primaryColor).make(),              // same as Text() but easy to use
+      "Hi $name".text.xl3.color(context.primaryColor).make(),              
       "This are some recomended yoga's for you".text.xl.make()             
       ],
     );
@@ -157,27 +216,65 @@ class CatalogHeader extends StatelessWidget {
 
 class CatalogList extends StatelessWidget {
   
- CatalogList({super.key});
-  //stands for 100-General Yoga
-  int io=7;
+ CatalogList({
+  super.key, 
+    required this.name,
+    required this.userAge,
+    required this.userHeight,
+    required this.userWeight,
+    required this.medicalVal,
+    required this.healthVal,
+  });
+  final String name;
+  final String userAge;
+  final String userHeight;
+  final String userWeight;
+  final String medicalVal; 
+  final String healthVal;
+  //offset json for diff categories
+  int offsets=1;
+  
+  
   @override
   Widget build(BuildContext context) {
-    String yog="YogaModels";
+
+    int heightInt=int.parse(userHeight);
+    int weightint=int.parse(userWeight);
+   
+     if(medicalVal=="true")
+     {
+      offsets=36;
+     }
+     else if(healthVal=="true"){
+      offsets=43;
+     }
+     else if(int.parse(userAge)<=10){
+      offsets=8;
+     }
+     else if(int.parse(userAge)>=60){
+      offsets=15;
+     }
+     else{
+      offsets=1;
+     }
+  
+  
+    //String yog="YogaModels";
     
     return ListView.builder(
       //controller: scrollController,
       shrinkWrap: false,
       itemCount: 5,
-      itemBuilder: (context, i){
-        final yogas = YogaModels.items[io];   
-        io=io+1;       
+      itemBuilder: (context, INDEX){
+        final yogas = YogaModels.items[offsets];   
+        offsets=offsets+1;       
         return InkWell(    
           onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => YogaDetails(yogas: yogas,),)
           ),
           child: CatalogItem(yogas: yogas)
-        );      
-      },
+        );   
+      },   
     ).py12();
     
    
