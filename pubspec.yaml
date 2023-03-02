@@ -49,17 +49,12 @@ dependencies:
   firebase_auth: ^4.2.8
   #google sign in
   google_sign_in: ^5.4.4
-<<<<<<< HEAD
-  #percent indicator
-  percent_indicator: ^3.0.1
-  #auto reload
-  auto_reload: ^1.0.0
-=======
   #progress bar
   percent_indicator: ^3.0.1
   #play audio
   audioplayers: ^3.0.1
->>>>>>> upstream/master
+  #url_launcher
+  url_launcher: ^6.1.10
   
 
 dev_dependencies:

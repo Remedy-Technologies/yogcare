@@ -7,15 +7,13 @@ import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'package:flutter/services.dart';                    // take json
-import 'dart:convert';                                     //json decode encode
+import 'package:flutter/services.dart'; // take json
+import 'dart:convert'; //json decode encode
 import 'package:yoga_app/models/catalog.dart';
 
 import '../models/yoga_model.dart';
 import '../utils/routes.dart';
 import 'yoga_details.dart';
-
-
 
 class ResultsPage extends StatefulWidget {
   const ResultsPage({super.key});
@@ -24,64 +22,57 @@ class ResultsPage extends StatefulWidget {
 }
 
 class _ResultsPageState extends State<ResultsPage> {
-
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
   //list of to do tasks
   ParqDatabase db = ParqDatabase();
-  String name="";
-  bool isTest= false;
-  String userAge="";
-  String userHeight="";
-  String userWeight="";
-  String medicalVal="tum";
-  String healthVal="tum";
+  String name = "";
+  bool isTest = false;
+  String userAge = "";
+  String userHeight = "";
+  String userWeight = "";
+  String medicalVal = "tum";
+  String healthVal = "tum";
 
-  
-  
   @override
   void initState() {
-     //first time app? default data
-    if(mybox.get("NAMEDB")==null ||mybox.get("AGEDB")==null){
+    //first time app? default data
+    if (mybox.get("NAMEDB") == null || mybox.get("AGEDB") == null) {
       db.createInitialParq();
       name = db.userName;
-      userAge=db.userAge;
-      userHeight=db.userHeight;
-      userWeight=db.userWeight;
+      userAge = db.userAge;
+      userHeight = db.userHeight;
+      userWeight = db.userWeight;
     }
     //already exist data
-    else{ 
+    else {
       db.loadDataParq();
       name = db.userName;
-      userAge=db.userAge;
-      userHeight=db.userHeight;
-      userWeight=db.userWeight;
+      userAge = db.userAge;
+      userHeight = db.userHeight;
+      userWeight = db.userWeight;
     }
 
-    if(mybox.get("MED")==null || mybox.get("HEL")==null){
+    if (mybox.get("MED") == null || mybox.get("HEL") == null) {
       db.createInitialHealth();
-      medicalVal=db.medicalVal;
-      healthVal=db.healthVal;
-    }
-    else{ 
+      medicalVal = db.medicalVal;
+      healthVal = db.healthVal;
+    } else {
       db.loadDataHealth();
-      medicalVal=db.medicalVal;
-      healthVal=db.healthVal;
+      medicalVal = db.medicalVal;
+      healthVal = db.healthVal;
     }
-
-
 
     //retake Test?
-    if(mybox.get("ISTEST")==null){
+    if (mybox.get("ISTEST") == null) {
       db.createInitialTest();
       isTest = db.isTest;
     }
     //test already taken
-    else{ 
+    else {
       db.loadDataTest();
       isTest = db.isTest;
     }
-
 
     super.initState();
     loadData();
@@ -90,38 +81,38 @@ class _ResultsPageState extends State<ResultsPage> {
     db.updateDbHealth();
   }
 
-  void retakeTest() async{
+  void retakeTest() async {
     setState(() {
-      db.isTest=!db.isTest;   
+      db.isTest = !db.isTest;
     });
     db.updateDbTest();
     Future.delayed(Duration(seconds: 1));
     Navigator.pushNamed(context, Myroutes.parqCheckRoute);
-    
   }
 
   //String name="Paras";
-  
-  loadData() async{                                           // Extracting json file
+
+  loadData() async {
+    // Extracting json file
     //await Future.delayed(Duration(seconds: 2));
-    var yogaJson =await rootBundle.loadString("assets/files/yoga.json");
+    var yogaJson = await rootBundle.loadString("assets/files/yoga.json");
     var decodeData = jsonDecode(yogaJson);
-    var productsData = decodeData["yoga_sections"];               //Only products required
+    var productsData = decodeData["yoga_sections"]; //Only products required
     YogaModels.items = List.from(productsData)
-      .map<Yogas>((item) => Yogas.fromMap(item))
-      .toList();
+        .map<Yogas>((item) => Yogas.fromMap(item))
+        .toList();
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(                                  //Velocity X
+    return Scaffold(
+      //Velocity X
       appBar: AppBar(
-        backgroundColor: Colors.transparent,                                                        
-      ),                             
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: context.cardColor,
-      
+
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(32),
@@ -130,94 +121,89 @@ class _ResultsPageState extends State<ResultsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CatalogHeader(
-                  name:name,
+                  name: name,
                   userAge: userAge,
                   userHeight: userHeight,
                   userWeight: userWeight,
                   medicalVal: medicalVal,
                   healthVal: healthVal,
                 ),
-                if(CatalogModels.items.isNotEmpty)  
+                if (CatalogModels.items.isNotEmpty)
                   CatalogList(
-                    name:name,
+                    name: name,
                     userAge: userAge,
                     userHeight: userHeight,
                     userWeight: userWeight,
                     medicalVal: medicalVal,
                     healthVal: healthVal,
                   ).expand()
-
-                         
                 else
-                  Center(child: CircularProgressIndicator(),) ,
-          
-                  GestureDetector(                                          //retake button
-                    onTap: retakeTest,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.symmetric(horizontal:15),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
+                  Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                GestureDetector(
+                  //retake button
+                  onTap: retakeTest,
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
                         // ignore: deprecated_member_use
                         color: context.theme.buttonColor,
-                        borderRadius: BorderRadius.circular(15)
-                      ),
-                      child: Center(
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
                         child: Text(
-                          "RetakeTest",
-                          style: TextStyle(
-                            color: context.canvasColor,fontSize: 20,fontWeight: FontWeight.bold
-                          ),)
-                      ),
-                    ),
-                  ),      
+                      "RetakeTest",
+                      style: TextStyle(
+                          color: context.canvasColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ),
+                ),
               ],
             ),
           ),
         ),
-      ),                                 
-    
-      );
+      ),
+    );
   }
 }
 
-
 class CatalogHeader extends StatelessWidget {
   const CatalogHeader({
-    super.key, 
+    super.key,
     required this.name,
     required this.userAge,
     required this.userHeight,
     required this.userWeight,
     required this.medicalVal,
     required this.healthVal,
-    
   });
 
   final String name;
   final String userAge;
   final String userHeight;
   final String userWeight;
-  final String medicalVal; 
+  final String medicalVal;
   final String healthVal;
-  
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [    
-      "Hi $name".text.xl3.color(context.primaryColor).make(),              
-      "This are some recomended yoga's for you".text.xl.make()             
+      children: [
+        "Hi $name".text.xl3.color(context.primaryColor).make(),
+        "This are some recomended yoga's for you".text.xl.make()
       ],
     );
   }
 }
 
 class CatalogList extends StatelessWidget {
-  
- CatalogList({
-  super.key, 
+  CatalogList({
+    super.key,
     required this.name,
     required this.userAge,
     required this.userHeight,
@@ -229,90 +215,91 @@ class CatalogList extends StatelessWidget {
   final String userAge;
   final String userHeight;
   final String userWeight;
-  final String medicalVal; 
+  final String medicalVal;
   final String healthVal;
   //offset json for diff categories
-  int offsets=1;
-  
-  
+  int offsets = 1;
+
   @override
   Widget build(BuildContext context) {
+    int heightInt = int.parse(userHeight);
+    int weightint = int.parse(userWeight);
 
-    int heightInt=int.parse(userHeight);
-    int weightint=int.parse(userWeight);
-   
-     if(medicalVal=="true")
-     {
-      offsets=36;
-     }
-     else if(healthVal=="true"){
-      offsets=43;
-     }
-     else if(int.parse(userAge)<=10){
-      offsets=8;
-     }
-     else if(int.parse(userAge)>=60){
-      offsets=15;
-     }
-     else{
-      offsets=1;
-     }
-  
-  
+    if (medicalVal == "true") {
+      offsets = 36;
+    } else if (healthVal == "true") {
+      offsets = 43;
+    } else if (int.parse(userAge) <= 10) {
+      offsets = 8;
+    } else if (int.parse(userAge) >= 60) {
+      offsets = 15;
+    } else {
+      offsets = 1;
+    }
+
     //String yog="YogaModels";
-    
+
     return ListView.builder(
       //controller: scrollController,
       shrinkWrap: false,
-      itemCount: 5,
-      itemBuilder: (context, INDEX){
-        final yogas = YogaModels.items[offsets];   
-        offsets=offsets+1;       
-        return InkWell(    
-          onTap: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => YogaDetails(yogas: yogas,),)
-          ),
-          child: CatalogItem(yogas: yogas)
-        );   
-      },   
+      itemCount: (healthVal == "true") ? 5 : 7,
+      itemBuilder: (context, INDEX) {
+        final yogas = YogaModels.items[offsets];
+        offsets = offsets + 1;
+        return InkWell(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => YogaDetails(
+                    yogas: yogas,
+                  ),
+                )),
+            child: CatalogItem(yogas: yogas));
+      },
     ).py12();
-    
-   
   }
 }
 
 class CatalogItem extends StatelessWidget {
   final Yogas yogas;
-  const CatalogItem({super.key, required this.yogas});@override
+  const CatalogItem({super.key, required this.yogas});
+  @override
   Widget build(BuildContext context) {
-    return VxBox(                                 //same as container but easy
-      
-      child: Row(
-        children: [
-          Hero(
-            tag: Key(yogas.id.toString()),                //tag on both sides
-            child: Container(
-              child: Image.network(yogas.img)              //prod image
-              .box.p12.roundedSM.color(context.cardColor).make().p16().w32(context),
-            ),
-          ),
+    return VxBox(
+        //same as container but easy
 
-          Expanded(child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:[
+        child: Row(
+      children: [
+        Hero(
+          tag: Key(yogas.id.toString()), //tag on both sides
+          child: Container(
+            child: Image.network(yogas.img) //prod image
+                .box
+                .p12
+                .roundedSM
+                .color(context.cardColor)
+                .make()
+                .p16()
+                .w32(context),
+          ),
+        ),
+        Expanded(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
               yogas.name.text.xl
-              .textStyle(context.captionStyle)
-              .bold.color(context.theme.buttonColor).make(),     //yoga name
+                  .textStyle(context.captionStyle)
+                  .bold
+                  .color(context.theme.buttonColor)
+                  .make(), //yoga name
               //yogas.desc.text.make().py8(),
-              Text(yogas.desc,style: TextStyle(fontSize: 10),).py8(),                         //yoga description
-              ]
-            )
-          ),
-
-          
-        ],
-      )
-      ).color(context.canvasColor).roundedLg.square(120).make().py16();
+              Text(
+                yogas.desc,
+                style: TextStyle(fontSize: 10),
+              ).py8(), //yoga description
+            ])),
+      ],
+    )).color(context.canvasColor).roundedLg.square(120).make().py16();
   }
 }

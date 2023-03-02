@@ -100,12 +100,10 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Text(
-                      "Daily Progress bar",
-                      style: TextStyle(
-                        color: context.primaryColor,
-                      ),
-                    ),
+                    "Today's progress"
+                        .text
+                        .textStyle(GoogleFonts.comfortaa())
+                        .make(),
                     const SizedBox(
                       width: 20,
                     ),
@@ -113,8 +111,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: updateSet,
                       child: Text(
                         "Update",
-                        style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.blue),
                       ),
                     ),
                   ],
@@ -131,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                       percent: double.tryParse(habitbox.get(
                               "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
                           (0.0),
-                      progressColor: Colors.purpleAccent,
+                      progressColor: Colors.deepPurple,
                     ),
                   ],
                 ),
@@ -158,12 +155,15 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "yogcare"
-            .text
-            .xl5
-            .color(Colors.deepPurple)
-            .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
-            .make(), // same as Text() but easy to use
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: "yogcare"
+              .text
+              .xl5
+              .color(Colors.deepPurple)
+              .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
+              .make(),
+        ), // same as Text() but easy to use
         "Creating a Healthy Lifestyle"
             .text
             .xl

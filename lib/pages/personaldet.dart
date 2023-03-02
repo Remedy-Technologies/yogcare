@@ -19,7 +19,6 @@ class PersonalDetails extends StatefulWidget {
 }
 
 class _PersonalDetailsState extends State<PersonalDetails> {
-
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
   //list of to do tasks
@@ -27,44 +26,46 @@ class _PersonalDetailsState extends State<PersonalDetails> {
 
   final formKey = new GlobalKey<FormState>();
   //Name controller
-  TextEditingController usercontroller=TextEditingController();
+  TextEditingController usercontroller = TextEditingController();
   //Height controller
-  TextEditingController heightcontroller=TextEditingController();
+  TextEditingController heightcontroller = TextEditingController();
   //Weight controller
-  TextEditingController weightcontroller=TextEditingController();
+  TextEditingController weightcontroller = TextEditingController();
   //Date controler
-  TextEditingController _date=TextEditingController();
+  TextEditingController _date = TextEditingController();
 
-  List<String> genderList = ["Select Gender","Male","Female","Other"];
-  String? selectedGender="Select Gender";
+  List<String> genderList = ["Select Gender", "Male", "Female", "Other"];
+  String? selectedGender = "Select Gender";
 
-  String userAge="";
+  String userAge = "";
 
   @override
   void initState() {
     //first time app? default data
-    if(mybox.get("NAMEDB")==null||mybox.get("AGEDB")==null||mybox.get("HEIGHTDB")==null||mybox.get("WEIGHTDB")==null){
+    if (mybox.get("NAMEDB") == null ||
+        mybox.get("AGEDB") == null ||
+        mybox.get("HEIGHTDB") == null ||
+        mybox.get("WEIGHTDB") == null) {
       db.createInitialParq();
     }
     //already exist data
-    else{ 
+    else {
       db.loadDataParq();
-    }  
+    }
     super.initState();
     db.updateDb();
   }
 
   _saveForm() {
     setState(() {
-      db.userName=usercontroller.text;
-      db.userAge=userAge;
-      db.userHeight=heightcontroller.text;
-      db.userWeight=weightcontroller.text;
-
+      db.userName = usercontroller.text;
+      db.userAge = userAge;
+      db.userHeight = heightcontroller.text;
+      db.userWeight = weightcontroller.text;
     });
-    if(formKey.currentState!.validate()){     
-     Future.delayed(Duration(seconds: 1));
-       Navigator.pushNamed(context, Myroutes.healthDetailsRoute);
+    if (formKey.currentState!.validate()) {
+      Future.delayed(Duration(seconds: 1));
+      Navigator.pushNamed(context, Myroutes.healthDetailsRoute);
     }
     usercontroller.clear();
     weightcontroller.clear();
@@ -76,248 +77,254 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.cardColor,
-
-       appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
-         title: "PAR-Q Test".text.xl2.color(context.primaryColor).make(),                                                        
+        title: "PAR-Q Test".text.xl2.color(context.primaryColor).make(),
       ),
-
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 36,),
-          child: SingleChildScrollView(
-            child: Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-               children: [
-                SizedBox(height: 40,),
-                 
-                TextFormField(                                            //Full Name
+          child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 36,
+        ),
+        child: SingleChildScrollView(
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                TextFormField(
+                  //Full Name
                   controller: usercontroller,
                   decoration: InputDecoration(
                     labelText: "Name",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
+                    labelStyle: TextStyle(
+                      color: context.primaryColor,
+                      fontSize: 18,
+                    ),
                     hintText: "Enter your full name",
-                    filled: true, 
+                    filled: true,
                     fillColor: context.canvasColor,
                     prefixIcon: Icon(Icons.person),
-
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide.none,
                     ),
-
-                    focusedBorder: OutlineInputBorder(                  
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                      borderSide:
+                          BorderSide(color: context.primaryColor, width: 3.0),
                     ),
                   ),
                   //keyboardType: TextInputType.number,
 
                   validator: (value) {
-                    if(value == null || value.isEmpty){
-                        return "This Field Required *";
-                      }
+                    if (value == null || value.isEmpty) {
+                      return "This Field Required *";
+                    }
                     return null;
-                  },        
+                  },
                 ),
-
-                 SizedBox(height: 40),
-         
-                TextFormField(                                    //date of birth
+                SizedBox(height: 40),
+                TextFormField(
+                  //date of birth
                   controller: _date,
                   decoration: InputDecoration(
                     labelText: "Year of birth",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
-                    filled: true, 
+                    labelStyle: TextStyle(
+                      color: context.primaryColor,
+                      fontSize: 18,
+                    ),
+                    filled: true,
                     fillColor: context.canvasColor,
                     prefixIcon: Icon(Icons.calendar_month),
-
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
                     ),
-
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                      borderSide:
+                          BorderSide(color: context.primaryColor, width: 3.0),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-
                   ),
-                   
+
                   onTap: () async {
-                     DateTime? pickedDate = await showDatePicker(
-                      context: context, 
+                    DateTime? pickedDate = await showDatePicker(
+                      context: context,
                       initialDate: DateTime.now(),
-                      firstDate: DateTime(1923), 
+                      firstDate: DateTime(1923),
                       lastDate: DateTime.now(),
                     );
                     //
-                    if(pickedDate!=null)
-                    {
+                    if (pickedDate != null) {
                       setState(() {
-                        _date.text =DateFormat("yyyy").format(pickedDate);
+                        _date.text = DateFormat("yyyy").format(pickedDate);
                       });
-                     
                     }
-                    int currentDay =int.parse(DateTime.now().year.toString());
-                    int userage = currentDay-int.parse(_date.text);
-                    userAge=userage.toString();
+                    int currentDay = int.parse(DateTime.now().year.toString());
+                    int userage = currentDay - int.parse(_date.text);
+                    userAge = userage.toString();
                   },
 
                   validator: (value) {
-                    if(value == null || value.isEmpty){
-                        return "This Field Required *";
-                      }
+                    if (value == null || value.isEmpty) {
+                      return "This Field Required *";
+                    }
                     return null;
                   },
-
-
-                  
                 ),
-          
-                SizedBox(height: 40,),
-
-                DropdownButtonFormField(                   //Gender
+                SizedBox(
+                  height: 40,
+                ),
+                DropdownButtonFormField(
+                  //Gender
                   value: selectedGender,
-                  items: genderList.map((selectedGender) => DropdownMenuItem(
-                    value: selectedGender,
-                    child: Text(selectedGender),
-                  )).toList(),
+                  items: genderList
+                      .map((selectedGender) => DropdownMenuItem(
+                            value: selectedGender,
+                            child: Text(selectedGender),
+                          ))
+                      .toList(),
                   onChanged: (newValue) {
-                     setState(() =>  selectedGender= newValue);
+                    setState(() => selectedGender = newValue);
                   },
 
                   decoration: InputDecoration(
                     labelText: "Gender",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
-                    filled: true, 
-                    fillColor: context.canvasColor,
-                   
-                    prefixIcon: Icon(Icons.female),
-
-                    enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide.none,
+                    labelStyle: TextStyle(
+                      color: context.primaryColor,
+                      fontSize: 18,
                     ),
-
+                    filled: true,
+                    fillColor: context.canvasColor,
+                    prefixIcon: Icon(Icons.female),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
+                    ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                      borderSide:
+                          BorderSide(color: context.primaryColor, width: 3.0),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-
                   ),
                   validator: (value) {
-                    if(value== "Select Gender"){
-                        return "This Field Required *";
-                      }
+                    if (value == "Select Gender") {
+                      return "This Field Required *";
+                    }
                     return null;
-                  },  
+                  },
                 ),
-
-                SizedBox(height: 40,),
-
-                TextFormField(                                            //Height
+                SizedBox(
+                  height: 40,
+                ),
+                TextFormField(
+                  //Height
                   controller: heightcontroller,
                   decoration: InputDecoration(
                     labelText: "Height in cm",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),
-                   
-                    filled: true, 
+                    labelStyle: TextStyle(
+                      color: context.primaryColor,
+                      fontSize: 18,
+                    ),
+                    filled: true,
                     fillColor: context.canvasColor,
                     prefixIcon: Icon(Icons.person),
-
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide.none,
                     ),
-
-                    focusedBorder: OutlineInputBorder(                  
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                      borderSide:
+                          BorderSide(color: context.primaryColor, width: 3.0),
                     ),
                   ),
                   keyboardType: TextInputType.number,
 
                   validator: (value) {
-                    if(value == null || value.isEmpty){
-                        return "This Field Required *";
-                      }
-                      if(int.parse(value)<0||int.parse(value)>220)
-                      {
-                        return "Please give valid body height *";
-                      }
+                    if (value == null || value.isEmpty) {
+                      return "This Field Required *";
+                    }
+                    if (int.parse(value) < 0 || int.parse(value) > 220) {
+                      return "Please give valid body height *";
+                    }
                     return null;
-                  },        
+                  },
                 ),
-
-                SizedBox(height: 40,),
-
-                TextFormField(                                            //Weight
+                SizedBox(
+                  height: 40,
+                ),
+                TextFormField(
+                  //Weight
                   controller: weightcontroller,
                   decoration: InputDecoration(
                     labelText: "Weight in kg",
-                    labelStyle: TextStyle(color: context.primaryColor, fontStyle: FontStyle.italic, fontSize: 18,),       
-                    filled: true, 
+                    labelStyle: TextStyle(
+                      color: context.primaryColor,
+                      fontSize: 18,
+                    ),
+                    filled: true,
                     fillColor: context.canvasColor,
                     prefixIcon: Icon(Icons.person),
-
                     enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide.none,
                     ),
-
-                    focusedBorder: OutlineInputBorder(                  
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: context.primaryColor, width: 3.0),
+                      borderSide:
+                          BorderSide(color: context.primaryColor, width: 3.0),
                     ),
                   ),
                   keyboardType: TextInputType.number,
 
                   validator: (value) {
-                    if(value == null || value.isEmpty){
-                        return "This Field Required *";
-                      }
-                      if(int.parse(value)<0||int.parse(value)>200)
-                      {
-                        return "Please give valid body weight*";
-                      }
+                    if (value == null || value.isEmpty) {
+                      return "This Field Required *";
+                    }
+                    if (int.parse(value) < 0 || int.parse(value) > 200) {
+                      return "Please give valid body weight*";
+                    }
                     return null;
-                  },        
+                  },
                 ),
-
-                SizedBox(height: 40,),
-       
-                 Padding(
-                  padding: const EdgeInsets.only(top: 10,bottom: 10),
-                  child: ElevatedButton(                
-                      onPressed: (() {
-                        _saveForm();
-                      }),
-                      child: "Next".text.xl2.make().px8(),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),)
-                        ),
-                        padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                          (Set<MaterialState> states) {
-                            return EdgeInsets.symmetric(horizontal: 100,vertical: 15);
-                          },
-                        ),
+                SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: ElevatedButton(
+                    onPressed: (() {
+                      _saveForm();
+                    }),
+                    child: "Next".text.xl2.make().px8(),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(context.theme.buttonColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      )),
+                      padding:
+                          MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+                        (Set<MaterialState> states) {
+                          return EdgeInsets.symmetric(
+                              horizontal: 100, vertical: 15);
+                        },
+                      ),
                     ),
                   ),
                 ),
-
-               
-                 
-               ],
-              ).px8(),
-            ),
+              ],
+            ).px8(),
           ),
-        )
-      ),
+        ),
+      )),
     );
   }
 }

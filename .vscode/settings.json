@@ -1,5 +1,6 @@
 {
     "cmake.configureOnOpen": true,
     "java.configuration.updateBuildConfiguration": "automatic",
-    "cmake.sourceDirectory": "${workspaceFolder}/linux/flutter"
+    "cmake.sourceDirectory": "${workspaceFolder}/linux/flutter",
+    "C_Cpp.errorSquiggles": "enabled"
 }
