@@ -21,7 +21,7 @@ class HabitPage extends StatefulWidget {
 class _HabitPageState extends State<HabitPage> {
   //reference the hive box
   final habitbox = Hive.box("Habit_db");
-
+ 
   //call db
   HabitDatabase db = HabitDatabase();
 
