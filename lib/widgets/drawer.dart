@@ -3,9 +3,14 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yoga_app/pages/home.dart';
 
+
+import '../pages/tracker.dart';
 import '../pages/yoga_details.dart';
 import '../utils/routes.dart';
 
@@ -44,15 +49,28 @@ void signUserout() async{
 
             ListTile(                                                                         //1st Tiltle
               leading: Icon(CupertinoIcons.home, color: context.theme.buttonColor,),   // Use Cupertino Icons Or Icons
-              title: Text("Home", textScaleFactor: 1.3,),    
-            ),
-            ListTile(                                                                         //3nd Title
-              leading: Icon(CupertinoIcons.phone, color: context.theme.buttonColor,),                
-              title: Text("Contact Us", textScaleFactor: 1.3,),    
+              title: Text("Home", textScaleFactor: 1.3,), 
+              onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage(),)
+                ),   
             ),
             ListTile(                                                                         //4th Title
               leading: Icon(CupertinoIcons.star, color: context.theme.buttonColor,),                
-              title: Text("Rate the app", textScaleFactor: 1.3,),    
+              title: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Rate Us",     
+                      style: TextStyle(color: context.primaryColor,fontSize: 18),
+                      recognizer: TapGestureRecognizer()..onTap = ()async {
+                        final url=Uri.parse('https://play.google.com/store/games');
+                        launchUrl(url);
+                      }
+                    )
+                  ]
+                )
+              )
+                
             ),
              ListTile(                                                                     //5th Title
              leading: Icon(CupertinoIcons.gear, color: context.theme.buttonColor,),        

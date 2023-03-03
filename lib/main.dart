@@ -37,11 +37,11 @@ void main()async {
   );
   //initalizing hive
   await Hive.initFlutter();
-  await Hive.openBox("Habit_db");
+  await Hive.openBox("Tracker_db");
   //do list db
   var doListBox= await Hive.openBox("DoList_db");
   //tracker list db
-  var habitBox= await Hive.openBox("Habit_db");
+  var habitBox= await Hive.openBox("Tracker_db");
 
   var parqBox= await Hive.openBox("PARQ_db");
 
@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
       // Myroutes.loginRoute: (context) => LoginPage(),
       //  Myroutes.registerRoute: (context) => RegisterPage(),
         Myroutes.meditationRoute: (context) => MeditationPage(),
-        Myroutes.habitRoute: (context) => HabitPage(),
+        Myroutes.trackerRoute: (context) => TrackerPage(),
         Myroutes.settingsRoute: (context) => SettingsPage(),
         Myroutes.personalDetailsRoute: (context) => PersonalDetails(),
         Myroutes.healthDetailsRoute: (context) => HealthDetails(),
