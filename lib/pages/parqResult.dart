@@ -226,7 +226,7 @@ class CatalogList extends StatelessWidget {
     int weightint = int.parse(userWeight);
 
     if (medicalVal == "true") {
-      offsets = 335;
+      offsets = 35;
     } else if (healthVal == "true") {
       offsets = 42;
     } else if (int.parse(userAge) <= 10) {
