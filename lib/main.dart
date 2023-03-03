@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:yoga_app/db/db.dart';
 //import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/register_page.dart';
@@ -45,23 +46,31 @@ void main()async {
 
   var parqBox= await Hive.openBox("PARQ_db");
 
+  var themebox= await Hive.openBox("Theme_db");
+
   //SharedPreferences sp = await SharedPreferences.getInstance();
   //isDark=sp.getBool("theme")??false;
   runApp(MyApp());
 }
 
 
-class MyApp extends StatelessWidget {
-  //const MyApp({super.key});
-
+class MyApp extends StatefulWidget {
   bool isSwitched;
   MyApp({Key? key, this.isSwitched=false}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  
+
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
       
-      themeMode: isSwitched? ThemeMode.dark:ThemeMode.light,
+      themeMode: widget.isSwitched? ThemeMode.dark:ThemeMode.light,
       theme: Mytheme.lightTheme(context),
       darkTheme: Mytheme.darkTheme(context),
       

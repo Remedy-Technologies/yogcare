@@ -5,10 +5,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/widgets/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -35,6 +37,10 @@ IconData icondark = Icons.nights_stay;
 
 
 class _SettingsPageState extends State<SettingsPage> {
+//const MyApp({super.key});
+  
+  
+  
 
 
   @override
@@ -59,13 +65,18 @@ class _SettingsPageState extends State<SettingsPage> {
                     value: isSwitched,     
                     onChanged: (value) async{     
                       isSwitched=value;
-                      setState(() async {                            
+                      setState(() async {   
+                        
+                                            
                         await Navigator.push(                              //pushing value to main
                           context,
                           MaterialPageRoute(
                             builder: (context) => MyApp(isSwitched: value)),
+                             
                         );
+                        
                       });
+                      
                     },
                   ),
                 )  

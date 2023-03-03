@@ -60,7 +60,7 @@ class AppDrawer extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/user_image.jpg"),
+                  backgroundImage: AssetImage("assets/images/user_image2.jpg"),
                 ),
               ),
             ),

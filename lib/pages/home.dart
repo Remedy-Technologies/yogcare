@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                       percent: double.tryParse(habitbox.get(
                               "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
                           (0.0),
-                      progressColor: Colors.deepPurple,
+                      progressColor: Colors.purpleAccent,
                     ),
                   ],
                 ),
@@ -156,11 +156,11 @@ class CatalogHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
+          padding: const EdgeInsets.only(top:15,bottom: 15.0,),
           child: "yogcare"
               .text
               .xl5
-              .color(Colors.deepPurpleAccent)
+              .color(context.primaryColor)
               .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
               .make(),
         ), // same as Text() but easy to use
@@ -245,7 +245,7 @@ class CatalogItem extends StatelessWidget {
               catalog.name.text.xl
                   .textStyle(GoogleFonts.aBeeZee())
                   .bold
-                  .color(Colors.deepPurple)
+                  .color(context.theme.buttonColor)
                   .make(), //prod name
               catalog.desc.text.make().py8(), //prod description
             ]))

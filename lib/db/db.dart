@@ -106,6 +106,8 @@ class TrackerDatabase {
   }
 }
 
+
+
 class ParqDatabase {
   String userName = "";
   bool isTest = false;
@@ -171,5 +173,32 @@ class ParqDatabase {
 
   void updateDbTest() {
     mybox.put("ISTEST", isTest);
+  }
+}
+
+
+
+final themebox = Hive.box("Theme_db");
+class ThemeDatabase {
+  
+  bool isSwitched = false;
+  
+  //reference the box
+  final mybox = Hive.box("Theme_db");
+
+  //create initial data
+  void createTheme() {
+    isSwitched = false;
+  }
+
+  //load data from db
+  void loadTheme() {
+    isSwitched = mybox.get("THEME");
+    
+  }
+
+  //update data
+  void updateTheme() {
+    mybox.put("THEME", isSwitched);
   }
 }

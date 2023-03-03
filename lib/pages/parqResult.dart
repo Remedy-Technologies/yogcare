@@ -218,7 +218,7 @@ class CatalogList extends StatelessWidget {
   final String medicalVal;
   final String healthVal;
   //offset json for diff categories
-  static int offsets = 1;
+  static int offsets = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -226,15 +226,15 @@ class CatalogList extends StatelessWidget {
     int weightint = int.parse(userWeight);
 
     if (medicalVal == "true") {
-      offsets = 36;
+      offsets = 335;
     } else if (healthVal == "true") {
-      offsets = 43;
+      offsets = 42;
     } else if (int.parse(userAge) <= 10) {
-      offsets = 8;
+      offsets = 7;
     } else if (int.parse(userAge) >= 60) {
-      offsets = 15;
+      offsets = 14;
     } else {
-      offsets = 1;
+      offsets = 0;
     }
 
     //String yog="YogaModels";
