@@ -194,8 +194,8 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Hi $name".text.xl3.color(context.primaryColor).make(),
-        "This are some recomended yoga's for you".text.xl.make()
+        "Hi $name!".text.xl3.color(context.primaryColor).make(),
+        "Here are some asanas handpicked for you".text.xl.make()
       ],
     );
   }
@@ -218,7 +218,7 @@ class CatalogList extends StatelessWidget {
   final String medicalVal;
   final String healthVal;
   //offset json for diff categories
-  int offsets = 1;
+  static int offsets = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -241,11 +241,10 @@ class CatalogList extends StatelessWidget {
 
     return ListView.builder(
       //controller: scrollController,
-      shrinkWrap: false,
+      shrinkWrap: true,
       itemCount: (healthVal == "true") ? 5 : 7,
-      itemBuilder: (context, INDEX) {
-        final yogas = YogaModels.items[offsets];
-        offsets = offsets + 1;
+      itemBuilder: (context, index) {
+        final yogas = YogaModels.items[offsets + index];
         return InkWell(
             onTap: () => Navigator.push(
                 context,

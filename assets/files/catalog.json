@@ -2,8 +2,8 @@
     "sections": [
         {
             "id": 1,
-            "name": "PAR-Q Test",
-            "desc": "Check your recomended yogas",
+            "name": "PAR-Q",
+            "desc": "Check yogas recommended for you",
             "price": 999,
             "color": "#33505a",
             "image": "https://i.postimg.cc/j58jzrHF/parq-test.png"
@@ -11,7 +11,7 @@
         {
             "id": 2,
             "name": "Yoga Tracker",
-            "desc": "keep track of your yoga daily",
+            "desc": "Keep track of your yoga progress daily",
             "price": 699,
             "color": "#00ac51",
             "image": "https://i.postimg.cc/kX6RtJG6/tracker.png"

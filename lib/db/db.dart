@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yoga_app/pages/parqResult.dart';
 import 'package:yoga_app/utils/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 
 final habitbox = Hive.box("Tracker_db");
 
@@ -106,67 +106,70 @@ class TrackerDatabase {
   }
 }
 
-
-class ParqDatabase{
-  String userName="";
+class ParqDatabase {
+  String userName = "";
   bool isTest = false;
-  String userAge="";
-  String userHeight ="";
-  String userWeight ="";
+  String userAge = "";
+  String userHeight = "";
+  String userWeight = "";
 
-  String medicalVal="";
-  String healthVal="";
+  String medicalVal = "";
+  String healthVal = "";
 
   //reference the box
-   final mybox = Hive.box("PARQ_db");
+  final mybox = Hive.box("PARQ_db");
 
-   //create initial data
-   void createInitialParq(){
-    userName="User";
-    userAge="";
-    userHeight ="";
-    userWeight ="";
-   }
-   //load data from db
-   void loadDataParq(){
-    userName =mybox.get("NAMEDB");
-    userAge =mybox.get("AGEDB");
-    userHeight =mybox.get("HEIGHTDB");
-    userWeight =mybox.get("WEIGHTDB");
-   }
-   //update data
-   void updateDb(){
+  //create initial data
+  void createInitialParq() {
+    userName = "User";
+    userAge = "";
+    userHeight = "";
+    userWeight = "";
+  }
+
+  //load data from db
+  void loadDataParq() {
+    userName = mybox.get("NAMEDB");
+    userAge = mybox.get("AGEDB");
+    userHeight = mybox.get("HEIGHTDB");
+    userWeight = mybox.get("WEIGHTDB");
+  }
+
+  //update data
+  void updateDb() {
     mybox.put("NAMEDB", userName);
     mybox.put("AGEDB", userAge);
     mybox.put("HEIGHTDB", userHeight);
     mybox.put("WEIGHTDB", userWeight);
-   }
+  }
 
+  void createInitialHealth() {
+    medicalVal = "no val";
+    healthVal = "no val";
+  }
 
-   void createInitialHealth(){
-    medicalVal="no val";
-    healthVal="no val";
-   }
-   //load data from db
-   void loadDataHealth(){
-    medicalVal =mybox.get("MED");
-    healthVal =mybox.get("HEL");
-   }
-   //update data
-   void updateDbHealth(){   
+  //load data from db
+  void loadDataHealth() {
+    medicalVal = mybox.get("MED");
+    healthVal = mybox.get("HEL");
+  }
+
+  //update data
+  void updateDbHealth() {
     mybox.put("MED", medicalVal);
     mybox.put("HEL", healthVal);
-   }
+  }
 
-
-   //isTest method for checking state of parq test
-  void createInitialTest(){
+  //isTest method for checking state of parq test
+  void createInitialTest() {
     isTest = false;
-   }
-   void loadDataTest(){
-    isTest =mybox.get("ISTEST");
-   }
-   void updateDbTest(){
+  }
+
+  void loadDataTest() {
+    isTest = mybox.get("ISTEST");
+  }
+
+  void updateDbTest() {
     mybox.put("ISTEST", isTest);
-   }
+  }
 }
