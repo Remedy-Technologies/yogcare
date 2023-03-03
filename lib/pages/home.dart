@@ -34,9 +34,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   //reference the hive box
-  final habitbox = Hive.box("Habit_db");
+  final habitbox = Hive.box("Tracker_db");
   //call db
-  HabitDatabase db = HabitDatabase();
+  TrackerDatabase db = TrackerDatabase();
   @override
   void initState() {
     if (habitbox.get("HABITLIST") == null) {
@@ -200,7 +200,7 @@ class _CatalogListState extends State<StatefulWidget> {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HabitPage(),
+                    builder: (context) => TrackerPage(),
                   )),
               child: CatalogItem(catalog: catalog));
         } else {

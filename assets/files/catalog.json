@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "PAR-Q Test",
-            "desc": "Take a 5 min fitness test",
+            "desc": "Check your recomended yogas",
             "price": 999,
             "color": "#33505a",
             "image": "https://i.postimg.cc/j58jzrHF/parq-test.png"

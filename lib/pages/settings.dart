@@ -11,6 +11,8 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/widgets/themes.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../main.dart';
 import '../utils/routes.dart';
@@ -55,17 +57,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: "Dark Mode".text.xl2.make().py16().px16(),
                   trailing:  Switch(                                  //switch
                     value: isSwitched,     
-                    onChanged: (value) async{
-                      
+                    onChanged: (value) async{     
                       isSwitched=value;
-                      //SharedPreferences sp = await SharedPreferences.getInstance();
-                      //sp.setBool("theme", value);  
-                      //print(value);       
-                      setState(() async {  
-                           
-                        //isSwitched=value;               
-                        //isSwitched = sp.getBool("theme")??false;
-                        //print(sp.getBool("theme")??false);
+                      setState(() async {                            
                         await Navigator.push(                              //pushing value to main
                           context,
                           MaterialPageRoute(
@@ -79,41 +73,57 @@ class _SettingsPageState extends State<SettingsPage> {
               ).color(context.canvasColor).roundedLg.square(70).make().py12(),
 
               //Reach us
-              VxBox(                  
-                child:  ListTile(
-                  leading: Icon(CupertinoIcons.mail_solid, color: context.primaryColor,).py16(),
-                  title: "Reach Us".text.xl2.make().py16().px16(),     
-                 ),            
-              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              GestureDetector(
+                onTap: (() async{
+                 String emailurl="mailto:priyanshudutta13@gmail.com";
+                 
+                  launchUrlString(emailurl);
+                 
+                }),
+                child: VxBox(
+                                    
+                  child:  ListTile(
+                    leading: Icon(CupertinoIcons.mail_solid, color: context.primaryColor,).py16(),
+                    title: "Reach Us".text.xl2.make().py16().px16(),
+                         
+                   ),            
+                ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              ),
 
-              //Terms And Conditions
-              VxBox(                  
-                child:  ListTile(
-                  leading: Icon(CupertinoIcons.doc_text_fill, color: context.primaryColor,).py16(),
-                  title: "Terms And Conditions".text.xl2.make().py16().px16(),     
-                 ),            
-              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+             //Terms and Conditions
+              GestureDetector(
+                onTap: (() async{
+                  final url=Uri.parse('https://flutter.dev/');
+                  launchUrl(url);
+                }),
+                child: VxBox(
+                                    
+                  child:  ListTile(
+                    leading: Icon(CupertinoIcons.doc_text_fill, color: context.primaryColor,).py16(),
+                    title: "Terms and Conditions".text.xl2.make().py16().px16(),
+                         
+                   ),            
+                ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              ),
 
-              //Privacy Policy
-              VxBox(                  
-                child:  ListTile(
-                  leading: Icon(CupertinoIcons.doc_on_doc_fill, color: context.primaryColor,).py16(),
-                  title: "Privacy Policy".text.xl2.make().py16().px16(),     
-                 ),            
-              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
 
-              //GestureDetector(
-                //onTap: ()async{
-                  //signUserout();
-                  //setState(() {});
-               // },
-                //child: VxBox(                  
-                  //child:  ListTile(
-                   // leading: Icon(CupertinoIcons.doc_on_doc_fill, color: context.primaryColor,).py16(),
-                   // title: "Sign Out".text.xl2.make().py16().px16(),     
-                  // ),            
-               // ).color(context.canvasColor).roundedLg.square(70).make().py12(),
-              //),
+              //Privacy policy
+              GestureDetector(
+                onTap: (() async{
+                  final url=Uri.parse('https://flutter.dev/');
+                  launchUrl(url);
+                }),
+                child: VxBox(
+                                    
+                  child:  ListTile(
+                    leading: Icon(CupertinoIcons.doc_on_doc_fill, color: context.primaryColor,).py16(),
+                    title: "Privacy policy".text.xl2.make().py16().px16(),
+                         
+                   ),            
+                ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              ),
+
+
           ],
         )
       ).py32(),

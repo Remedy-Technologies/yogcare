@@ -3,15 +3,9 @@ import 'package:yoga_app/utils/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 
+final habitbox = Hive.box("Tracker_db");
 
-
-
-
-
-
-final habitbox = Hive.box("Habit_db");
-
-class HabitDatabase {
+class TrackerDatabase {
   List habitList = [];
   Map<DateTime, int> heatMapDataSet = {};
 

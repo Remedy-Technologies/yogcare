@@ -13,19 +13,18 @@ import '../widgets/form_buttons.dart';
 import '../utils/tracker_tile.dart';
 import '../utils/monthly_habit.dart';
 
-class HabitPage extends StatefulWidget {
-  const HabitPage({super.key});
+class TrackerPage extends StatefulWidget {
+  const TrackerPage({super.key});
 
   @override
-  State<HabitPage> createState() => _HabitPageState();
+  State<TrackerPage> createState() => _TrackerPageState();
 }
 
-class _HabitPageState extends State<HabitPage> {
+class _TrackerPageState extends State<TrackerPage> {
   //reference the hive box
-  final habitbox = Hive.box("Habit_db");
-
+  final habitbox = Hive.box("Tracker_db");
   //call db
-  HabitDatabase db = HabitDatabase();
+  TrackerDatabase db = TrackerDatabase();
 
   @override
   void initState() {

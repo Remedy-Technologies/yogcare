@@ -80,7 +80,6 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
-    - assets/google_fonts/
-    
+    - assets/google_fonts/  
     - assets/
 
