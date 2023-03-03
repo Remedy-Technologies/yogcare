@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
-import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/utils/date_time.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:yoga_app/pages/home.dart';
 
 import '../widgets/form_buttons.dart';
 import '../utils/tracker_tile.dart';
@@ -35,6 +31,7 @@ class _TrackerPageState extends State<TrackerPage> {
     else {
       db.loadData();
     }
+    // ignore: todo
     // TODO: implement initState
     super.initState();
   }
@@ -68,7 +65,7 @@ class _TrackerPageState extends State<TrackerPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "New Yoga",
                     style: TextStyle(fontSize: 16),
                   ),
@@ -76,7 +73,7 @@ class _TrackerPageState extends State<TrackerPage> {
                   TextField(
                     style: TextStyle(color: context.primaryColor),
                     controller: controller,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Add a New Yoga",
                         hintStyle: TextStyle(color: Colors.grey)),
                   ),
@@ -86,7 +83,7 @@ class _TrackerPageState extends State<TrackerPage> {
                     //save button
                     children: [
                       MyButton(text: "Save", onPressed: saveNewHabit),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       MyButton(
                         text: "Cancel",
                         onPressed: () => Navigator.pop(context),
@@ -127,7 +124,7 @@ class _TrackerPageState extends State<TrackerPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Update Yoga",
                     style: TextStyle(fontSize: 16),
                   ),
@@ -135,7 +132,7 @@ class _TrackerPageState extends State<TrackerPage> {
                   TextField(
                     style: TextStyle(color: context.primaryColor),
                     controller: newcontroller,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Change the Yoga",
                         hintStyle: TextStyle(color: Colors.grey)),
                   ),
@@ -147,7 +144,7 @@ class _TrackerPageState extends State<TrackerPage> {
                       MyButton(
                           text: "Save",
                           onPressed: () => saveExistingHabit(index)),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       MyButton(
                         text: "Cancel",
                         onPressed: () => Navigator.pop(context),
@@ -191,11 +188,11 @@ class _TrackerPageState extends State<TrackerPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewHabit,
-        child: Icon(
+        backgroundColor: context.theme.buttonColor,
+        child: const Icon(
           CupertinoIcons.plus,
           color: Colors.white,
         ),
-        backgroundColor: context.theme.buttonColor,
       ),
       body: ListView(
         children: [

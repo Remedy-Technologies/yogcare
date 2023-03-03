@@ -324,23 +324,27 @@ class _HealthDetailsState extends State<HealthDetails> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 50, bottom: 20),
                   child: ElevatedButton(
                     onPressed: (() {
                       _saveForm();
                     }),
-                    child: "Submit".text.xl2.make().px8(),
                     style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(context.theme.buttonColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      )),
                       padding:
                           MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
                         (Set<MaterialState> states) {
-                          return EdgeInsets.symmetric(
-                              horizontal: 80, vertical: 15);
+                          return const EdgeInsets.symmetric(
+                              horizontal: 100, vertical: 15);
                         },
                       ),
                     ),
+                    child: "Submit".text.xl2.make().px8(),
                   ),
                 ),
               ],
