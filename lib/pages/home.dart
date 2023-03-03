@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     "Today's progress"
                         .text
-                        .textStyle(GoogleFonts.comfortaa())
+                        .textStyle(GoogleFonts.aBeeZee())
                         .make(),
                     const SizedBox(
                       width: 20,
@@ -160,14 +160,14 @@ class CatalogHeader extends StatelessWidget {
           child: "yogcare"
               .text
               .xl5
-              .color(Colors.deepPurple)
+              .color(Colors.deepPurpleAccent)
               .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
               .make(),
         ), // same as Text() but easy to use
         "Creating a Healthy Lifestyle"
             .text
             .xl
-            .textStyle(GoogleFonts.comfortaa())
+            .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
             .make()
       ],
     );
@@ -243,9 +243,9 @@ class CatalogItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
               catalog.name.text.xl
-                  .textStyle(context.captionStyle)
+                  .textStyle(GoogleFonts.aBeeZee())
                   .bold
-                  .color(context.theme.buttonColor)
+                  .color(Colors.deepPurple)
                   .make(), //prod name
               catalog.desc.text.make().py8(), //prod description
             ]))

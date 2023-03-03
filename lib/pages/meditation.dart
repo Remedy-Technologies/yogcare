@@ -20,11 +20,12 @@ class _MeditationPageState extends State<MeditationPage> {
   //Duration position=Duration.zero;
 
   //duration setting
-  Duration? duration = Duration(seconds: 0);
+  Duration? duration = const Duration(seconds: 0);
 
   // function to initialize music
   void initPlayer() async {
-    await audioplayer.setSource(AssetSource("Senorita.mp3"));
+    await audioplayer.setSource(
+        AssetSource("aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3"));
     duration = await audioplayer.getDuration();
   }
 
@@ -45,7 +46,7 @@ class _MeditationPageState extends State<MeditationPage> {
           title: "Meditation".text.xl2.color(context.primaryColor).make(),
         ),
         body: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -54,7 +55,7 @@ class _MeditationPageState extends State<MeditationPage> {
                 padding: const EdgeInsets.only(top: 50),
                 child: Center(
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     // ignore: sort_child_properties_last
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
@@ -65,14 +66,14 @@ class _MeditationPageState extends State<MeditationPage> {
                         borderRadius: BorderRadius.circular(10),
                         color: context.cardColor,
                         boxShadow: [
-                          BoxShadow(
+                          const BoxShadow(
                               color: Colors.grey,
                               blurRadius: 15,
                               offset: Offset(-5, 5)),
                           BoxShadow(
                               color: context.canvasColor,
                               blurRadius: 15,
-                              offset: Offset(5, -5)),
+                              offset: const Offset(5, -5)),
                         ]),
                   ),
                 ),
@@ -139,13 +140,16 @@ class _MeditationPageState extends State<MeditationPage> {
 
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("${(value / 60).floor()}: ${(value % 60).floor()}"),
-                    Text(
-                        "${duration!.inMinutes} : ${duration!.inSeconds % 60}"),
+                    Text((value % 60 < 10)
+                        ? "${(value / 60).floor()}: 0${(value % 60).floor()}"
+                        : "${(value / 60).floor()}: ${(value % 60).floor()}"),
+                    Text((duration!.inSeconds % 60 < 10)
+                        ? "${duration!.inMinutes} : 0${duration!.inSeconds % 60}"
+                        : "${duration!.inMinutes} : ${duration!.inSeconds % 60}"),
                   ],
                 ),
               ),
