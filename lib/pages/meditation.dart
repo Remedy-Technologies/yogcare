@@ -37,6 +37,13 @@ class _MeditationPageState extends State<MeditationPage> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    audioplayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
