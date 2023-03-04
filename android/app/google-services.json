@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "662320347384",
+    "project_id": "yogcare",
+    "storage_bucket": "yogcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662320347384:android:c36258a8cfa2e25da3e30d",
+        "android_client_info": {
+          "package_name": "com.teamremedy.yogcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662320347384-cqpsr8ep7fv2rnh29lr915bcg3v120fp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teamremedy.yogcare",
+            "certificate_hash": "2211700195980f643ff248e2283f4d101c2c41d1"
+          }
+        },
+        {
+          "client_id": "662320347384-4i2lq9h8i4dafsfu974rlmkggpel241t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVdIPbLfV-G8o0hJ9fNm2lcxVTkS5NQE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662320347384-4i2lq9h8i4dafsfu974rlmkggpel241t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "662320347384-j7cshaa82q83r5n5r90so3bmot3tnb2d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yogaApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

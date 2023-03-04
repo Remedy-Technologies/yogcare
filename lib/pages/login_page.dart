@@ -6,6 +6,8 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/widgets/auth_services.dart';
 
+import '../utils/routes.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({super.key, required this.onTap});
   final Function()? onTap;
@@ -68,6 +70,13 @@ class _LoginPageState extends State<LoginPage> {
         return AlertDialog(title: Text("Wrong password"),);
       })
       );
+  }
+
+  void goHome(){
+    setState(() {    
+    });
+    Future.delayed(Duration(seconds: 1));
+    Navigator.pushNamed(context, Myroutes.homeRoute);
   }
 
   @override
@@ -228,6 +237,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                     
                     ],
                   ),
                 ),

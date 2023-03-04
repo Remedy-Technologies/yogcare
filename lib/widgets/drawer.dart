@@ -75,7 +75,7 @@ class _AppDrawerState extends State<AppDrawer> {
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
                 accountName: Text(
-                  mybox.get("NAMEDB"),
+                  userName,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
