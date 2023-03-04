@@ -94,7 +94,8 @@ class _SettingsPageState extends State<SettingsPage> {
           //Terms and Conditions
           GestureDetector(
             onTap: (() async {
-              final url = Uri.parse('https://flutter.dev/');
+              final url = Uri.parse(
+                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/about-us.md');
               launchUrl(url);
             }),
             child: VxBox(
@@ -103,7 +104,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   CupertinoIcons.doc_text_fill,
                   color: context.primaryColor,
                 ).py16(),
-                title: "Terms and Conditions".text.xl2.make().py16().px16(),
+                title: "About Us".text.xl2.make().py16().px16(),
               ),
             ).color(context.canvasColor).roundedLg.square(70).make().py12(),
           ),
@@ -111,7 +112,8 @@ class _SettingsPageState extends State<SettingsPage> {
           //Privacy policy
           GestureDetector(
             onTap: (() async {
-              final url = Uri.parse('https://flutter.dev/');
+              final url = Uri.parse(
+                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/privacy-policy.md');
               launchUrl(url);
             }),
             child: VxBox(
