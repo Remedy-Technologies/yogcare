@@ -39,7 +39,10 @@ IconData icondark = Icons.nights_stay;
 class _SettingsPageState extends State<SettingsPage> {
 //const MyApp({super.key});
   
-  
+  //reference the hive box
+
+
+
   
 
 
@@ -65,6 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     value: isSwitched,     
                     onChanged: (value) async{     
                       isSwitched=value;
+                      
                       setState(() async {   
                         
                                             

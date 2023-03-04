@@ -16,13 +16,39 @@ import '../utils/routes.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawer extends StatefulWidget {
   AppDrawer({super.key});
+
+  @override
+  State<AppDrawer> createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer> {
   final user = FirebaseAuth.instance.currentUser!;
+  String userName="";
 
   get catalog => null;
 
+  //reference the hive box
   final mybox = Hive.box("PARQ_db");
+  //list of to do tasks
+  ParqDatabase db = ParqDatabase();
+
+  void initState() {
+    //first time app? default data
+    if (mybox.get("NAMEDB") == null) {
+      db.createInitialParq();
+      userName = db.userName;
+    }
+    //already exist data
+    else {
+      db.loadDataParq();
+      userName = db.userName;
+    }
+
+    db.updateDb();
+    super.initState();
+  }
 
   void signUserout() async {
     FirebaseAuth.instance.signOut();
