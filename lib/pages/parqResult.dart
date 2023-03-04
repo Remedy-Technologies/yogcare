@@ -3,6 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -115,7 +116,7 @@ class _ResultsPageState extends State<ResultsPage> {
 
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(32),
+          padding: EdgeInsets.all(16),
           child: Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,11 +155,12 @@ class _ResultsPageState extends State<ResultsPage> {
                         borderRadius: BorderRadius.circular(15)),
                     child: Center(
                         child: Text(
-                      "RetakeTest",
-                      style: TextStyle(
-                          color: context.canvasColor,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                      "Retake Test",
+                      style: GoogleFonts.aBeeZee(
+                          textStyle: TextStyle(
+                              color: context.canvasColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
                     )),
                   ),
                 ),
@@ -194,8 +196,13 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Hi $name!".text.xl3.color(context.primaryColor).make(),
-        "Here are some asanas handpicked for you".text.xl.make()
+        "Hi $name!"
+            .text
+            .xl3
+            .color(context.primaryColor)
+            .textStyle(GoogleFonts.aBeeZee())
+            .make(),
+        "Here are some asanas handpicked for you:".text.xl.make()
       ],
     );
   }
@@ -275,7 +282,7 @@ class CatalogItem extends StatelessWidget {
             child: Image.network(yogas.img) //prod image
                 .box
                 .p12
-                .roundedSM
+                .roundedLg
                 .color(context.cardColor)
                 .make()
                 .p16()

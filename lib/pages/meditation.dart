@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MeditationPage extends StatefulWidget {
@@ -91,13 +92,14 @@ class _MeditationPageState extends State<MeditationPage> {
               ),
 
               Text(
-                //Text
-                "MEDITATION MUSIC",
-                style: TextStyle(
-                    fontSize: 24,
-                    color: context.primaryColor,
-                    letterSpacing: 5),
-              ),
+                  //Text
+                  "MEDITATION MUSIC",
+                  style: GoogleFonts.aBeeZee(
+                    textStyle: TextStyle(
+                        fontSize: 24,
+                        color: context.primaryColor,
+                        letterSpacing: 5),
+                  )),
               const SizedBox(
                 height: 10,
               ),
@@ -152,8 +154,8 @@ class _MeditationPageState extends State<MeditationPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text((value % 60 < 10)
-                        ? "${(value / 60).floor()}: 0${(value % 60).floor()}"
-                        : "${(value / 60).floor()}: ${(value % 60).floor()}"),
+                        ? "${(value / 60).floor()} : 0${(value % 60).floor()}"
+                        : "${(value / 60).floor()} : ${(value % 60).floor()}"),
                     Text((duration!.inSeconds % 60 < 10)
                         ? "${duration!.inMinutes} : 0${duration!.inSeconds % 60}"
                         : "${duration!.inMinutes} : ${duration!.inSeconds % 60}"),

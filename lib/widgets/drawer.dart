@@ -24,6 +24,8 @@ class AppDrawer extends StatelessWidget {
 
   final mybox = Hive.box("PARQ_db");
 
+  ParqDatabase db = ParqDatabase();
+
   void signUserout() async {
     FirebaseAuth.instance.signOut();
   }
