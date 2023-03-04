@@ -76,7 +76,8 @@ class _SettingsPageState extends State<SettingsPage> {
           //Reach us
           GestureDetector(
             onTap: (() async {
-              String emailurl = "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
+              String emailurl =
+                  "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
 
               launchUrlString(emailurl);
             }),
@@ -131,7 +132,7 @@ class _SettingsPageState extends State<SettingsPage> {
           GestureDetector(
             onTap: (() async {
               final url = Uri.parse(
-                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/Disclaimer.md');
+                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/disclaimer.md');
               launchUrl(url);
             }),
             child: VxBox(

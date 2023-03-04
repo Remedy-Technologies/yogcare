@@ -96,7 +96,6 @@ class _HealthDetailsState extends State<HealthDetails> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: Container(
@@ -354,12 +353,15 @@ class _HealthDetailsState extends State<HealthDetails> {
                 GestureDetector(
                   onTap: (() async {
                     final url = Uri.parse(
-                      'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/Disclaimer.md');
-                      launchUrl(url);
+                        'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/disclaimer.md');
+                    launchUrl(url);
                   }),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 5,bottom: 2),
-                    child: Text("Disclaimer",style: TextStyle(color: Colors.blue,fontSize: 10),),
+                  child: const Padding(
+                    padding: EdgeInsets.only(top: 5, bottom: 2),
+                    child: Text(
+                      "DISCLAIMER",
+                      style: TextStyle(color: Colors.blue, fontSize: 12),
+                    ),
                   ),
                 ),
               ],
