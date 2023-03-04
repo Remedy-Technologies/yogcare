@@ -234,7 +234,7 @@ class CatalogItem extends StatelessWidget {
                 .box
                 .p12
                 .roundedLg
-                .square(150)
+                .square(100)
                 .color(context.cardColor)
                 .make()
                 .p16()

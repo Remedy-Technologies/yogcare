@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:yoga_app/db/db.dart';
 
@@ -93,6 +96,7 @@ class _HealthDetailsState extends State<HealthDetails> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: Container(
@@ -193,7 +197,7 @@ class _HealthDetailsState extends State<HealthDetails> {
                           ).px12(),
                         ),
                         Text(
-                          "Pregnant or Postpartum",
+                          "Circulatory Problems",
                           style: TextStyle(
                             fontSize: 18,
                             color: context.primaryColor,
@@ -345,6 +349,17 @@ class _HealthDetailsState extends State<HealthDetails> {
                       ),
                     ),
                     child: "Submit".text.xl2.make().px8(),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: (() async {
+                    final url = Uri.parse(
+                      'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/Disclaimer.md');
+                      launchUrl(url);
+                  }),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 5,bottom: 2),
+                    child: Text("Disclaimer",style: TextStyle(color: Colors.blue,fontSize: 10),),
                   ),
                 ),
               ],

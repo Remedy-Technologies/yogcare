@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
           //Reach us
           GestureDetector(
             onTap: (() async {
-              String emailurl = "mailto:priyanshudutta13@gmail.com";
+              String emailurl = "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
 
               launchUrlString(emailurl);
             }),
@@ -123,6 +123,24 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: context.primaryColor,
                 ).py16(),
                 title: "Privacy policy".text.xl2.make().py16().px16(),
+              ),
+            ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+          ),
+
+          //Disclaimer
+          GestureDetector(
+            onTap: (() async {
+              final url = Uri.parse(
+                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/Disclaimer.md');
+              launchUrl(url);
+            }),
+            child: VxBox(
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.doc_on_doc_fill,
+                  color: context.primaryColor,
+                ).py16(),
+                title: "Disclaimer".text.xl2.make().py16().px16(),
               ),
             ).color(context.canvasColor).roundedLg.square(70).make().py12(),
           ),
