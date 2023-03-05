@@ -7,4 +7,4 @@ asanas.<br/>
 • Yogcare will have several features such as a daily and monthly yoga
 tracker for maintaining your habit, meditation and many more.
 
-Link to apk file: https://drive.google.com/drive/folders/19jfgp23mEcxKnhcjj_Um3ufo1xbYHMsV?usp=share_link
+Link to apk file: https://drive.google.com/drive/folders/1dkvbT_oDmOh2_3Q133YCjueFkft_2_nC?usp=share_link
