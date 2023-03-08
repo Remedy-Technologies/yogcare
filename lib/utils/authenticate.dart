@@ -7,6 +7,7 @@ import 'package:yoga_app/pages/login_page.dart';
 import 'package:yoga_app/pages/settings.dart';
 import 'package:yoga_app/utils/loginOrRegister.dart';
 
+import '../pages/parqResult.dart';
 import '../pages/personaldet.dart';
 
 class AuthPage extends StatelessWidget {

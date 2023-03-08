@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/personaldet.dart';
+import 'package:yoga_app/pages/tracker.dart';
 import '../pages/parqResult.dart';
 
 
