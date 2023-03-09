@@ -59,6 +59,8 @@ class _RegisterPageState extends State<RegisterPage> {
         }));
   }
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 10, right: 25, left: 25, bottom: 20),
+                    top: 0, right: 25, left: 25, bottom: 0),
                 child: Image.asset(
                   //top image
                   "assets/images/bgless_app_logo.png",
@@ -85,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Text(
                 "Create Account",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   color: context.primaryColor,
                 ),
               ),
@@ -99,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Email",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 16,
+                      fontSize: 14,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -128,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Password",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 16,
+                      fontSize: 14,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -146,8 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                padding: const EdgeInsets.fromLTRB(25, 15, 25, 0),
                 child: TextField(
                   // confirm password
                   controller: confirmpasswordcontroller,
@@ -156,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Confirm Password",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 16,
+                      fontSize: 14,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -186,13 +187,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   decoration: BoxDecoration(
                       // ignore: deprecated_member_use
                       color: context.theme.buttonColor,
-                      borderRadius: BorderRadius.circular(8)),
+                      borderRadius: BorderRadius.circular(50)),
                   child: Center(
                       child: Text(
                     "Sign Up",
                     style: TextStyle(
                         color: context.canvasColor,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold),
                   )),
                 ),
@@ -221,30 +222,66 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Row(
                 //google login
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () => AuthService().signInGoogle(),
+                    onTap: () {
+                      setState(() {
+                        isLoading = true;
+                      });
+                      Future.delayed(const Duration(milliseconds: 800), () {
+                        setState(() {
+                          AuthService().signInGoogle();
+                          isLoading = false;
+                        });
+                      });
+                    },
                     child: Container(
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: context.canvasColor),
-                          color: context.canvasColor,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Image.asset(
-                        "assets/images/google.png",
-                        height: 50,
-                      ),
-                    ),
+                        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: context.canvasColor),
+                            color: context.canvasColor,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: isLoading
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  const Text(
+                                    'Loading...',
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const CircularProgressIndicator(
+                                    color: Colors.purple,
+                                  ),
+                                ],
+                              )
+                            : Row(children: [
+                                Image.asset(
+                                  "assets/images/google.png",
+                                  height: 30,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  "Google",
+                                  style: TextStyle(fontSize: 16),
+                                )
+                              ])),
                   )
                 ],
               ),
               const SizedBox(
-                height: 40,
+                height: 36,
               ),
               Padding(
                 //Sign In

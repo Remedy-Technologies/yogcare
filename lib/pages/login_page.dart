@@ -76,190 +76,228 @@ class _LoginPageState extends State<LoginPage> {
     Navigator.pushNamed(context, Myroutes.homeRoute);
   }
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.cardColor,
-      //logo
-      body: SingleChildScrollView(
-        child: SafeArea(
-            child: Center(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 0, right: 25, left: 25, bottom: 10),
-                child: Image.asset(
-                  //top image
-                  "assets/images/bgless_app_logo.png",
-                  fit: BoxFit.contain,
-                  height: 290,
+        backgroundColor: context.cardColor,
+        //logo
+        body: SingleChildScrollView(
+          child: SafeArea(
+              child: Center(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              Text(
-                "Welcome Back!",
-                style: TextStyle(
-                  fontSize: 24,
-                  color: context.primaryColor,
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                child: TextField(
-                  //Mail
-                  controller: emailcontroller,
-                  decoration: InputDecoration(
-                    labelText: "Email",
-                    labelStyle: TextStyle(
-                      color: context.primaryColor,
-                      fontSize: 16,
-                    ),
-                    filled: true,
-                    fillColor: context.canvasColor,
-                    prefixIcon: const Icon(Icons.person),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide:
-                          BorderSide(color: context.primaryColor, width: 3.0),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 0, right: 0, left: 0, bottom: 0),
+                  child: Image.asset(
+                    //top image
+                    "assets/images/bgless_app_logo.png",
+                    fit: BoxFit.contain,
+                    height: 200,
+                    width: 200,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: TextField(
-                  //password
-                  controller: passwordcontroller,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    labelStyle: TextStyle(
-                      color: context.primaryColor,
-                      fontSize: 16,
-                    ),
-                    filled: true,
-                    fillColor: context.canvasColor,
-                    prefixIcon: const Icon(Icons.remove_red_eye),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide:
-                          BorderSide(color: context.primaryColor, width: 3.0),
-                    ),
+                Text(
+                  "Welcome!",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: context.primaryColor,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              GestureDetector(
-                //sign in button
-                onTap: signUserIn,
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  margin: const EdgeInsets.symmetric(horizontal: 25),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      // ignore: deprecated_member_use
-                      color: context.theme.buttonColor,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                      child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                        color: context.canvasColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: context.primaryColor,
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text("or continue with"),
-                  ),
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: context.primaryColor,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Row(
-                //google login
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () => AuthService().signInGoogle(),
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: context.canvasColor),
-                          color: context.canvasColor,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Image.asset(
-                        "assets/images/google.png",
-                        height: 50,
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 18),
+                  child: TextField(
+                    //Mail
+                    controller: emailcontroller,
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                      labelStyle: TextStyle(
+                        color: context.primaryColor,
+                        fontSize: 14,
+                      ),
+                      filled: true,
+                      fillColor: context.canvasColor,
+                      prefixIcon: const Icon(Icons.person),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        borderSide:
+                            BorderSide(color: context.primaryColor, width: 3.0),
                       ),
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Padding(
-                //Sign In
-                padding: const EdgeInsets.only(bottom: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    const Text("Not a member?"),
-                    const SizedBox(
-                      width: 4,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    //password
+                    controller: passwordcontroller,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      labelStyle: TextStyle(
+                        color: context.primaryColor,
+                        fontSize: 14,
+                      ),
+                      filled: true,
+                      fillColor: context.canvasColor,
+                      prefixIcon: const Icon(Icons.remove_red_eye),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        borderSide:
+                            BorderSide(color: context.primaryColor, width: 3.0),
+                      ),
                     ),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: Text(
-                        "Register Now",
-                        style: TextStyle(
-                            color: context.primaryColor,
-                            fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  //sign in button
+                  onTap: signUserIn,
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.symmetric(horizontal: 25),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
+                        color: context.theme.buttonColor,
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Center(
+                        child: Text(
+                      "Sign In",
+                      style: TextStyle(
+                          color: context.canvasColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: context.primaryColor,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text("or continue with"),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: context.primaryColor,
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        )),
-      ),
-    );
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  //google login
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        Future.delayed(const Duration(milliseconds: 800), () {
+                          setState(() {
+                            AuthService().signInGoogle();
+                            isLoading = false;
+                          });
+                        });
+                      },
+                      child: Container(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: context.canvasColor),
+                              color: context.canvasColor,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: isLoading
+                              ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    const Text(
+                                      'Loading...',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                    const SizedBox(
+                                      width: 16,
+                                    ),
+                                    const CircularProgressIndicator(
+                                      color: Colors.purple,
+                                    ),
+                                  ],
+                                )
+                              : Row(children: [
+                                  Image.asset(
+                                    "assets/images/google.png",
+                                    height: 30,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Text(
+                                    "Google",
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ])),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 36,
+                ),
+                Padding(
+                  //Sign In
+                  padding: const EdgeInsets.only(bottom: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const Text("Not a member?"),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: widget.onTap,
+                        child: Text(
+                          "Register Now",
+                          style: TextStyle(
+                              color: context.primaryColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )),
+        ));
   }
 }

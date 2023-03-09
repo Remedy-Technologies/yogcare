@@ -116,11 +116,11 @@ class _ResultsPageState extends State<ResultsPage> {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(16),
-          
+          child: Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                YogaHeader(
+                CatalogHeader(
                   name: name,
                   userAge: userAge,
                   userHeight: userHeight,
@@ -128,8 +128,8 @@ class _ResultsPageState extends State<ResultsPage> {
                   medicalVal: medicalVal,
                   healthVal: healthVal,
                 ),
-                if (YogaModels.items.isNotEmpty)
-                  YogaList(
+                if (CatalogModels.items.isNotEmpty)
+                  CatalogList(
                     name: name,
                     userAge: userAge,
                     userHeight: userHeight,
@@ -165,15 +165,15 @@ class _ResultsPageState extends State<ResultsPage> {
                 ),
               ],
             ),
-          
+          ),
         ),
       ),
     );
   }
 }
 
-class YogaHeader extends StatelessWidget {
-  const YogaHeader({
+class CatalogHeader extends StatelessWidget {
+  const CatalogHeader({
     super.key,
     required this.name,
     required this.userAge,
@@ -207,8 +207,8 @@ class YogaHeader extends StatelessWidget {
   }
 }
 
-class YogaList extends StatelessWidget {
-  YogaList({
+class CatalogList extends StatelessWidget {
+  CatalogList({
     super.key,
     required this.name,
     required this.userAge,
@@ -248,7 +248,7 @@ class YogaList extends StatelessWidget {
     return ListView.builder(
       //controller: scrollController,
       shrinkWrap: true,
-      itemCount: 7,
+      itemCount: (healthVal == "true") ? 5 : 7,
       itemBuilder: (context, index) {
         final yogas = YogaModels.items[offsets + index];
         return InkWell(
@@ -259,15 +259,15 @@ class YogaList extends StatelessWidget {
                     yogas: yogas,
                   ),
                 )),
-            child: YogaItem(yogas: yogas));
+            child: CatalogItem(yogas: yogas));
       },
     ).py12();
   }
 }
 
-class YogaItem extends StatelessWidget {
+class CatalogItem extends StatelessWidget {
   final Yogas yogas;
-  const YogaItem({super.key, required this.yogas});
+  const CatalogItem({super.key, required this.yogas});
   @override
   Widget build(BuildContext context) {
     return VxBox(
