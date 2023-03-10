@@ -107,68 +107,61 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //Velocity X
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-      ),
-      backgroundColor: context.cardColor,
-
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          child: Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CatalogHeader(
+        //Velocity X
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
+        backgroundColor: context.cardColor,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CatalogHeader(
+                name: name,
+                userAge: userAge,
+                userHeight: userHeight,
+                userWeight: userWeight,
+                medicalVal: medicalVal,
+                healthVal: healthVal,
+              ),
+              if (CatalogModels.items.isNotEmpty)
+                CatalogList(
                   name: name,
                   userAge: userAge,
                   userHeight: userHeight,
                   userWeight: userWeight,
                   medicalVal: medicalVal,
                   healthVal: healthVal,
+                ).expand()
+              else
+                Center(
+                  child: CircularProgressIndicator(),
                 ),
-                if (CatalogModels.items.isNotEmpty)
-                  CatalogList(
-                    name: name,
-                    userAge: userAge,
-                    userHeight: userHeight,
-                    userWeight: userWeight,
-                    medicalVal: medicalVal,
-                    healthVal: healthVal,
-                  ).expand()
-                else
-                  Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                GestureDetector(
-                  //retake button
-                  onTap: retakeTest,
-                  child: Container(
-                    padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.symmetric(horizontal: 15),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        // ignore: deprecated_member_use
-                        color: context.theme.buttonColor,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Center(
-                        child: Text(
-                      "Retake Test",
-                      style: GoogleFonts.aBeeZee(
-                          textStyle: TextStyle(
-                              color: context.canvasColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
-                    )),
-                  ),
+              GestureDetector(
+                //retake button
+                onTap: retakeTest,
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
+                      color: context.theme.buttonColor,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Center(
+                      child: Text(
+                    "Retake Test",
+                    style: GoogleFonts.aBeeZee(
+                        textStyle: TextStyle(
+                            color: context.canvasColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                  )),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
 
@@ -195,20 +188,24 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Hi $name!"
-            .text
-            .xl3
-            .color(context.primaryColor)
-            .textStyle(GoogleFonts.aBeeZee())
-            .make(),
-        "Here are some asanas handpicked for you:".text.xl.make()
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: "Hi $name!"
+                .text
+                .xl3
+                .color(context.primaryColor)
+                .textStyle(GoogleFonts.aBeeZee())
+                .make()),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+            child: "Here are some asanas handpicked for you:".text.xl.make()),
       ],
     );
   }
 }
 
 class CatalogList extends StatelessWidget {
-  CatalogList({
+  const CatalogList({
     super.key,
     required this.name,
     required this.userAge,
@@ -305,6 +302,6 @@ class CatalogItem extends StatelessWidget {
               ).py8(), //yoga description
             ])),
       ],
-    )).color(context.canvasColor).roundedLg.square(120).make().py16();
+    )).color(context.canvasColor).roundedLg.square(120).make().py16().px16();
   }
 }

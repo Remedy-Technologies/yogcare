@@ -115,8 +115,8 @@ class _AppDrawerState extends State<AppDrawer> {
                           TextStyle(color: context.primaryColor, fontSize: 18),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
-                          final url =
-                              Uri.parse('https://play.google.com/store/games');
+                          final url = Uri.parse(
+                              'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
                           launchUrl(url);
                         })
                 ]))),

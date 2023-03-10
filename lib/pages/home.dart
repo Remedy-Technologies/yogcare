@@ -254,6 +254,6 @@ class CatalogItem extends StatelessWidget {
               catalog.desc.text.make().py8(), //prod description
             ]))
       ],
-    )).color(context.canvasColor).roundedLg.square(150).make().py16();
+    )).color(context.canvasColor).roundedLg.square(138).make().py16();
   }
 }

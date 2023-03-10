@@ -76,18 +76,19 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 0, right: 25, left: 25, bottom: 0),
+                    top: 10, right: 25, left: 25, bottom: 0),
                 child: Image.asset(
                   //top image
                   "assets/images/bgless_app_logo.png",
                   fit: BoxFit.contain,
-                  height: 200,
+                  height: 240,
+                  width: 240,
                 ),
               ),
               Text(
                 "Create Account",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 24,
                   color: context.primaryColor,
                 ),
               ),
@@ -101,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Email",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -130,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Password",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -157,7 +158,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     labelText: "Confirm Password",
                     labelStyle: TextStyle(
                       color: context.primaryColor,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                     filled: true,
                     fillColor: context.canvasColor,
@@ -199,7 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 24,
               ),
               Row(
                 children: [
@@ -222,7 +223,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               const SizedBox(
-                height: 30,
+                height: 24,
               ),
               Row(
                 //google login
@@ -285,7 +286,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Padding(
                 //Sign In
-                padding: const EdgeInsets.only(bottom: 40),
+                padding: const EdgeInsets.only(bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
