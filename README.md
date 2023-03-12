@@ -7,4 +7,8 @@ asanas.<br/>
 • Yogcare will have several features such as a daily and monthly yoga
 tracker for maintaining your habit, meditation and many more.
 
+https://i.postimg.cc/Cxb4xhky/bgless-app-logo.png
+
+Link to playstore: https://play.google.com/store/apps/details?id=com.teamremedy.yogcare
+
 Link to apk file: https://drive.google.com/drive/folders/1dkvbT_oDmOh2_3Q133YCjueFkft_2_nC?usp=share_link
