@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:yoga_app/db/db.dart';
@@ -119,7 +120,26 @@ class _AppDrawerState extends State<AppDrawer> {
                               'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
                           launchUrl(url);
                         })
-                ]))),
+            ]))),
+            ListTile(
+                //Reach Us
+                leading: Icon(
+                  CupertinoIcons.mail,
+                  color: context.theme.buttonColor,
+                ),
+                title: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: "Contact Us",
+                      style:
+                          TextStyle(color: context.primaryColor, fontSize: 18),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          String emailurl =
+                          "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
+                         launchUrlString(emailurl);  
+                        })
+            ]))),    
             ListTile(
               //5th Title
               leading: Icon(

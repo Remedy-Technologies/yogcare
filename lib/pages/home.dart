@@ -107,13 +107,6 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       width: 20,
                     ),
-                    GestureDetector(
-                      onTap: updateSet,
-                      child: Text(
-                        "Update",
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
                   ],
                 ),
               ),

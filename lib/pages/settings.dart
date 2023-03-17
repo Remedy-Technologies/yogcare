@@ -12,6 +12,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/home.dart';
+import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/widgets/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -38,115 +39,126 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: "Settings".text.xl2.color(context.primaryColor).make(),
-      ),
-      backgroundColor: context.cardColor,
-      body: SafeArea(
-          child: ListView(
-        padding: EdgeInsets.all(16),
-        children: [
-          //Mode Switch
-          VxBox(
-              child: ListTile(
-            leading: Icon(
-              CupertinoIcons.moon_stars_fill,
-              color: context.primaryColor,
-            ).py16(),
-            title: "Dark Mode".text.xl2.make().py16().px16(),
-            trailing: Switch(
-              //switch
-              value: isSwitched,
-              onChanged: (value) async {
-                isSwitched = value;
-                setState(() async {
-                  await Navigator.push(
-                    //pushing value to main
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MyApp(isSwitched: value)),
-                  );
-                });
-              },
+    return WillPopScope(
+      onWillPop: () async{
+        Navigator.push(
+        //pushing value to main
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage()),
+        );
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: "Settings".text.xl2.color(context.primaryColor).make(),
+        ),
+        backgroundColor: context.cardColor,
+        body: SafeArea(
+            child: ListView(
+          padding: EdgeInsets.all(16),
+          children: [
+            //Mode Switch
+            VxBox(
+                child: ListTile(
+              leading: Icon(
+                CupertinoIcons.moon_stars_fill,
+                color: context.primaryColor,
+              ).py16(),
+              title: "Dark Mode".text.xl2.make().py16().px16(),
+              trailing: Switch(
+                //switch
+                value: isSwitched,
+                onChanged: (value) async {
+                  isSwitched = value;
+                  setState(() async {
+                    await Navigator.push(
+                      //pushing value to main
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyApp(isSwitched: value)),
+                    );
+                  });
+                },
+              ),
+            )).color(context.canvasColor).roundedLg.square(70).make().py12(),
+    
+            //Reach us
+            //GestureDetector(
+              //onTap: (() async {
+                //String emailurl =
+                    //"mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
+    
+               // launchUrlString(emailurl);
+              //}),
+             // child: VxBox(
+                //child: ListTile(
+                  //leading: Icon(
+                    //CupertinoIcons.mail_solid,
+                    //color: context.primaryColor,
+                  //).py16(),
+                 // title: "Reach Us".text.xl2.make().py16().px16(),
+               // ),
+              //).color(context.canvasColor).roundedLg.square(70).make().py12(),
+            //),
+    
+            //Terms and Conditions
+            GestureDetector(
+              onTap: (() async {
+                final url = Uri.parse(
+                    'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/about-us.md');
+                launchUrl(url);
+              }),
+              child: VxBox(
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.doc_text_fill,
+                    color: context.primaryColor,
+                  ).py16(),
+                  title: "About Us".text.xl2.make().py16().px16(),
+                ),
+              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
             ),
-          )).color(context.canvasColor).roundedLg.square(70).make().py12(),
-
-          //Reach us
-          GestureDetector(
-            onTap: (() async {
-              String emailurl =
-                  "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
-
-              launchUrlString(emailurl);
-            }),
-            child: VxBox(
-              child: ListTile(
-                leading: Icon(
-                  CupertinoIcons.mail_solid,
-                  color: context.primaryColor,
-                ).py16(),
-                title: "Reach Us".text.xl2.make().py16().px16(),
-              ),
-            ).color(context.canvasColor).roundedLg.square(70).make().py12(),
-          ),
-
-          //Terms and Conditions
-          GestureDetector(
-            onTap: (() async {
-              final url = Uri.parse(
-                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/about-us.md');
-              launchUrl(url);
-            }),
-            child: VxBox(
-              child: ListTile(
-                leading: Icon(
-                  CupertinoIcons.doc_text_fill,
-                  color: context.primaryColor,
-                ).py16(),
-                title: "About Us".text.xl2.make().py16().px16(),
-              ),
-            ).color(context.canvasColor).roundedLg.square(70).make().py12(),
-          ),
-
-          //Privacy policy
-          GestureDetector(
-            onTap: (() async {
-              final url = Uri.parse(
-                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/privacy-policy.md');
-              launchUrl(url);
-            }),
-            child: VxBox(
-              child: ListTile(
-                leading: Icon(
-                  CupertinoIcons.doc_on_doc_fill,
-                  color: context.primaryColor,
-                ).py16(),
-                title: "Privacy policy".text.xl2.make().py16().px16(),
-              ),
-            ).color(context.canvasColor).roundedLg.square(70).make().py12(),
-          ),
-
-          //Disclaimer
-          GestureDetector(
-            onTap: (() async {
-              final url = Uri.parse(
-                  'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/disclaimer.md');
-              launchUrl(url);
-            }),
-            child: VxBox(
-              child: ListTile(
-                leading: Icon(
-                  CupertinoIcons.doc_on_doc_fill,
-                  color: context.primaryColor,
-                ).py16(),
-                title: "Disclaimer".text.xl2.make().py16().px16(),
-              ),
-            ).color(context.canvasColor).roundedLg.square(70).make().py12(),
-          ),
-        ],
-      )).py32(),
+    
+            //Privacy policy
+            GestureDetector(
+              onTap: (() async {
+                final url = Uri.parse(
+                    'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/privacy-policy.md');
+                launchUrl(url);
+              }),
+              child: VxBox(
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.doc_on_doc_fill,
+                    color: context.primaryColor,
+                  ).py16(),
+                  title: "Privacy policy".text.xl2.make().py16().px16(),
+                ),
+              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+            ),
+    
+            //Disclaimer
+            GestureDetector(
+              onTap: (() async {
+                final url = Uri.parse(
+                    'https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/disclaimer.md');
+                launchUrl(url);
+              }),
+              child: VxBox(
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.doc_on_doc_fill,
+                    color: context.primaryColor,
+                  ).py16(),
+                  title: "Disclaimer".text.xl2.make().py16().px16(),
+                ),
+              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+            ),
+          ],
+        )).py32(),
+      ),
     );
   }
 }

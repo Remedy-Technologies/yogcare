@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/home.dart';
 import 'package:yoga_app/utils/date_time.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -180,44 +181,55 @@ class _TrackerPageState extends State<TrackerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.cardColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: "Yoga Tracker".text.xl2.color(context.primaryColor).make(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: createNewHabit,
-        backgroundColor: context.theme.buttonColor,
-        child: const Icon(
-          CupertinoIcons.plus,
-          color: Colors.white,
+    return WillPopScope(
+      onWillPop: () async{
+        Navigator.push(
+        //pushing value to main
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage()),
+        );
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: context.cardColor,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: "Yoga Tracker".text.xl2.color(context.primaryColor).make(),
         ),
-      ),
-      body: ListView(
-        children: [
-          // monthly summary heat map
-          MonthlySummary(
-            datasets: db.heatMapDataSet,
-            startDate: habitbox.get("START_DATE"),
+        floatingActionButton: FloatingActionButton(
+          onPressed: createNewHabit,
+          backgroundColor: context.theme.buttonColor,
+          child: const Icon(
+            CupertinoIcons.plus,
+            color: Colors.white,
           ),
-
-          // list of habits
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: db.habitList.length,
-            itemBuilder: (context, index) {
-              return HabitTile(
-                habitname: db.habitList[index][0],
-                habitcompleted: db.habitList[index][1],
-                onChanged: (value) => checkBoxTapped(value, index),
-                settingsFunction: (context) => settingsHabit(index),
-                deleteFunction: (context) => deleteHabit(index),
-              );
-            },
-          )
-        ],
+        ),
+        body: ListView(
+          children: [
+            // monthly summary heat map
+            MonthlySummary(
+              datasets: db.heatMapDataSet,
+              startDate: habitbox.get("START_DATE"),
+            ),
+    
+            // list of habits
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: db.habitList.length,
+              itemBuilder: (context, index) {
+                return HabitTile(
+                  habitname: db.habitList[index][0],
+                  habitcompleted: db.habitList[index][1],
+                  onChanged: (value) => checkBoxTapped(value, index),
+                  settingsFunction: (context) => settingsHabit(index),
+                  deleteFunction: (context) => deleteHabit(index),
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }
