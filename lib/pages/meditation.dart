@@ -25,8 +25,8 @@ class _MeditationPageState extends State<MeditationPage> {
 
   // function to initialize music
   void initPlayer() async {
-    await audioplayer.setSource(
-        AssetSource("aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3"));
+    await audioplayer.setSourceUrl(
+        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/main/aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3");
     duration = await audioplayer.getDuration();
   }
 
