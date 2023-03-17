@@ -114,6 +114,7 @@ class ParqDatabase {
   String userAge = "";
   String userHeight = "";
   String userWeight = "";
+  String gender="";
 
   String medicalVal = "";
   String healthVal = "";
@@ -127,6 +128,7 @@ class ParqDatabase {
     userAge = "";
     userHeight = "";
     userWeight = "";
+    gender="";
   }
 
   //load data from db
@@ -135,6 +137,7 @@ class ParqDatabase {
     userAge = mybox.get("AGEDB");
     userHeight = mybox.get("HEIGHTDB");
     userWeight = mybox.get("WEIGHTDB");
+    gender = mybox.get("GENDER");
   }
 
   //update data
@@ -143,6 +146,7 @@ class ParqDatabase {
     mybox.put("AGEDB", userAge);
     mybox.put("HEIGHTDB", userHeight);
     mybox.put("WEIGHTDB", userWeight);
+    mybox.put("GENDER", gender);
   }
 
   void createInitialHealth() {

@@ -10,6 +10,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/services.dart'; // take json
 import 'dart:convert'; //json decode encode
 import 'package:yoga_app/models/catalog.dart';
+import 'package:yoga_app/pages/home.dart';
 
 import '../models/yoga_model.dart';
 import '../utils/routes.dart';
@@ -31,8 +32,9 @@ class _ResultsPageState extends State<ResultsPage> {
   String userAge = "";
   String userHeight = "";
   String userWeight = "";
-  String medicalVal = "tum";
-  String healthVal = "tum";
+  String medicalVal = "";
+  String healthVal = "";
+  String gender="";
 
   @override
   void initState() {
@@ -43,6 +45,7 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge = db.userAge;
       userHeight = db.userHeight;
       userWeight = db.userWeight;
+      gender=db.gender;
     }
     //already exist data
     else {
@@ -51,6 +54,7 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge = db.userAge;
       userHeight = db.userHeight;
       userWeight = db.userWeight;
+      gender=db.gender;
     }
 
     if (mybox.get("MED") == null || mybox.get("HEL") == null) {
@@ -106,62 +110,75 @@ class _ResultsPageState extends State<ResultsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        //Velocity X
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        ),
-        backgroundColor: context.cardColor,
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CatalogHeader(
-                name: name,
-                userAge: userAge,
-                userHeight: userHeight,
-                userWeight: userWeight,
-                medicalVal: medicalVal,
-                healthVal: healthVal,
-              ),
-              if (CatalogModels.items.isNotEmpty)
-                CatalogList(
+    return WillPopScope(
+      onWillPop: () async{
+        Navigator.push(
+        //pushing value to main
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage()),
+        );
+        return false;
+      },
+      child: Scaffold(
+          //Velocity X
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+          ),
+          backgroundColor: context.cardColor,
+          body: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CatalogHeader(
                   name: name,
                   userAge: userAge,
                   userHeight: userHeight,
                   userWeight: userWeight,
                   medicalVal: medicalVal,
                   healthVal: healthVal,
-                ).expand()
-              else
-                Center(
-                  child: CircularProgressIndicator(),
+                  gender: gender,
                 ),
-              GestureDetector(
-                //retake button
-                onTap: retakeTest,
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      // ignore: deprecated_member_use
-                      color: context.theme.buttonColor,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Center(
-                      child: Text(
-                    "Retake Test",
-                    style: GoogleFonts.aBeeZee(
-                        textStyle: TextStyle(
-                            color: context.canvasColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                  )),
+                if (CatalogModels.items.isNotEmpty)
+                  CatalogList(
+                    name: name,
+                    userAge: userAge,
+                    userHeight: userHeight,
+                    userWeight: userWeight,
+                    medicalVal: medicalVal,
+                    healthVal: healthVal,
+                    gender: gender,
+                  ).expand()
+                else
+                  Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                GestureDetector(
+                  //retake button
+                  onTap: retakeTest,
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.only(left: 15,right: 15,bottom: 15),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
+                        color: context.theme.buttonColor,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                        child: Text(
+                      "Retake Test",
+                      style: GoogleFonts.aBeeZee(
+                          textStyle: TextStyle(
+                              color: context.canvasColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                    )),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ));
+              ],
+            ),
+          )),
+    );
   }
 }
 
@@ -174,6 +191,7 @@ class CatalogHeader extends StatelessWidget {
     required this.userWeight,
     required this.medicalVal,
     required this.healthVal,
+    required this.gender,
   });
 
   final String name;
@@ -182,7 +200,7 @@ class CatalogHeader extends StatelessWidget {
   final String userWeight;
   final String medicalVal;
   final String healthVal;
-
+  final String gender;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -213,6 +231,7 @@ class CatalogList extends StatelessWidget {
     required this.userWeight,
     required this.medicalVal,
     required this.healthVal,
+    required this.gender,
   });
   final String name;
   final String userAge;
@@ -220,6 +239,8 @@ class CatalogList extends StatelessWidget {
   final String userWeight;
   final String medicalVal;
   final String healthVal;
+  final String gender;
+
   //offset json for diff categories
   static int offsets = 0;
 
@@ -237,7 +258,265 @@ class CatalogList extends StatelessWidget {
     } else if (int.parse(userAge) >= 60) {
       offsets = 14;
     } else {
-      offsets = 0;
+
+      if(gender=="Male"){
+        if(int.parse(userHeight)>=137 && int.parse(userHeight)<142){
+          if(int.parse(userWeight)<=28){      //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>42){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=142 && int.parse(userHeight)<147){
+          if(int.parse(userWeight)<=33){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>48){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=147 && int.parse(userHeight)<152){
+          if(int.parse(userWeight)<=38){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>54){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=152 && int.parse(userHeight)<157){
+          if(int.parse(userWeight)<=43){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>60){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=157 && int.parse(userHeight)<163){
+          if(int.parse(userWeight)<=48){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>67){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=163 && int.parse(userHeight)<168){
+          if(int.parse(userWeight)<=52){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>71){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=168 && int.parse(userHeight)<173){
+          if(int.parse(userWeight)<=58){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>77){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=173 && int.parse(userHeight)<178){
+          if(int.parse(userWeight)<=63){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>83){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=178 && int.parse(userHeight)<183){
+          if(int.parse(userWeight)<=67){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>89){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=183 && int.parse(userHeight)<188){
+          if(int.parse(userWeight)<=72){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>95){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=188 && int.parse(userHeight)<193){
+          if(int.parse(userWeight)<=77){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>101){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=193 && int.parse(userHeight)<198){
+          if(int.parse(userWeight)<=82){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>107){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=198 && int.parse(userHeight)<203){
+          if(int.parse(userWeight)<=87){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>113){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=203 && int.parse(userHeight)<208){
+          if(int.parse(userWeight)<=92){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>119){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=208 && int.parse(userHeight)<213){
+          if(int.parse(userWeight)<=97){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>125){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userWeight)>135){
+          offsets=28;
+        }
+        else{
+          offsets=0;
+        }
+      }
+
+      else{                                   //Female and other
+        if(int.parse(userHeight)>=137 && int.parse(userHeight)<142){
+          if(int.parse(userWeight)<=28){      //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>41){  //uper Limit
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=142 && int.parse(userHeight)<147){
+          if(int.parse(userWeight)<=32){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>46){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=147 && int.parse(userHeight)<152){
+          if(int.parse(userWeight)<=36){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>51){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=152 && int.parse(userHeight)<157){
+          if(int.parse(userWeight)<=41){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>56){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=157 && int.parse(userHeight)<163){
+          if(int.parse(userWeight)<=45){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>61){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=163 && int.parse(userHeight)<168){
+          if(int.parse(userWeight)<=49){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>66){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=168 && int.parse(userHeight)<173){
+          if(int.parse(userWeight)<=53){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>70){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=173 && int.parse(userHeight)<178){
+          if(int.parse(userWeight)<=57){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>75){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=178 && int.parse(userHeight)<183){
+          if(int.parse(userWeight)<=61){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>80){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=183 && int.parse(userHeight)<188){
+          if(int.parse(userWeight)<=65){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>85){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=188 && int.parse(userHeight)<193){
+          if(int.parse(userWeight)<=69){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>90){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=193 && int.parse(userHeight)<198){
+          if(int.parse(userWeight)<=73){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>95){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=198 && int.parse(userHeight)<203){
+          if(int.parse(userWeight)<=77){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>100){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=203 && int.parse(userHeight)<208){
+          if(int.parse(userWeight)<=81){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>105){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userHeight)>=208 && int.parse(userHeight)<213){
+          if(int.parse(userWeight)<=85){       //under weight
+            offsets=21;
+          }
+          else if(int.parse(userWeight)>110){  //over weight
+            offsets=28;
+          }
+        }
+        else if(int.parse(userWeight)>115){
+          offsets=28;
+        }
+        else{
+          offsets=0;
+        }
+      }
+
     }
 
     //String yog="YogaModels";
