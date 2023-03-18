@@ -5,16 +5,17 @@ import 'package:yoga_app/pages/personaldet.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import '../pages/parqResult.dart';
 
-
 class ParqCheck extends StatefulWidget {
-  ParqCheck({super.key,});
-  
+  const ParqCheck({
+    super.key,
+  });
+
   @override
   State<ParqCheck> createState() => _ParqCheckState();
 }
 
 class _ParqCheckState extends State<ParqCheck> {
-  bool isTest=false;
+  bool isTest = false;
 
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
@@ -22,15 +23,15 @@ class _ParqCheckState extends State<ParqCheck> {
   //list of to do tasks
   ParqDatabase db = ParqDatabase();
 
-   @override
+  @override
   void initState() {
     //retake Test?
-    if(mybox.get("ISTEST")==null){
+    if (mybox.get("ISTEST") == null) {
       db.createInitialTest();
       isTest = db.isTest;
     }
     //test already taken
-    else{ 
+    else {
       db.loadDataTest();
       isTest = db.isTest;
     }
@@ -40,13 +41,11 @@ class _ParqCheckState extends State<ParqCheck> {
 
   @override
   Widget build(BuildContext context) {
-          
     //test taken or not
-    if(isTest==false){
-      return PersonalDetails();
+    if (isTest == false) {
+      return const PersonalDetails();
+    } else {
+      return const ResultsPage();
     }
-    else{             
-      return ResultsPage();
-    }    
   }
 }

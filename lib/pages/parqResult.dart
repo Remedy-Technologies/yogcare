@@ -34,7 +34,7 @@ class _ResultsPageState extends State<ResultsPage> {
   String userWeight = "";
   String medicalVal = "";
   String healthVal = "";
-  String gender="";
+  String gender = "";
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge = db.userAge;
       userHeight = db.userHeight;
       userWeight = db.userWeight;
-      gender=db.gender;
+      gender = db.gender;
     }
     //already exist data
     else {
@@ -54,7 +54,7 @@ class _ResultsPageState extends State<ResultsPage> {
       userAge = db.userAge;
       userHeight = db.userHeight;
       userWeight = db.userWeight;
-      gender=db.gender;
+      gender = db.gender;
     }
 
     if (mybox.get("MED") == null || mybox.get("HEL") == null) {
@@ -111,12 +111,11 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         Navigator.push(
-        //pushing value to main
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage()),
+          //pushing value to main
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
         return false;
       },
@@ -158,7 +157,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   onTap: retakeTest,
                   child: Container(
                     padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.only(left: 15,right: 15,bottom: 15),
+                    margin: EdgeInsets.only(left: 15, right: 15, bottom: 15),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         // ignore: deprecated_member_use
@@ -247,7 +246,7 @@ class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int heightInt = int.parse(userHeight);
-    int weightint = int.parse(userWeight);
+    int weightInt = int.parse(userWeight);
 
     if (medicalVal == "true") {
       offsets = 35;
@@ -258,265 +257,260 @@ class CatalogList extends StatelessWidget {
     } else if (int.parse(userAge) >= 60) {
       offsets = 14;
     } else {
-
-      if(gender=="Male"){
-        if(int.parse(userHeight)>=137 && int.parse(userHeight)<142){
-          if(int.parse(userWeight)<=28){      //under weight
-            offsets=21;
+      if (gender == "Male") {
+        if (heightInt >= 137 && heightInt < 142) {
+          if (weightInt <= 28) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 42) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>42){  //over weight
-            offsets=28;
+        } else if (heightInt >= 142 && heightInt < 147) {
+          if (weightInt <= 33) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 48) {
+            //over weight
+            offsets = 28;
           }
+        } else if (heightInt >= 147 && heightInt < 152) {
+          if (weightInt <= 38) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 54) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 152 && heightInt < 157) {
+          if (weightInt <= 43) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 60) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 157 && heightInt < 163) {
+          if (weightInt <= 48) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 67) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 163 && heightInt < 168) {
+          if (weightInt <= 52) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 71) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 168 && heightInt < 173) {
+          if (weightInt <= 58) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 77) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 173 && heightInt < 178) {
+          if (weightInt <= 63) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 83) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 178 && heightInt < 183) {
+          if (weightInt <= 67) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 89) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 183 && heightInt < 188) {
+          if (weightInt <= 72) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 95) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 188 && heightInt < 193) {
+          if (weightInt <= 77) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 101) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 193 && heightInt < 198) {
+          if (weightInt <= 82) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 107) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 198 && heightInt < 203) {
+          if (weightInt <= 87) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 113) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 203 && heightInt < 208) {
+          if (weightInt <= 92) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 119) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (heightInt >= 208 && heightInt < 213) {
+          if (weightInt <= 97) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 125) {
+            //over weight
+            offsets = 28;
+          }
+        } else if (weightInt > 135) {
+          offsets = 28;
+        } else {
+          offsets = 0;
         }
-        else if(int.parse(userHeight)>=142 && int.parse(userHeight)<147){
-          if(int.parse(userWeight)<=33){       //under weight
-            offsets=21;
+      } else {
+        //Female and other
+        if (heightInt >= 137 && heightInt < 142) {
+          if (weightInt <= 28) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 41) {
+            //uper Limit
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>48){  //over weight
-            offsets=28;
+        } else if (heightInt >= 142 && heightInt < 147) {
+          if (weightInt <= 32) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 46) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=147 && int.parse(userHeight)<152){
-          if(int.parse(userWeight)<=38){       //under weight
-            offsets=21;
+        } else if (heightInt >= 147 && heightInt < 152) {
+          if (weightInt <= 36) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 51) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>54){  //over weight
-            offsets=28;
+        } else if (heightInt >= 152 && heightInt < 157) {
+          if (weightInt <= 41) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 56) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=152 && int.parse(userHeight)<157){
-          if(int.parse(userWeight)<=43){       //under weight
-            offsets=21;
+        } else if (heightInt >= 157 && heightInt < 163) {
+          if (weightInt <= 45) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 61) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>60){  //over weight
-            offsets=28;
+        } else if (heightInt >= 163 && heightInt < 168) {
+          if (weightInt <= 49) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 66) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=157 && int.parse(userHeight)<163){
-          if(int.parse(userWeight)<=48){       //under weight
-            offsets=21;
+        } else if (heightInt >= 168 && heightInt < 173) {
+          if (weightInt <= 53) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 70) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>67){  //over weight
-            offsets=28;
+        } else if (heightInt >= 173 && heightInt < 178) {
+          if (weightInt <= 57) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 75) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=163 && int.parse(userHeight)<168){
-          if(int.parse(userWeight)<=52){       //under weight
-            offsets=21;
+        } else if (heightInt >= 178 && heightInt < 183) {
+          if (weightInt <= 61) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 80) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>71){  //over weight
-            offsets=28;
+        } else if (heightInt >= 183 && heightInt < 188) {
+          if (weightInt <= 65) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 85) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=168 && int.parse(userHeight)<173){
-          if(int.parse(userWeight)<=58){       //under weight
-            offsets=21;
+        } else if (heightInt >= 188 && heightInt < 193) {
+          if (weightInt <= 69) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 90) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>77){  //over weight
-            offsets=28;
+        } else if (heightInt >= 193 && heightInt < 198) {
+          if (weightInt <= 73) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 95) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=173 && int.parse(userHeight)<178){
-          if(int.parse(userWeight)<=63){       //under weight
-            offsets=21;
+        } else if (heightInt >= 198 && heightInt < 203) {
+          if (weightInt <= 77) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 100) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>83){  //over weight
-            offsets=28;
+        } else if (heightInt >= 203 && heightInt < 208) {
+          if (weightInt <= 81) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 105) {
+            //over weight
+            offsets = 28;
           }
-        }
-        else if(int.parse(userHeight)>=178 && int.parse(userHeight)<183){
-          if(int.parse(userWeight)<=67){       //under weight
-            offsets=21;
+        } else if (heightInt >= 208 && heightInt < 213) {
+          if (weightInt <= 85) {
+            //under weight
+            offsets = 21;
+          } else if (weightInt > 110) {
+            //over weight
+            offsets = 28;
           }
-          else if(int.parse(userWeight)>89){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=183 && int.parse(userHeight)<188){
-          if(int.parse(userWeight)<=72){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>95){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=188 && int.parse(userHeight)<193){
-          if(int.parse(userWeight)<=77){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>101){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=193 && int.parse(userHeight)<198){
-          if(int.parse(userWeight)<=82){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>107){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=198 && int.parse(userHeight)<203){
-          if(int.parse(userWeight)<=87){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>113){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=203 && int.parse(userHeight)<208){
-          if(int.parse(userWeight)<=92){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>119){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=208 && int.parse(userHeight)<213){
-          if(int.parse(userWeight)<=97){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>125){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userWeight)>135){
-          offsets=28;
-        }
-        else{
-          offsets=0;
-        }
-      }
-
-      else{                                   //Female and other
-        if(int.parse(userHeight)>=137 && int.parse(userHeight)<142){
-          if(int.parse(userWeight)<=28){      //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>41){  //uper Limit
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=142 && int.parse(userHeight)<147){
-          if(int.parse(userWeight)<=32){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>46){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=147 && int.parse(userHeight)<152){
-          if(int.parse(userWeight)<=36){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>51){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=152 && int.parse(userHeight)<157){
-          if(int.parse(userWeight)<=41){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>56){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=157 && int.parse(userHeight)<163){
-          if(int.parse(userWeight)<=45){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>61){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=163 && int.parse(userHeight)<168){
-          if(int.parse(userWeight)<=49){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>66){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=168 && int.parse(userHeight)<173){
-          if(int.parse(userWeight)<=53){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>70){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=173 && int.parse(userHeight)<178){
-          if(int.parse(userWeight)<=57){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>75){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=178 && int.parse(userHeight)<183){
-          if(int.parse(userWeight)<=61){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>80){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=183 && int.parse(userHeight)<188){
-          if(int.parse(userWeight)<=65){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>85){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=188 && int.parse(userHeight)<193){
-          if(int.parse(userWeight)<=69){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>90){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=193 && int.parse(userHeight)<198){
-          if(int.parse(userWeight)<=73){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>95){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=198 && int.parse(userHeight)<203){
-          if(int.parse(userWeight)<=77){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>100){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=203 && int.parse(userHeight)<208){
-          if(int.parse(userWeight)<=81){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>105){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userHeight)>=208 && int.parse(userHeight)<213){
-          if(int.parse(userWeight)<=85){       //under weight
-            offsets=21;
-          }
-          else if(int.parse(userWeight)>110){  //over weight
-            offsets=28;
-          }
-        }
-        else if(int.parse(userWeight)>115){
-          offsets=28;
-        }
-        else{
-          offsets=0;
+        } else if (weightInt > 115) {
+          offsets = 28;
+        } else {
+          offsets = 0;
         }
       }
-
     }
 
     //String yog="YogaModels";
