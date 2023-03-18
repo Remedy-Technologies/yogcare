@@ -79,7 +79,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     top: 10, right: 25, left: 25, bottom: 0),
                 child: Image.asset(
                   //top image
-                  "assets/images/bgless_app_logo.png",
+                   context.isDarkMode
+                        ? "assets/images/bgless_app_logo.png"
+                        : "assets/images/app_logo.png",
                   fit: BoxFit.contain,
                   height: 240,
                   width: 240,
