@@ -1,12 +1,65 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:yoga_app/models/yoga_model.dart';
 
-class YogaDetails extends StatelessWidget {
+class YogaDetails extends StatefulWidget {
   final Yogas yogas;
 
   const YogaDetails({super.key, required this.yogas});
+
+  @override
+  State<YogaDetails> createState() => _YogaDetailsState();
+}
+
+class _YogaDetailsState extends State<YogaDetails> {
+
+  final audioplayer = AudioPlayer();
+  bool isPlaying = false;
+  bool isShow = false;
+
+  Duration duration = Duration.zero;
+  Duration position = Duration.zero;
+
+  @override
+  void initState() {
+    super.initState();
+
+    setAudio();
+    audioplayer.onPlayerStateChanged.listen((state) {
+      setState(() {
+        isPlaying = state == PlayerState.playing;
+      });
+    });
+
+    audioplayer.onDurationChanged.listen((newDuration) {
+      setState(() {
+        duration = newDuration;
+      });
+      isShow = true;
+    });
+
+    audioplayer.onPositionChanged.listen((newPosition) {
+      position = newPosition;
+    });
+  }
+
+  Future setAudio() async {
+    //Repeat song when completed
+    audioplayer.setReleaseMode(ReleaseMode.loop);
+
+    // Load audio from Url
+    String url = widget.yogas.music;
+    //audioplayer.setSourceUrl(url);
+    audioplayer.setSource(UrlSource(url));
+  }
+
+  @override
+  void dispose() {
+    audioplayer.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +73,10 @@ class YogaDetails extends StatelessWidget {
           child: Column(
             children: [
               Hero(
-                      tag: Key(yogas.id.toString()), //tag on both sides
-                      child: Image.network(yogas.img))
-                  .p16()
-                  .h32(context),
+                  tag: Key(widget.yogas.id.toString()), //tag on both sides
+                  child: Image.network(widget.yogas.img))
+              .p16()
+              .h32(context),
               Column(children: [
                 VxArc(
                     height: 15.0,
@@ -38,16 +91,47 @@ class YogaDetails extends StatelessWidget {
                           horizontal: 36,
                         ),
                         child: Column(children: [
-                          yogas.name.text.xl3
+                          widget.yogas.name.text.xl3
                               .textStyle(context.captionStyle)
                               .bold
                               .color(context.primaryColor)
                               .make(), //prod name
+
+                         Visibility(
+                          visible: !isShow,
+                          child: const CircularProgressIndicator(color: Colors.purple)),
+
+                          Visibility(
+                            visible: isShow,
+                            child: Container(
+                              height: 70,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(70),
+                                  color: context.theme.canvasColor.withOpacity(0.8)),
+                              child: InkWell(
+                                onTap: () async {
+                                  if (isPlaying) {
+                                    await audioplayer.pause();
+                                  } else {
+                                    await audioplayer.resume();
+                                  }
+                                },
+                                child: Icon(
+                                  isPlaying ? Icons.pause : Icons.play_arrow_rounded,
+                                  color: context.primaryColor,
+                                  size: 40,
+                                ),
+                              ),
+                            ),
+                          ),
+
                           Text(
-                            yogas.desc,
+                            widget.yogas.desc,
                             style: TextStyle(fontSize: 18, color: Colors.blue),
-                          ).py8(), //prod description
-                          yogas.longdesc.text.make().py8(),
+                          ).py8(),
+                           //prod description
+                          widget.yogas.longdesc.text.make().py8(),
                         ]),
                       ),
                     ))
