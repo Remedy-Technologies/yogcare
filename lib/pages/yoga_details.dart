@@ -39,16 +39,11 @@ class _YogaDetailsState extends State<YogaDetails> {
       });
       isShow = true;
     });
-
-    audioplayer.onPositionChanged.listen((newPosition) {
-      position = newPosition;
-    });
   }
 
   Future setAudio() async {
     //Repeat song when completed
     audioplayer.setReleaseMode(ReleaseMode.loop);
-
     // Load audio from Url
     String url = widget.yogas.music;
     //audioplayer.setSourceUrl(url);
@@ -91,47 +86,56 @@ class _YogaDetailsState extends State<YogaDetails> {
                           horizontal: 36,
                         ),
                         child: Column(children: [
-                          widget.yogas.name.text.xl3
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                            widget.yogas.name.text.xl3
                               .textStyle(context.captionStyle)
                               .bold
                               .color(context.primaryColor)
                               .make(), //prod name
+                              
+                              //Spacer(),
+                            SizedBox(width: 10,),
 
-                         Visibility(
-                          visible: !isShow,
-                          child: const CircularProgressIndicator(color: Colors.purple)),
+                            Visibility(
+                              visible: !isShow,
+                              child: const CircularProgressIndicator(color: Colors.purple)),
 
-                          Visibility(
-                            visible: isShow,
-                            child: Container(
-                              height: 70,
-                              width: 70,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(70),
-                                  color: context.theme.canvasColor.withOpacity(0.8)),
-                              child: InkWell(
-                                onTap: () async {
-                                  if (isPlaying) {
-                                    await audioplayer.pause();
-                                  } else {
-                                    await audioplayer.resume();
-                                  }
-                                },
-                                child: Icon(
-                                  isPlaying ? Icons.pause : Icons.play_arrow_rounded,
-                                  color: context.primaryColor,
-                                  size: 40,
+                              Visibility(
+                                visible: isShow,
+                                child: Container(
+                                  height: 70,
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(70),
+                                      color: context.theme.canvasColor.withOpacity(0.8)),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      if (isPlaying) {
+                                        await audioplayer.pause();
+                                      } else {
+                                        await audioplayer.resume();
+                                      }
+                                    },
+                                    child: Icon(
+                                      isPlaying ? Icons.volume_up : Icons.volume_off,
+                                      color: context.theme.buttonColor,
+                                      size: 35,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-
+                            ],),
+                         
                           Text(
                             widget.yogas.desc,
                             style: TextStyle(fontSize: 18, color: Colors.blue),
                           ).py8(),
                            //prod description
                           widget.yogas.longdesc.text.make().py8(),
+
                         ]),
                       ),
                     ))
