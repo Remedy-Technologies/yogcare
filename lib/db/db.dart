@@ -119,6 +119,8 @@ class ParqDatabase {
   String medicalVal = "";
   String healthVal = "";
 
+  String userimg="assets/images/user_image2.jpg";
+
   //reference the box
   final mybox = Hive.box("PARQ_db");
 
@@ -177,6 +179,17 @@ class ParqDatabase {
 
   void updateDbTest() {
     mybox.put("ISTEST", isTest);
+  }
+
+   //Profile Pic
+  void createInitialImage() {
+    userimg="assets/images/user_image2.jpg";
+  }
+  void loadDataImaget() {
+    userimg = mybox.get("PROFILE");
+  }
+  void updateDbImage() {
+    mybox.put("PROFILE", userimg);
   }
 }
 

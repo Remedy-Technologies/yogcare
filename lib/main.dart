@@ -94,7 +94,7 @@ class _MyAppState extends State<MyApp> {
         Myroutes.healthDetailsRoute: (context) => HealthDetails(),
         Myroutes.parqResultsRoute: (context) => ResultsPage(),
         Myroutes.parqCheckRoute: (context) => ParqCheck(),
-        Myroutes.profileRoute: (context) => Profilepage(),        
+        Myroutes.profileRoute: (context) => ProfilePage(),        
       },
     );   
   }

@@ -90,7 +90,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 currentAccountPicture: GestureDetector(
                   onTap: (){
                     Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Profilepage()));
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
                   },
                   child: CircleAvatar(
                     backgroundImage: AssetImage("assets/images/user_image2.jpg"),
