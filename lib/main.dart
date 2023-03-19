@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yoga_app/db/db.dart';
 //import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/meditation.dart';
+import 'package:yoga_app/pages/profile.dart';
 import 'package:yoga_app/pages/register_page.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/healthdet.dart';
@@ -92,7 +93,8 @@ class _MyAppState extends State<MyApp> {
         Myroutes.personalDetailsRoute: (context) => PersonalDetails(),
         Myroutes.healthDetailsRoute: (context) => HealthDetails(),
         Myroutes.parqResultsRoute: (context) => ResultsPage(),
-        Myroutes.parqCheckRoute: (context) => ParqCheck(),        
+        Myroutes.parqCheckRoute: (context) => ParqCheck(),
+        Myroutes.profileRoute: (context) => Profilepage(),        
       },
     );   
   }

@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         backgroundColor: context.cardColor,
         body: SafeArea(
-            child: ListView(
+          child: ListView(
           padding: EdgeInsets.all(16),
           children: [
             //Mode Switch
@@ -83,26 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
               ),
             )).color(context.canvasColor).roundedLg.square(70).make().py12(),
-    
-            //Reach us
-            //GestureDetector(
-              //onTap: (() async {
-                //String emailurl =
-                    //"mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
-    
-               // launchUrlString(emailurl);
-              //}),
-             // child: VxBox(
-                //child: ListTile(
-                  //leading: Icon(
-                    //CupertinoIcons.mail_solid,
-                    //color: context.primaryColor,
-                  //).py16(),
-                 // title: "Reach Us".text.xl2.make().py16().px16(),
-               // ),
-              //).color(context.canvasColor).roundedLg.square(70).make().py12(),
-            //),
-    
+        
             //Terms and Conditions
             GestureDetector(
               onTap: (() async {

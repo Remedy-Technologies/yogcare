@@ -10,6 +10,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/profile.dart';
 
 import '../pages/tracker.dart';
 import '../pages/yoga_details.dart';
@@ -86,8 +87,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   user.email!,
                   style: TextStyle(color: Colors.white),
                 ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/user_image2.jpg"),
+                currentAccountPicture: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Profilepage()));
+                  },
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/user_image2.jpg"),
+                  ),
                 ),
               ),
             ),
@@ -119,8 +126,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           final url = Uri.parse(
                               'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
                           launchUrl(url);
-                        })
-            ]))),
+                        })]))),
             ListTile(
                 //Reach Us
                 leading: Icon(
@@ -138,8 +144,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           String emailurl =
                           "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
                          launchUrlString(emailurl);  
-                        })
-            ]))),    
+                        })]))),    
             ListTile(
               //5th Title
               leading: Icon(

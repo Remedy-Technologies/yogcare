@@ -10,4 +10,5 @@ class Myroutes{
   static String healthDetailsRoute= "/healthDetails";
   static String parqResultsRoute= "/parqResults";
   static String parqCheckRoute= "/parqCheck";
+  static String profileRoute= "/profile";
 }

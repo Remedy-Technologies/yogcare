@@ -55,6 +55,8 @@ dependencies:
   audioplayers: ^3.0.1
   #url_launcher
   url_launcher: ^6.0.1
+  #image picker
+  image_picker: ^0.8.7
   
 
 dev_dependencies:
