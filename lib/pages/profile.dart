@@ -51,12 +51,12 @@ class _ProfilepageState extends State<ProfilePage> {
     }
 
     if (mybox.get("PROFILE") == null) {
-      db.createInitialParq();
+      db.createInitialImage();
       userimg=db.userimg;
     }
     //already exist data
     else {
-      db.loadDataParq();
+      db.loadDataImage();
       userimg=db.userimg;
     }
     db.updateDb();

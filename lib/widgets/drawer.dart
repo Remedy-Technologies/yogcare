@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 //ignore_for_file: prefer_const_literals
-
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -28,8 +28,11 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   final user = FirebaseAuth.instance.currentUser!;
   String userName = "";
+  String userimg="";
 
   get catalog => null;
+ 
+  int count=0; 
 
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
@@ -48,6 +51,18 @@ class _AppDrawerState extends State<AppDrawer> {
       userName = db.userName;
     }
 
+    if (mybox.get("PROFILE") == null) {
+      db.createInitialImage();
+      userimg=db.userimg;
+      count=0;
+    }
+    //already exist data
+    else {
+      db.loadDataImage();
+      userimg=db.userimg;
+      count=1;
+    }
+    db.updateDbImage();
     db.updateDb();
     super.initState();
   }
@@ -93,7 +108,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   MaterialPageRoute(builder: (context) => ProfilePage()));
                   },
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/user_image2.jpg"),
+                    backgroundImage: count==1?FileImage(File(userimg)) as ImageProvider:AssetImage("assets/images/user_image2.jpg"),
                   ),
                 ),
               ),

@@ -185,7 +185,7 @@ class ParqDatabase {
   void createInitialImage() {
     userimg="assets/images/user_image2.jpg";
   }
-  void loadDataImaget() {
+  void loadDataImage() {
     userimg = mybox.get("PROFILE");
   }
   void updateDbImage() {
