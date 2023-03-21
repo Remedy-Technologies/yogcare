@@ -9,11 +9,9 @@ import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:lecle_flutter_absolute_path/lecle_flutter_absolute_path.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/home.dart';
 import 'package:path/path.dart';
-import 'package:image/image.dart' as Img;
 
 import '../utils/form_buttons.dart';
 import '../widgets/profile_buttons.dart';
@@ -80,8 +78,8 @@ class _ProfilepageState extends State<ProfilePage> {
     // usercontroller.clear();
     db.updateDb();
     db.updateDbImage();
-    Future.delayed(Duration(seconds: 1));
-    Navigator.pushNamed(context, Myroutes.homeRoute);
+    Future.delayed(const Duration(milliseconds: 800));
+    Navigator.pushNamed(this.context, Myroutes.homeRoute);
   }
 
   Future pickimageGallery() async {
