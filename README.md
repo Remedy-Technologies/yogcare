@@ -94,7 +94,8 @@ Contributions are welcome. Please read our [contributing guidelines](https://git
 
 ## Want to test Beta Versions? Need help??
 
-The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare).
+The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare). A feedback would greatly
+contribute to the purpose of the project. Please leave a feedback after using it :)
 
 ## Disclaimer
 ```
