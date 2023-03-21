@@ -69,6 +69,8 @@ class _AppDrawerState extends State<AppDrawer> {
 
   void signUserout() async {
     FirebaseAuth.instance.signOut();
+    Future.delayed(Duration(seconds: 1));
+    Navigator.pushNamed(context, Myroutes.loginRoute);
   }
 
   void openLink(String url) async {
