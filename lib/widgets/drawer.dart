@@ -28,17 +28,18 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   final user = FirebaseAuth.instance.currentUser!;
   String userName = "";
-  String userimg="";
+  String userimg = "";
 
   get catalog => null;
- 
-  int count=0; 
+
+  int count = 0;
 
   //reference the hive box
   final mybox = Hive.box("PARQ_db");
   //list of to do tasks
   ParqDatabase db = ParqDatabase();
 
+  @override
   void initState() {
     //first time app? default data
     if (mybox.get("NAMEDB") == null) {
@@ -53,16 +54,15 @@ class _AppDrawerState extends State<AppDrawer> {
 
     if (mybox.get("PROFILE") == null) {
       db.createInitialImage();
-      userimg=db.userimg;
-      count=0;
+      userimg = db.userimg;
+      count = 0;
     }
     //already exist data
     else {
       db.loadDataImage();
-      userimg=db.userimg;
-      count=1;
+      userimg = db.userimg;
+      count = 1;
     }
-    db.updateDbImage();
     db.updateDb();
     super.initState();
   }
@@ -103,12 +103,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   style: TextStyle(color: Colors.white),
                 ),
                 currentAccountPicture: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
+                        MaterialPageRoute(builder: (context) => ProfilePage()));
                   },
                   child: CircleAvatar(
-                    backgroundImage: count==1?FileImage(File(userimg)) as ImageProvider:AssetImage("assets/images/user_image2.jpg"),
+                    backgroundImage: count == 1
+                        ? FileImage(File(userimg)) as ImageProvider
+                        : AssetImage("assets/images/user_image2.jpg"),
                   ),
                 ),
               ),
@@ -141,7 +143,8 @@ class _AppDrawerState extends State<AppDrawer> {
                           final url = Uri.parse(
                               'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
                           launchUrl(url);
-                        })]))),
+                        })
+                ]))),
             ListTile(
                 //Reach Us
                 leading: Icon(
@@ -157,9 +160,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
                           String emailurl =
-                          "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
-                         launchUrlString(emailurl);  
-                        })]))),    
+                              "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
+                          launchUrlString(emailurl);
+                        })
+                ]))),
             ListTile(
               //5th Title
               leading: Icon(

@@ -106,20 +106,18 @@ class TrackerDatabase {
   }
 }
 
-
-
 class ParqDatabase {
   String userName = "";
   bool isTest = false;
   String userAge = "";
   String userHeight = "";
   String userWeight = "";
-  String gender="";
+  String gender = "";
 
   String medicalVal = "";
   String healthVal = "";
 
-  String userimg="assets/images/user_image2.jpg";
+  String userimg = "assets/images/user_image2.jpg";
 
   //reference the box
   final mybox = Hive.box("PARQ_db");
@@ -130,7 +128,7 @@ class ParqDatabase {
     userAge = "";
     userHeight = "";
     userWeight = "";
-    gender="";
+    gender = "";
   }
 
   //load data from db
@@ -181,25 +179,25 @@ class ParqDatabase {
     mybox.put("ISTEST", isTest);
   }
 
-   //Profile Pic
+  //Profile Pic
   void createInitialImage() {
-    userimg="assets/images/user_image2.jpg";
+    userimg = "/assets/images/user_image2.jpg";
   }
+
   void loadDataImage() {
     userimg = mybox.get("PROFILE");
   }
+
   void updateDbImage() {
     mybox.put("PROFILE", userimg);
   }
 }
 
-
-
 final themebox = Hive.box("Theme_db");
+
 class ThemeDatabase {
-  
   bool isSwitched = false;
-  
+
   //reference the box
   final mybox = Hive.box("Theme_db");
 
@@ -211,7 +209,6 @@ class ThemeDatabase {
   //load data from db
   void loadTheme() {
     isSwitched = mybox.get("THEME");
-    
   }
 
   //update data

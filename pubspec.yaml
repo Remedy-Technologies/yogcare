@@ -57,8 +57,10 @@ dependencies:
   url_launcher: ^6.0.1
   #image picker
   image_picker: ^0.8.7
+  #path provider
   path_provider: ^2.0.13
-  
+  #absolute path provider
+  lecle_flutter_absolute_path: ^0.0.2+1  
 
 dev_dependencies:
   flutter_test:
