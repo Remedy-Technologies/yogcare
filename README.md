@@ -2,8 +2,8 @@
 
 # Yogcare
 
-
 An Open Source Yoga and Meditation app for everyone!
+
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
 
 ### Don't forget to :star: the repo
