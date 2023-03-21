@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/meditation.dart';
 
+import '../main.dart';
 import '../utils/routes.dart';
 
 class MeditationGrid extends StatefulWidget {
@@ -14,23 +18,52 @@ class MeditationGrid extends StatefulWidget {
 }
 
 class _MeditationGridState extends State<MeditationGrid> {
-  //final List<String> _listItem = [
-  // "assets/images/med_back.jpg",
-  // "assets/images/med_back.jpg",
-  // "assets/images/med_back.jpg",
-  // "assets/images/med_back.jpg",
-  //];
+ 
+  //reference the hive box
+  final meditationbox = Hive.box("Meditation_db");
+  //list of Parq
+  MeditationDatabase db = MeditationDatabase();
+
 
   void selectMeditation(int num) {
     if (num == 1) {
-      Navigator.pushNamed(context, Myroutes.meditationRoute);
+      setState(() {
+        db.counter=1;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MeditationPage()),
+      );
     } else if (num == 2) {
-      Navigator.pushNamed(context, Myroutes.meditationRoute);
+      setState(() {
+        db.counter=2;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MeditationPage()),
+      );
     } else if (num == 3) {
-      Navigator.pushNamed(context, Myroutes.meditationRoute);
+      setState(() {
+        db.counter=3;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MeditationPage()),
+      );
     } else {
-      Navigator.pushNamed(context, Myroutes.meditationRoute);
+      setState(() {
+        db.counter=4;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MeditationPage()),
+      );
     }
+    db.updateDbMed();
   }
 
   @override
@@ -97,7 +130,7 @@ class _MeditationGridState extends State<MeditationGrid> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          selectMeditation(1);
+                          selectMeditation(2);
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -134,7 +167,7 @@ class _MeditationGridState extends State<MeditationGrid> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          selectMeditation(1);
+                          selectMeditation(3);
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -170,7 +203,7 @@ class _MeditationGridState extends State<MeditationGrid> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          selectMeditation(1);
+                          selectMeditation(4);
                         },
                         child: Container(
                             decoration: BoxDecoration(

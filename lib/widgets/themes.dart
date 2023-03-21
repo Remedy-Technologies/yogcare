@@ -7,7 +7,7 @@ class Mytheme {
       primarySwatch:
           Colors.deepPurple, // changes all colours with respect to given colour
       //colours for light theme
-      primaryColor: Colors.black, //text colour
+      primaryColor: Color.fromRGBO(41, 30, 41, 1), //text colour
       cardColor: Color.fromRGBO(238, 238, 238, 1), //background colour
       canvasColor: Colors.white,
       buttonColor: Color.fromRGBO(102, 49, 194, 1),

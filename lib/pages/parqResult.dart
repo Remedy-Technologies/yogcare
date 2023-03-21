@@ -575,7 +575,6 @@ class CatalogItem extends StatelessWidget {
             ])),
       ],
     ))
-        .border(color: context.theme.primaryColor)
         .color(context.canvasColor)
         .roundedLg
         .square(120)

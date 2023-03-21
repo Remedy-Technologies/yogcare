@@ -216,3 +216,31 @@ class ThemeDatabase {
     mybox.put("THEME", isSwitched);
   }
 }
+
+
+class MeditationDatabase {
+  int counter=2;
+
+  //reference the box
+  final meditationbox = Hive.box("Meditation_db");
+
+  //create initial data
+  void createInitialMed() {
+    counter=2;
+  }
+
+  //load data from db
+  void loadDataMed() {
+    counter = meditationbox.get("COUNTMED");
+    
+  }
+
+  //update data
+  void updateDbMed() {
+    meditationbox.put("COUNTMED", counter);
+
+  }
+}
+
+
+
