@@ -83,7 +83,7 @@ class _MeditationPageState extends State<MeditationPage> {
                     // ignore: sort_child_properties_last
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.asset("assets/images/med_back.jpg")),
+                        child: Image.asset("assets/images/med-1.jpg")),
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(
