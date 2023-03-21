@@ -17,6 +17,7 @@ import 'package:image/image.dart' as Img;
 
 import '../utils/form_buttons.dart';
 import '../widgets/profile_buttons.dart';
+import '../utils/routes.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -79,6 +80,8 @@ class _ProfilepageState extends State<ProfilePage> {
     // usercontroller.clear();
     db.updateDb();
     db.updateDbImage();
+    Future.delayed(Duration(seconds: 1));
+    Navigator.pushNamed(context, Myroutes.homeRoute);
   }
 
   Future pickimageGallery() async {
