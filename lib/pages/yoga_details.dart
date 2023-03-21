@@ -14,7 +14,6 @@ class YogaDetails extends StatefulWidget {
 }
 
 class _YogaDetailsState extends State<YogaDetails> {
-
   final audioplayer = AudioPlayer();
   bool isPlaying = false;
   bool isShow = false;
@@ -68,10 +67,35 @@ class _YogaDetailsState extends State<YogaDetails> {
           child: Column(
             children: [
               Hero(
-                  tag: Key(widget.yogas.id.toString()), //tag on both sides
-                  child: Image.network(widget.yogas.img))
-              .p16()
-              .h32(context),
+                      tag: Key(widget.yogas.id.toString()), //tag on both sides
+                      child: Image.network(widget.yogas.img))
+                  .p16()
+                  .h32(context),
+              Visibility(
+                  visible: !isShow,
+                  child: const CircularProgressIndicator(color: Colors.purple)),
+              Visibility(
+                visible: isShow,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (isPlaying) {
+                      await audioplayer.pause();
+                    } else {
+                      await audioplayer.resume();
+                    }
+                  },
+                  style: ButtonStyle(
+                      padding:
+                          MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+                              (Set<MaterialState> states) {
+                        return const EdgeInsets.all(15);
+                      }),
+                      shape: MaterialStatePropertyAll(CircleBorder(
+                          eccentricity: 0, side: BorderSide.none))),
+                  child: Icon(isPlaying ? Icons.volume_up : Icons.volume_off,
+                      color: Colors.white, size: 35),
+                ),
+              ),
               Column(children: [
                 VxArc(
                     height: 15.0,
@@ -86,59 +110,18 @@ class _YogaDetailsState extends State<YogaDetails> {
                           horizontal: 36,
                         ),
                         child: Column(children: [
+                          widget.yogas.name.text.xl3
+                              .textStyle(context.captionStyle)
+                              .bold
+                              .color(context.primaryColor)
+                              .make(),
 
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                              widget.yogas.name.text.xl3
-                                .textStyle(context.captionStyle)
-                                .bold
-                                .color(context.primaryColor)
-                                .make(), //prod name
-                                
-                                //Spacer(),
-                              SizedBox(width: 10,),
-                          
-                              Visibility(
-                                visible: !isShow,
-                                child: const CircularProgressIndicator(color: Colors.purple)),
-                          
-                                Visibility(
-                                  visible: isShow,
-                                  child: Container(
-                                    height: 70,
-                                    width: 70,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(70),
-                                        color: context.theme.canvasColor.withOpacity(0.8)),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        if (isPlaying) {
-                                          await audioplayer.pause();
-                                        } else {
-                                          await audioplayer.resume();
-                                        }
-                                      },
-                                      child: Icon(
-                                        isPlaying ? Icons.volume_up : Icons.volume_off,
-                                        color: context.theme.buttonColor,
-                                        size: 35,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],),
-                          ),
-                         
                           Text(
                             widget.yogas.desc,
                             style: TextStyle(fontSize: 18, color: Colors.blue),
                           ).py8(),
-                           //prod description
+                          //prod description
                           widget.yogas.longdesc.text.make().py8(),
-
                         ]),
                       ),
                     ))
