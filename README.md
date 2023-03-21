@@ -19,7 +19,7 @@
      alt="Join Telegram Channel"
      height="90">](https://t.me/)
 [<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dgoogle%2BPlay&psig=AOvVaw0lxGjw-4tRkYAJeIvgVSpa&ust=1679501956949000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKjG7J-37f0CFQAAAAAdAAAAABAJ"
-     alt="Get it on F-Droid"
+     alt="Get it on Google Play"
      height="90">](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare)
 
 
