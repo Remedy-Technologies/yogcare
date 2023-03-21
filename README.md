@@ -12,7 +12,7 @@ An Open Source Yoga and Meditation app for everyone!
 
 ## Download
 
-[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_google_drive.jpg"
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/Google_Drive_text_logo_grey.png"
      alt="Download from Google Drive"
      height="90">](https://drive.google.com/drive/folders/1dkvbT_oDmOh2_3Q133YCjueFkft_2_nC?usp=share_link)
 [<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_telegram.png"
