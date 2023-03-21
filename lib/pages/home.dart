@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/gridmeditation.dart';
 import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/pages/personaldet.dart';
@@ -202,7 +203,7 @@ class _CatalogListState extends State<StatefulWidget> {
         } else {
           return InkWell(
               onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MeditationPage())),
+                  MaterialPageRoute(builder: (context) => MeditationGrid())),
               child: CatalogItem(catalog: catalog));
         }
       },

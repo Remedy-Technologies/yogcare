@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yoga_app/db/db.dart';
+import 'package:yoga_app/pages/gridmeditation.dart';
 //import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/profile.dart';
@@ -88,6 +89,7 @@ class _MyAppState extends State<MyApp> {
       // Myroutes.loginRoute: (context) => LoginPage(),
       //  Myroutes.registerRoute: (context) => RegisterPage(),
         Myroutes.meditationRoute: (context) => MeditationPage(),
+        Myroutes.meditationGridRoute: (context) => MeditationGrid(),
         Myroutes.trackerRoute: (context) => TrackerPage(),
         Myroutes.settingsRoute: (context) => SettingsPage(),
         Myroutes.personalDetailsRoute: (context) => PersonalDetails(),

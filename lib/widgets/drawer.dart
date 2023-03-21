@@ -180,19 +180,22 @@ class _AppDrawerState extends State<AppDrawer> {
                 Navigator.pushNamed(context, Myroutes.settingsRoute);
               },
             ),
-            ListTile(
-              //5th Title
-              leading: Icon(
-                Icons.logout,
-                color: context.theme.buttonColor,
-              ),
-              title: Text(
-                "Sign Out",
-                textScaleFactor: 1.3,
-              ),
-              onTap: () async {
+            GestureDetector(
+              onTap: () async{
                 signUserout();
               },
+              child: ListTile(
+                //5th Title
+                leading: Icon(
+                  Icons.logout,
+                  color: context.theme.buttonColor,
+                ),
+                title: Text(
+                  "Sign Out",
+                  textScaleFactor: 1.3,
+                ),
+                
+              ),
             )
           ],
         ),
