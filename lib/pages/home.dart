@@ -103,7 +103,8 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     "Today's progress"
                         .text
-                        .textStyle(GoogleFonts.aBeeZee())
+                        .textStyle(GoogleFonts.sourceSansPro())
+                        .size(16)
                         .make(),
                     const SizedBox(
                       width: 20,
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                       percent: double.tryParse(habitbox.get(
                               "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
                           (0.0),
-                      progressColor: Colors.purpleAccent,
+                      progressColor: context.theme.unselectedWidgetColor,
                     ),
                   ],
                 ),
@@ -157,7 +158,7 @@ class CatalogHeader extends StatelessWidget {
           child: "yogcare"
               .text
               .xl5
-              .color(context.primaryColor)
+              .color(context.theme.buttonColor)
               .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
               .make(),
         ), // same as Text() but easy to use
@@ -217,9 +218,9 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-        //same as container but easy
+            //same as container but easy
 
-        child: Row(
+            child: Row(
       children: [
         Hero(
           tag: Key(catalog.id.toString()), //tag on both sides
@@ -240,14 +241,21 @@ class CatalogItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-              catalog.name.text.xl
-                  .textStyle(GoogleFonts.aBeeZee())
+              catalog.name.text
+                  .textStyle(GoogleFonts.sourceSansPro())
                   .bold
                   .color(context.theme.buttonColor)
+                  .size(18)
                   .make(), //prod name
               catalog.desc.text.make().py8(), //prod description
             ]))
       ],
-    )).color(context.canvasColor).roundedLg.square(138).make().py16();
+    ))
+        .border(color: context.theme.primaryColor)
+        .color(context.canvasColor)
+        .roundedLg
+        .square(138)
+        .make()
+        .py16();
   }
 }

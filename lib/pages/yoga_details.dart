@@ -76,24 +76,32 @@ class _YogaDetailsState extends State<YogaDetails> {
                   child: const CircularProgressIndicator(color: Colors.purple)),
               Visibility(
                 visible: isShow,
-                child: ElevatedButton(
-                  onPressed: () async {
+                child: GestureDetector(
+                  onTap: () async {
                     if (isPlaying) {
                       await audioplayer.pause();
                     } else {
                       await audioplayer.resume();
                     }
                   },
-                  style: ButtonStyle(
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: context.theme.buttonColor,
+                    ),
+                    /*backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) => context.theme.buttonColor),
                       padding:
                           MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
                               (Set<MaterialState> states) {
                         return const EdgeInsets.all(15);
                       }),
                       shape: MaterialStatePropertyAll(CircleBorder(
-                          eccentricity: 0, side: BorderSide.none))),
-                  child: Icon(isPlaying ? Icons.volume_up : Icons.volume_off,
-                      color: Colors.white, size: 35),
+                          eccentricity: 0, side: BorderSide.none))),*/
+                    child: Icon(isPlaying ? Icons.volume_up : Icons.volume_off,
+                        color: Colors.white, size: 35),
+                  ),
                 ),
               ),
               Column(children: [

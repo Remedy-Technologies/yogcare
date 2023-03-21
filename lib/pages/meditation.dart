@@ -110,7 +110,7 @@ class _MeditationPageState extends State<MeditationPage> {
               Text(
                   //Text
                   "MEDITATION MUSIC",
-                  style: GoogleFonts.aBeeZee(
+                  style: GoogleFonts.sourceSansPro(
                     textStyle: TextStyle(
                         fontSize: 24,
                         color: context.primaryColor,

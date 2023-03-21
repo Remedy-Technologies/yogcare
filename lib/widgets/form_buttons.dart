@@ -13,10 +13,13 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       onPressed: onPressed,
       color: Theme.of(context).buttonColor,
-      child: Text(text,style: TextStyle(color: Colors.white),),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white),
+      ),
     );
   }
 }

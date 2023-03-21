@@ -197,12 +197,12 @@ class _ProfilepageState extends State<ProfilePage> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
                         borderSide:
-                            BorderSide(color: context.primaryColor, width: 3.0),
+                            BorderSide(color: context.primaryColor, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide:
-                            BorderSide(color: context.primaryColor, width: 3.0),
+                            BorderSide(color: context.primaryColor, width: 1.0),
                       ),
                     ),
                     //keyboardType: TextInputType.number,

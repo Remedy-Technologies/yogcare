@@ -140,7 +140,7 @@ class _ResultsPageState extends State<ResultsPage> {
                 ),
                 if (CatalogModels.items.isNotEmpty)
                   CatalogList(
-                   // name: name,
+                    // name: name,
                     userAge: userAge,
                     userHeight: userHeight,
                     userWeight: userWeight,
@@ -166,11 +166,10 @@ class _ResultsPageState extends State<ResultsPage> {
                     child: Center(
                         child: Text(
                       "Retake Test",
-                      style: GoogleFonts.aBeeZee(
-                          textStyle: TextStyle(
-                              color: context.canvasColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                      style: TextStyle(
+                          color: context.canvasColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     )),
                   ),
                 ),
@@ -211,7 +210,7 @@ class CatalogHeader extends StatelessWidget {
                 .text
                 .xl3
                 .color(context.primaryColor)
-                .textStyle(GoogleFonts.aBeeZee())
+                .textStyle(GoogleFonts.sourceSansPro())
                 .make()),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
@@ -518,7 +517,7 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       //controller: scrollController,
       shrinkWrap: true,
-      itemCount:  7,
+      itemCount: 7,
       itemBuilder: (context, index) {
         final yogas = YogaModels.items[offsets + index];
         return InkWell(
@@ -541,9 +540,9 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-        //same as container but easy
+            //same as container but easy
 
-        child: Row(
+            child: Row(
       children: [
         Hero(
           tag: Key(yogas.id.toString()), //tag on both sides
@@ -575,6 +574,13 @@ class CatalogItem extends StatelessWidget {
               ).py8(), //yoga description
             ])),
       ],
-    )).color(context.canvasColor).roundedLg.square(120).make().py16().px16();
+    ))
+        .border(color: context.theme.primaryColor)
+        .color(context.canvasColor)
+        .roundedLg
+        .square(120)
+        .make()
+        .py16()
+        .px16();
   }
 }

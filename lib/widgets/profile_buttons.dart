@@ -12,27 +12,22 @@ class ProfileButton extends StatelessWidget {
     required this.onPressed,
   });
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Text(text,style: TextStyle(color: context.primaryColor),),
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all(context.canvasColor),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-            )),
-            padding:
-              MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                (Set<MaterialState> states) {
-                  return const EdgeInsets.symmetric(
-                      horizontal: 10, vertical: 10);
-            },
-          ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        )),
+        padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+          (Set<MaterialState> states) {
+            return const EdgeInsets.symmetric(horizontal: 10, vertical: 10);
+          },
+        ),
       ),
-
+      child: Text(text),
     );
   }
 }

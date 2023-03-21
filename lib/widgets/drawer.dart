@@ -125,7 +125,8 @@ class _AppDrawerState extends State<AppDrawer> {
                 ), // Use Cupertino Icons Or Icons
                 title: Text(
                   "Home",
-                  textScaleFactor: 1.3,
+                  style: TextStyle(
+                      color: context.theme.primaryColor, fontSize: 18),
                 ),
                 onTap: () => Navigator.pop(context)),
             ListTile(
@@ -134,38 +135,31 @@ class _AppDrawerState extends State<AppDrawer> {
                   CupertinoIcons.star,
                   color: context.theme.buttonColor,
                 ),
-                title: RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: "Rate Us",
-                      style:
-                          TextStyle(color: context.primaryColor, fontSize: 18),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () async {
-                          final url = Uri.parse(
-                              'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
-                          launchUrl(url);
-                        })
-                ]))),
+                title: Text(
+                  "Rate Us",
+                  style: TextStyle(
+                      color: context.theme.primaryColor, fontSize: 18),
+                ),
+                onTap: () async {
+                  final url = Uri.parse(
+                      'https://play.google.com/store/apps/details?id=com.teamremedy.yogcare');
+                  launchUrl(url);
+                }),
             ListTile(
                 //Reach Us
                 leading: Icon(
                   CupertinoIcons.mail,
                   color: context.theme.buttonColor,
                 ),
-                title: RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: "Contact Us",
-                      style:
-                          TextStyle(color: context.primaryColor, fontSize: 18),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () async {
-                          String emailurl =
-                              "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
-                          launchUrlString(emailurl);
-                        })
-                ]))),
+                title: Text(
+                  "Contact Us",
+                  style: TextStyle(color: context.primaryColor, fontSize: 18),
+                ),
+                onTap: () async {
+                  String emailurl =
+                      "mailto:priyanshudutta13@gmail.com,beradeep35@gmail.com";
+                  launchUrlString(emailurl);
+                }),
             ListTile(
               //5th Title
               leading: Icon(
@@ -174,27 +168,26 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
               title: Text(
                 "Settings",
-                textScaleFactor: 1.3,
+                style:
+                    TextStyle(color: context.theme.primaryColor, fontSize: 18),
               ),
               onTap: () {
                 Navigator.pushNamed(context, Myroutes.settingsRoute);
               },
             ),
-            GestureDetector(
-              onTap: () async{
+            ListTile(
+              onTap: () async {
                 signUserout();
               },
-              child: ListTile(
-                //5th Title
-                leading: Icon(
-                  Icons.logout,
-                  color: context.theme.buttonColor,
-                ),
-                title: Text(
-                  "Sign Out",
-                  textScaleFactor: 1.3,
-                ),
-                
+              //5th Title
+              leading: Icon(
+                Icons.logout,
+                color: context.theme.buttonColor,
+              ),
+              title: Text(
+                "Sign Out",
+                style:
+                    TextStyle(color: context.theme.primaryColor, fontSize: 18),
               ),
             )
           ],
