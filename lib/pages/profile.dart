@@ -14,6 +14,7 @@ import 'package:yoga_app/pages/home.dart';
 
 import '../utils/form_buttons.dart';
 import '../widgets/profile_buttons.dart';
+import '../utils/routes.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -72,6 +73,8 @@ class _ProfilepageState extends State<ProfilePage> {
    // usercontroller.clear();
     db.updateDb();
     db.updateDbImage();
+    Future.delayed(Duration(seconds: 1));
+    Navigator.pushNamed(context, Myroutes.homeRoute);
   }
 
 

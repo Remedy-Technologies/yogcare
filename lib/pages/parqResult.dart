@@ -140,7 +140,7 @@ class _ResultsPageState extends State<ResultsPage> {
                 ),
                 if (CatalogModels.items.isNotEmpty)
                   CatalogList(
-                    name: name,
+                   // name: name,
                     userAge: userAge,
                     userHeight: userHeight,
                     userWeight: userWeight,
@@ -224,7 +224,7 @@ class CatalogHeader extends StatelessWidget {
 class CatalogList extends StatelessWidget {
   const CatalogList({
     super.key,
-    required this.name,
+    //required this.name,
     required this.userAge,
     required this.userHeight,
     required this.userWeight,
@@ -232,7 +232,7 @@ class CatalogList extends StatelessWidget {
     required this.healthVal,
     required this.gender,
   });
-  final String name;
+  //final String name;
   final String userAge;
   final String userHeight;
   final String userWeight;
@@ -518,7 +518,7 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       //controller: scrollController,
       shrinkWrap: true,
-      itemCount: (healthVal == "true") ? 5 : 7,
+      itemCount:  7,
       itemBuilder: (context, index) {
         final yogas = YogaModels.items[offsets + index];
         return InkWell(
