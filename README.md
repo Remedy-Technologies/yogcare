@@ -3,7 +3,7 @@
 # Yogcare
 
 
-
+An Open Source Yoga and Meditation app for everyone!
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
 
 ### Don't forget to :star: the repo
@@ -12,15 +12,18 @@
 
 ## Download
 
-[<img src="https://play.google.com/store/apps/details?id=com.google.android.apps.docs&hl=en_US"
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_google_drive.jpg"
      alt="Download from Google Drive"
      height="90">](https://drive.google.com/drive/folders/1dkvbT_oDmOh2_3Q133YCjueFkft_2_nC?usp=share_link)
-[<img src="get_telegram.png"
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_telegram.png"
      alt="Join Telegram Channel"
      height="90">](https://t.me/)
-[<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dgoogle%2BPlay&psig=AOvVaw0lxGjw-4tRkYAJeIvgVSpa&ust=1679501956949000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKjG7J-37f0CFQAAAAAdAAAAABAJ"
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_google_play.png"
      alt="Get it on Google Play"
      height="90">](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare)
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_github.png"
+     alt="Get it on Google Play"
+     height="90">](https://github.com/Remedy-Technologies/yogcare)
 
 
 ## Features
