@@ -1,4 +1,4 @@
-![Repo Banner](https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/Github-Banner-Yogcare.gif)
+![Repo Banner](https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/github-banner-pic.png)
 
 # Yogcare
 
