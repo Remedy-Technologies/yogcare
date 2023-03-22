@@ -1,4 +1,4 @@
-![Repo Banner](https://play-lh.googleusercontent.com/34UP_YyUnfL_aFgF31lu-bVJFfrMH7P9Y6UfhGgC2l1uMSe9eK5wPrNhz8c-6RE8pEs=w240-h480-rw)
+![Repo Banner](https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/Github-Banner-Yogcare.gif)
 
 # Yogcare
 
