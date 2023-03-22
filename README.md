@@ -66,8 +66,8 @@ Read the following carefully:
    should clearly state all changes, should clearly disclose full source code, should include same license
    and all copyrights should be retained.
 
-In simple words, You can ONLY use the source code of this app for `Open Source` Project under
-with all your source code CLEARLY DISCLOSED on any code hosting platform like GitHub, with clear INSTRUCTIONS on
+In simple words, You can ONLY use the source code of this app for `Open Source` Project with 
+all your source code CLEARLY DISCLOSED on any code hosting platform like GitHub, with clear INSTRUCTIONS on
 how to obtain the original software, should clearly STATE ALL CHANGES made and should RETAIN all copyrights.
 Use of this software under any "non-free" license is NOT permitted.
 ```
