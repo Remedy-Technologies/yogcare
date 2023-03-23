@@ -182,12 +182,11 @@ class _TrackerPageState extends State<TrackerPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         Navigator.push(
-        //pushing value to main
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage()),
+          //pushing value to main
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
         );
         return false;
       },
@@ -212,7 +211,7 @@ class _TrackerPageState extends State<TrackerPage> {
               datasets: db.heatMapDataSet,
               startDate: habitbox.get("START_DATE"),
             ),
-    
+
             // list of habits
             ListView.builder(
               shrinkWrap: true,

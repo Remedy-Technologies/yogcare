@@ -1,22 +1,21 @@
 // ignore_for_file: prefer_const_constructors
 //import 'dart:html';
+import 'dart:io';
+
 import 'package:hive/hive.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:yoga_app/db/db.dart';
 import 'package:yoga_app/pages/gridmeditation.dart';
-import 'package:yoga_app/pages/meditation.dart';
 import 'package:yoga_app/pages/tracker.dart';
-import 'package:yoga_app/pages/personaldet.dart';
-import 'package:yoga_app/pages/settings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:flutter/services.dart'; // take json
 import 'dart:convert'; //json decode encode
 import 'package:yoga_app/models/catalog.dart';
 import 'package:yoga_app/utils/date_time.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:yoga_app/widgets/change_theme_button_widget.dart';
 
 import '../utils/date_time.dart';
 import '../utils/parq_check.dart';
@@ -70,75 +69,87 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  int backCount = 0;
+
   @override
   Widget build(BuildContext context) {
-    //String appName = "organizer";
-    //final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
+    return WillPopScope(
+        onWillPop: () async {
+          (backCount == 1) ? exit(0) : backCount++;
+          Fluttertoast.showToast(
+              msg: "Press back again to exit",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+              backgroundColor: context.theme.primaryColor,
+              textColor: context.theme.canvasColor,
+              fontSize: 16.0);
+          return false;
+        },
+        child: Scaffold(
+          //Velocity Xp
 
-    return Scaffold(
-      //Velocity Xp
-
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-      ),
-      drawer: AppDrawer(//creates menu button
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
           ),
-
-      backgroundColor: context.cardColor,
-      //floating button
-
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.fromLTRB(16, 5, 16, 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CatalogHeader(),
-              Padding(
-                //progress bar text
-                padding: const EdgeInsets.only(top: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    "Today's progress"
-                        .text
-                        .textStyle(GoogleFonts.sourceSansPro())
-                        .size(16)
-                        .make(),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
+          drawer: AppDrawer(//creates menu button
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(top: 5, bottom: 10), //progress bar
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    LinearPercentIndicator(
-                      lineHeight: 20,
-                      percent: double.tryParse(habitbox.get(
-                              "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
-                          (0.0),
-                      progressColor: context.theme.unselectedWidgetColor,
+
+          backgroundColor: context.theme.cardColor,
+          //floating button
+
+          body: SafeArea(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(16, 5, 16, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CatalogHeader(),
+                  Padding(
+                    //progress bar text
+                    padding: const EdgeInsets.only(top: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        "Today's progress"
+                            .text
+                            .textStyle(GoogleFonts.sourceSansPro())
+                            .size(16)
+                            .make(),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 5, bottom: 10), //progress bar
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        LinearPercentIndicator(
+                          lineHeight: 20,
+                          percent: double.tryParse(habitbox.get(
+                                  "PERCENTAGE_SUMMARY_${todaysDateFormatted()}")) ??
+                              (0.0),
+                          progressColor: context.theme.unselectedWidgetColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (CatalogModels.items.isNotEmpty)
+                    CatalogList().expand()
+                  else
+                    Center(
+                      child: CircularProgressIndicator(),
+                    )
+                ],
               ),
-              if (CatalogModels.items.isNotEmpty)
-                CatalogList().expand()
-              else
-                Center(
-                  child: CircularProgressIndicator(),
-                )
-            ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
 
@@ -218,9 +229,9 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-            //same as container but easy
+        //same as container but easy
 
-            child: Row(
+        child: Row(
       children: [
         Hero(
           tag: Key(catalog.id.toString()), //tag on both sides
@@ -250,11 +261,6 @@ class CatalogItem extends StatelessWidget {
               catalog.desc.text.make().py8(), //prod description
             ]))
       ],
-    ))
-        .color(context.canvasColor)
-        .roundedLg
-        .square(138)
-        .make()
-        .py16();
+    )).color(context.canvasColor).roundedLg.square(138).make().py16();
   }
 }

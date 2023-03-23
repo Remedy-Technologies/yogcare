@@ -60,7 +60,11 @@ dependencies:
   #path provider
   path_provider: ^2.0.13
   #absolute path provider
-  lecle_flutter_absolute_path: ^0.0.2+1  
+  lecle_flutter_absolute_path: ^0.0.2+1
+  #flutter toast  
+  fluttertoast: ^8.2.1
+  #state management
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

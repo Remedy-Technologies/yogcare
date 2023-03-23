@@ -16,6 +16,7 @@ import 'package:yoga_app/pages/tracker.dart';
 import 'package:yoga_app/widgets/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:yoga_app/widgets/change_theme_button_widget.dart';
 
 import '../main.dart';
 import '../utils/routes.dart';
@@ -28,7 +29,7 @@ class SettingsPage extends StatefulWidget {
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
-bool isSwitched = false;
+//bool isSwitched = false;
 IconData iconlight = Icons.wb_sunny;
 IconData icondark = Icons.nights_stay;
 
@@ -40,12 +41,11 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         Navigator.push(
-        //pushing value to main
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage()),
+          //pushing value to main
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
         return false;
       },
@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         backgroundColor: context.cardColor,
         body: SafeArea(
-          child: ListView(
+            child: ListView(
           padding: EdgeInsets.all(16),
           children: [
             //Mode Switch
@@ -67,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: context.primaryColor,
               ).py16(),
               title: "Dark Mode".text.xl2.make().py16().px16(),
-              trailing: Switch(
+              /*trailing: Switch(
                 //switch
                 value: isSwitched,
                 onChanged: (value) async {
@@ -81,9 +81,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   });
                 },
-              ),
+              ),*/
+              trailing: ChangeThemeButtonWidget(),
             )).color(context.canvasColor).roundedLg.square(70).make().py12(),
-        
+
             //Terms and Conditions
             GestureDetector(
               onTap: (() async {
@@ -101,7 +102,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ).color(context.canvasColor).roundedLg.square(70).make().py12(),
             ),
-    
+
             //Privacy policy
             GestureDetector(
               onTap: (() async {
@@ -119,7 +120,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ).color(context.canvasColor).roundedLg.square(70).make().py12(),
             ),
-    
+
             //Disclaimer
             GestureDetector(
               onTap: (() async {
