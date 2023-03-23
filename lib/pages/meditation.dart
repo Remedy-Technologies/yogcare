@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yoga_app/db/db.dart';
+
 
 class MeditationPage extends StatefulWidget {
-  const MeditationPage({super.key});
-
+  MeditationPage({super.key,});
   @override
   State<MeditationPage> createState() => _MeditationPageState();
 }
@@ -16,12 +18,32 @@ class _MeditationPageState extends State<MeditationPage> {
   final audioplayer = AudioPlayer();
   bool isPlaying = false;
   bool isShow = false;
+  int counter=0;
+  int x=0;
+  String imgpath="";
 
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
 
+  //reference the hive box
+  final meditationbox = Hive.box("Meditation_db");
+  //list of Parq
+  MeditationDatabase db = MeditationDatabase();
+
+
   @override
-  void initState() {
+  void initState() { 
+
+     if (meditationbox.get("COUNTMED") == null) {
+      db.createInitialMed();
+      counter=db.counter;
+    }
+    //already exist data
+    else {
+      db.loadDataMed();
+      counter=db.counter;
+    }
+    db.updateDbMed();
     super.initState();
 
     setAudio();
@@ -41,6 +63,7 @@ class _MeditationPageState extends State<MeditationPage> {
     audioplayer.onPositionChanged.listen((newPosition) {
       position = newPosition;
     });
+
   }
 
   Future setAudio() async {
@@ -58,6 +81,21 @@ class _MeditationPageState extends State<MeditationPage> {
   void dispose() {
     audioplayer.dispose();
     super.dispose();
+  }
+
+  String chooseImage(){
+    if(counter==1){
+      return "assets/images/med-1.jpg";
+    }
+    else if(counter==2){
+      return "assets/images/med-2.jpg";
+    }
+    else if(counter==3){
+      return "assets/images/med-3.jpg";
+    }
+    else{
+      return "assets/images/med-4.jpg";
+    }
   }
 
   @override
@@ -83,7 +121,10 @@ class _MeditationPageState extends State<MeditationPage> {
                     // ignore: sort_child_properties_last
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.asset("assets/images/med-1.jpg")),
+                        child: Image.asset(
+                          
+                          chooseImage()
+                          )),
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(

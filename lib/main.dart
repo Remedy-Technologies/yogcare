@@ -42,13 +42,15 @@ void main()async {
   await Hive.initFlutter();
   await Hive.openBox("Tracker_db");
   //do list db
-  var doListBox= await Hive.openBox("DoList_db");
+  //var doListBox= await Hive.openBox("DoList_db");
   //tracker list db
   var habitBox= await Hive.openBox("Tracker_db");
 
   var parqBox= await Hive.openBox("PARQ_db");
 
   var themebox= await Hive.openBox("Theme_db");
+
+  var meditationbox=await Hive.openBox("Meditation_db");
 
   //SharedPreferences sp = await SharedPreferences.getInstance();
   //isDark=sp.getBool("theme")??false;
