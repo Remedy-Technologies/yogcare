@@ -2,7 +2,7 @@
 
 # Yogcare
 
-An Open Source Yoga and Meditation app for everyone!
+An easy-to-use Yoga and Meditation app for everyone!
 
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
 
@@ -56,7 +56,7 @@ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
 ```
 
 ```
-Being Open Source doesn't mean you can just make a copy of the app and upload it on playstore or sell
+Being publicly available doesn't mean you can just make a copy of the app and upload it on playstore or sell
 a closed source copy of the same.
 Read the following carefully:
 1. You can't upload the app on a closed source
@@ -90,12 +90,12 @@ flutter run
 
 ## Contribute
 
-Contributions are welcome. Please read our [contributing guidelines](https://github.com/Remedy-Technologies/yogcare/blob/main/CONTRIBUTING.md) before contributing.
+We are not accepting outside contributions for this project. However, a feedback would greatly
+contribute to the purpose of the project. Please leave a feedback after using it :)
 
 ## Want to test Beta Versions? Need help??
 
-The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare). A feedback would greatly
-contribute to the purpose of the project. Please leave a feedback after using it :)
+The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare).
 
 ## Disclaimer
 ```
