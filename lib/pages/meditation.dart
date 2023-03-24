@@ -34,7 +34,7 @@ class _MeditationPageState extends State<MeditationPage> {
   @override
   void initState() { 
 
-     if (meditationbox.get("COUNTMED") == null) {
+    if (meditationbox.get("COUNTMED") == null) {
       db.createInitialMed();
       counter=db.counter;
     }
@@ -70,11 +70,32 @@ class _MeditationPageState extends State<MeditationPage> {
     //Repeat song when completed
     audioplayer.setReleaseMode(ReleaseMode.loop);
 
-    // Load audio from Url
-    String url =
+    if(counter==1){
+      String url =
+        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/Meydan-Freezing-but-warm.mp3";
+    //audioplayer.setSourceUrl(url);
+    audioplayer.setSource(UrlSource(url));
+    }
+    else if(counter==2){
+      String url =
         "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3";
     //audioplayer.setSourceUrl(url);
     audioplayer.setSource(UrlSource(url));
+    }
+    else if(counter==3){
+      String url =
+        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/scott-buckley-jul.mp3";
+    //audioplayer.setSourceUrl(url);
+    audioplayer.setSource(UrlSource(url));
+    }
+    else{
+      String url =
+        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/mantra-om-for-meditation.mp3";
+    //audioplayer.setSourceUrl(url);
+    audioplayer.setSource(UrlSource(url));
+    }
+
+   
   }
 
   @override

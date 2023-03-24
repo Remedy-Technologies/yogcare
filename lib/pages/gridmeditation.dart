@@ -118,7 +118,7 @@ class _MeditationGridState extends State<MeditationGrid> {
                                 child: Padding(
                                     padding: const EdgeInsets.all(10),
                                     child: Text(
-                                      "Chill",
+                                      "Relax",
                                       style: GoogleFonts.josefinSans(
                                           textStyle: const TextStyle(
                                               fontSize: 28,
@@ -227,7 +227,7 @@ class _MeditationGridState extends State<MeditationGrid> {
                                 child: Padding(
                                     padding: const EdgeInsets.all(10),
                                     child: Text(
-                                      "Relax",
+                                      "Spiritual",
                                       style: GoogleFonts.josefinSans(
                                           textStyle: const TextStyle(
                                               fontSize: 28,
