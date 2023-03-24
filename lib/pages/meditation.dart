@@ -7,9 +7,10 @@ import 'package:hive/hive.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:yoga_app/db/db.dart';
 
-
 class MeditationPage extends StatefulWidget {
-  MeditationPage({super.key,});
+  MeditationPage({
+    super.key,
+  });
   @override
   State<MeditationPage> createState() => _MeditationPageState();
 }
@@ -18,9 +19,9 @@ class _MeditationPageState extends State<MeditationPage> {
   final audioplayer = AudioPlayer();
   bool isPlaying = false;
   bool isShow = false;
-  int counter=0;
-  int x=0;
-  String imgpath="";
+  int counter = 0;
+  int x = 0;
+  String imgpath = "";
 
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
@@ -30,18 +31,16 @@ class _MeditationPageState extends State<MeditationPage> {
   //list of Parq
   MeditationDatabase db = MeditationDatabase();
 
-
   @override
-  void initState() { 
-
+  void initState() {
     if (meditationbox.get("COUNTMED") == null) {
       db.createInitialMed();
-      counter=db.counter;
+      counter = db.counter;
     }
     //already exist data
     else {
       db.loadDataMed();
-      counter=db.counter;
+      counter = db.counter;
     }
     db.updateDbMed();
     super.initState();
@@ -63,39 +62,33 @@ class _MeditationPageState extends State<MeditationPage> {
     audioplayer.onPositionChanged.listen((newPosition) {
       position = newPosition;
     });
-
   }
 
   Future setAudio() async {
     //Repeat song when completed
     audioplayer.setReleaseMode(ReleaseMode.loop);
 
-    if(counter==1){
+    if (counter == 1) {
       String url =
-        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/Meydan-Freezing-but-warm.mp3";
-    //audioplayer.setSourceUrl(url);
-    audioplayer.setSource(UrlSource(url));
-    }
-    else if(counter==2){
+          "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/Meydan-Freezing-but-warm.mp3";
+      //audioplayer.setSourceUrl(url);
+      audioplayer.setSource(UrlSource(url));
+    } else if (counter == 2) {
       String url =
-        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3";
-    //audioplayer.setSourceUrl(url);
-    audioplayer.setSource(UrlSource(url));
-    }
-    else if(counter==3){
+          "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/aumom-namah-shivaya-mantra-chants-432-hz-8940.mp3";
+      //audioplayer.setSourceUrl(url);
+      audioplayer.setSource(UrlSource(url));
+    } else if (counter == 3) {
       String url =
-        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/scott-buckley-jul.mp3";
-    //audioplayer.setSourceUrl(url);
-    audioplayer.setSource(UrlSource(url));
-    }
-    else{
+          "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/scott-buckley-jul.mp3";
+      //audioplayer.setSourceUrl(url);
+      audioplayer.setSource(UrlSource(url));
+    } else {
       String url =
-        "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/mantra-om-for-meditation.mp3";
-    //audioplayer.setSourceUrl(url);
-    audioplayer.setSource(UrlSource(url));
+          "https://github.com/Remedy-Technologies/yogcare-app-data/raw/master/mantra-om-for-meditation.mp3";
+      //audioplayer.setSourceUrl(url);
+      audioplayer.setSource(UrlSource(url));
     }
-
-   
   }
 
   @override
@@ -104,17 +97,14 @@ class _MeditationPageState extends State<MeditationPage> {
     super.dispose();
   }
 
-  String chooseImage(){
-    if(counter==1){
+  String chooseImage() {
+    if (counter == 1) {
       return "assets/images/med-1.jpg";
-    }
-    else if(counter==2){
+    } else if (counter == 2) {
       return "assets/images/med-2.jpg";
-    }
-    else if(counter==3){
+    } else if (counter == 3) {
       return "assets/images/med-3.jpg";
-    }
-    else{
+    } else {
       return "assets/images/med-4.jpg";
     }
   }
@@ -142,10 +132,7 @@ class _MeditationPageState extends State<MeditationPage> {
                     // ignore: sort_child_properties_last
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          
-                          chooseImage()
-                          )),
+                        child: Image.asset(chooseImage())),
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(
