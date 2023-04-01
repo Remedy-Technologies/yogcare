@@ -64,7 +64,7 @@ Check it yourself :)
 ```
 Copyright © 2023 Team Remedy
 
-Yogcare is the official project of Team Remedy for the Google Solutions Challenge 2023. 
+Yogcare is the official project of Team Remedy for the Google Solution Challenge 2023. 
 It is a free software distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -107,7 +107,7 @@ flutter run
 We are not accepting outside contributions for this project. However, a feedback would greatly
 contribute to the purpose of the project. Please leave a feedback after using it :)
 
-## Want to test Beta Versions? Need help??
+## Want to test Beta Versions?
 
 The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare).
 
