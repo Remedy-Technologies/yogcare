@@ -1,8 +1,9 @@
-![Repo Banner](https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/github-banner-pic.png)
+![Repo Banner](https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/github-banner-pic%20(2).png)
 
 # Yogcare
 
-An Open Source Yoga and Meditation app for everyone!
+An easy-to-use Yoga and Meditation app for everyone!
+<br/>Yogcare is the official project of Team Remedy for the Google Solution Challenge 2023.
 
 [![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)
 
@@ -19,8 +20,16 @@ An Open Source Yoga and Meditation app for everyone!
      alt="Get it on Google Play"
      height="90">](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare)
 [<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/get_github.png"
-     alt="Get it on Google Play"
+     alt="Get it on GitHub"
      height="90">](https://github.com/Remedy-Technologies/yogcare)
+     
+## Target UN SDG
+
+[<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/Sustainable_Development_Goal_03GoodHealth.svg.png"
+     alt="Get it on Google Play"
+     height="300">](https://sdgs.un.org/goals/goal3)
+
+Yoga is an optimum solution to ensure healthy lives and promote well being at all ages. Yogcare is being developed to cater to all kinds of people irrespective of their gender or age.
 
 
 ## Features
@@ -41,6 +50,11 @@ An Open Source Yoga and Meditation app for everyone!
 and much more...
 Check it yourself :)
 
+## Tech Stack Used
+
+<img src="https://github.com/Remedy-Technologies/yogcare-public-info/raw/main/link-images/flutter%2Bfirebase.png"
+     width="600">
+
 ## Screenshots
 
 <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203022_iphone13pink_portrait.png?raw=true" width="32%"> <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203045_iphone13pink_portrait.png?raw=true" width="32%"> <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203158_iphone13pink_portrait.png?raw=true" width="32%"> <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203229_iphone13pink_portrait.png?raw=true" width="32%"> <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203239_iphone13pink_portrait.png?raw=true" width="32%"> <img src="https://github.com/Remedy-Technologies/yogcare-public-info/blob/main/phone-screenshots/Screenshot_20230321_203312_iphone13pink_portrait.png?raw=true" width="32%">
@@ -50,13 +64,13 @@ Check it yourself :)
 ```
 Copyright © 2023 Team Remedy
 
-Yogacare is a free software
-It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+Yogcare is the official project of Team Remedy for the Google Solution Challenge 2023. 
+It is a free software distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 ```
-Being Open Source doesn't mean you can just make a copy of the app and upload it on playstore or sell
+Being publicly available doesn't mean you can just make a copy of the app and upload it on playstore or sell
 a closed source copy of the same.
 Read the following carefully:
 1. You can't upload the app on a closed source
@@ -90,12 +104,12 @@ flutter run
 
 ## Contribute
 
-Contributions are welcome. Please read our [contributing guidelines](https://github.com/Remedy-Technologies/yogcare/blob/main/CONTRIBUTING.md) before contributing.
-
-## Want to test Beta Versions? Need help??
-
-The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare). A feedback would greatly
+We are not accepting outside contributions for this project. However, a feedback would greatly
 contribute to the purpose of the project. Please leave a feedback after using it :)
+
+## Want to test Beta Versions?
+
+The beta version of the app is live on [Google Play store](https://play.google.com/store/apps/details?id=com.teamremedy.yogcare).
 
 ## Disclaimer
 ```
