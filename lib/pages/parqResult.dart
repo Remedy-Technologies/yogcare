@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 //import 'dart:html';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
@@ -13,6 +14,7 @@ import 'package:yoga_app/models/catalog.dart';
 import 'package:yoga_app/pages/home.dart';
 
 import '../models/yoga_model.dart';
+import '../utils/form_buttons.dart';
 import '../utils/routes.dart';
 import 'yoga_details.dart';
 
@@ -94,6 +96,85 @@ class _ResultsPageState extends State<ResultsPage> {
     Navigator.pushNamed(context, Myroutes.parqCheckRoute);
   }
 
+
+  final controller = TextEditingController();
+  TimeOfDay selectedTime= TimeOfDay.now();
+  
+   //create reminder
+  void createReminder() {
+    controller.text="It is time to do yoga";
+    showDialog(
+        context: context,
+        builder: ((context) {
+          //Dialog Box
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+            //callback text
+                backgroundColor: context.cardColor,
+                content: SizedBox(
+                  height: 300,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Set a Reminder",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      //input
+                      TextField(
+                        style: TextStyle(color: context.primaryColor),
+                        controller: controller,
+                        decoration: const InputDecoration(
+                            hintText: "Reminder text",
+                            hintStyle: TextStyle(color: Colors.grey)),
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text("${selectedTime.hour}:${selectedTime.minute}"),
+                          const SizedBox(width: 20),
+                          MyButton(text: "Pick Time", onPressed: () async{
+                            final TimeOfDay? pickedTime=await showTimePicker(
+                              context: context, 
+                              initialTime: selectedTime,
+                              initialEntryMode: TimePickerEntryMode.input,
+                            );
+                            if(pickedTime!=Null){
+                              setState(() {
+                                selectedTime=pickedTime!;
+                              });
+                            }
+                          }
+                          ),
+                        ]  
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        //save button
+                        children: [
+                          MyButton(text: "Save", onPressed: (){}),
+                          const SizedBox(width: 8),
+                          MyButton(
+                            text: "Cancel",
+                            onPressed: () => Navigator.pop(context),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }
+          );
+          
+        }));
+    db.updateDb();
+  }
+
   //String name="Paras";
 
   loadData() async {
@@ -123,6 +204,16 @@ class _ResultsPageState extends State<ResultsPage> {
           //Velocity X
           appBar: AppBar(
             backgroundColor: Colors.transparent,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    CupertinoIcons.bell_circle,
+                    color: context.theme.splashColor,
+                    size: 32,
+                  ),
+                  onPressed:createReminder
+                )
+              ],
           ),
           backgroundColor: context.cardColor,
           body: SafeArea(
