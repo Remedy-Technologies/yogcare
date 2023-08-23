@@ -14,7 +14,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: Theme.of(context).buttonColor,
+      color: Theme.of(context).splashColor,
       child: Text(text,style: TextStyle(color: Colors.white),),
     );
   }

@@ -15,7 +15,6 @@ import 'dart:convert'; //json decode encode
 import 'package:yoga_app/models/catalog.dart';
 import 'package:yoga_app/utils/date_time.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:yoga_app/widgets/change_theme_button_widget.dart';
 
 import '../utils/date_time.dart';
 import '../utils/parq_check.dart';
@@ -169,7 +168,7 @@ class CatalogHeader extends StatelessWidget {
           child: "yogcare"
               .text
               .xl5
-              .color(context.theme.buttonColor)
+              .color(context.theme.splashColor)
               .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
               .make(),
         ), // same as Text() but easy to use
@@ -255,7 +254,7 @@ class CatalogItem extends StatelessWidget {
               catalog.name.text
                   .textStyle(GoogleFonts.sourceSansPro())
                   .bold
-                  .color(context.theme.buttonColor)
+                  .color(context.theme.splashColor)
                   .size(18)
                   .make(), //prod name
               catalog.desc.text.make().py8(), //prod description

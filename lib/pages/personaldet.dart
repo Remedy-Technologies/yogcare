@@ -324,7 +324,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       child: "Next".text.xl2.make().px8(),
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(context.theme.buttonColor),
+                            MaterialStateProperty.all(context.theme.splashColor),
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),

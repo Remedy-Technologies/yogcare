@@ -121,7 +121,7 @@ class _MyAppState extends State<MyApp> {
             themeMode: themeProvider.themeMode,
             theme: MyThemes.lightTheme,
             darkTheme: MyThemes.darkTheme,
-
+            
             debugShowCheckedModeBanner: false, //removes debug banner
 
             initialRoute: "/", //this route will open first

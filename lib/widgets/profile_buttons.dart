@@ -23,7 +23,7 @@ class ProfileButton extends StatelessWidget {
         )),
         padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
           (Set<MaterialState> states) {
-            return const EdgeInsets.symmetric(horizontal: 10, vertical: 10);
+            return const EdgeInsets.symmetric(horizontal: 10, vertical: 100);
           },
         ),
       ),

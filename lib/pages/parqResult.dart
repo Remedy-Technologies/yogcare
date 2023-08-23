@@ -161,7 +161,7 @@ class _ResultsPageState extends State<ResultsPage> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         // ignore: deprecated_member_use
-                        color: context.theme.buttonColor,
+                        color: context.theme.splashColor,
                         borderRadius: BorderRadius.circular(15)),
                     child: Center(
                         child: Text(
@@ -565,7 +565,7 @@ class CatalogItem extends StatelessWidget {
               yogas.name.text.xl
                   .textStyle(context.captionStyle)
                   .bold
-                  .color(context.theme.buttonColor)
+                  .color(context.theme.splashColor)
                   .make(), //yoga name
               //yogas.desc.text.make().py8(),
               Text(

@@ -198,7 +198,7 @@ class _TrackerPageState extends State<TrackerPage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: createNewHabit,
-          backgroundColor: context.theme.buttonColor,
+          backgroundColor: context.theme.splashColor,
           child: const Icon(
             CupertinoIcons.plus,
             color: Colors.white,

@@ -227,7 +227,7 @@ class _MeditationPageState extends State<MeditationPage> {
                   width: 70,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(70),
-                      color: context.theme.buttonColor.withOpacity(0.8)),
+                      color: context.theme.splashColor.withOpacity(0.8)),
                   child: InkWell(
                     onTap: () async {
                       if (isPlaying) {

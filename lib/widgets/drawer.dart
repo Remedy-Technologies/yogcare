@@ -121,7 +121,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 //1st Tiltle
                 leading: Icon(
                   CupertinoIcons.home,
-                  color: context.theme.buttonColor,
+                  color: context.theme.splashColor,
                 ), // Use Cupertino Icons Or Icons
                 title: Text(
                   "Home",
@@ -133,7 +133,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 //4th Title
                 leading: Icon(
                   CupertinoIcons.star,
-                  color: context.theme.buttonColor,
+                  color: context.theme.splashColor,
                 ),
                 title: Text(
                   "Rate Us",
@@ -149,7 +149,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 //Reach Us
                 leading: Icon(
                   CupertinoIcons.mail,
-                  color: context.theme.buttonColor,
+                  color: context.theme.splashColor,
                 ),
                 title: Text(
                   "Contact Us",
@@ -164,7 +164,7 @@ class _AppDrawerState extends State<AppDrawer> {
               //5th Title
               leading: Icon(
                 CupertinoIcons.gear,
-                color: context.theme.buttonColor,
+                color: context.theme.splashColor,
               ),
               title: Text(
                 "Settings",
@@ -182,7 +182,7 @@ class _AppDrawerState extends State<AppDrawer> {
               //5th Title
               leading: Icon(
                 Icons.logout,
-                color: context.theme.buttonColor,
+                color: context.theme.splashColor,
               ),
               title: Text(
                 "Sign Out",

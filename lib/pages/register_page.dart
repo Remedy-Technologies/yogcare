@@ -189,7 +189,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       // ignore: deprecated_member_use
-                      color: context.theme.buttonColor,
+                      color: context.theme.splashColor,
                       borderRadius: BorderRadius.circular(50)),
                   child: Center(
                       child: Text(

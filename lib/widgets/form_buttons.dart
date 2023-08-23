@@ -15,7 +15,7 @@ class MyButton extends StatelessWidget {
     return MaterialButton(
       padding: const EdgeInsets.all(10),
       onPressed: onPressed,
-      color: Theme.of(context).buttonColor,
+      color: Theme.of(context).splashColor,
       child: Text(
         text,
         style: const TextStyle(color: Colors.white),

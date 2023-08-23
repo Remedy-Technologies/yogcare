@@ -88,7 +88,7 @@ class _YogaDetailsState extends State<YogaDetails> {
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: context.theme.buttonColor,
+                      color: context.theme.splashColor,
                     ),
                     /*backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => context.theme.buttonColor),

@@ -265,7 +265,7 @@ class MeditationHeader extends StatelessWidget {
           child: "Meditation"
               .text
               .xl4
-              .color(context.theme.buttonColor)
+              .color(context.theme.splashColor)
               .textStyle(GoogleFonts.comfortaa(fontWeight: FontWeight.bold))
               .make(),
         ), // same as Text() but easy to use

@@ -253,7 +253,7 @@ class _ProfilepageState extends State<ProfilePage> {
                     style: ButtonStyle(
                       backgroundColor:
                           // ignore: deprecated_member_use
-                          MaterialStateProperty.all(context.theme.buttonColor),
+                          MaterialStateProperty.all(context.theme.splashColor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
