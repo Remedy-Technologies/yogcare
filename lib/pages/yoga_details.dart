@@ -107,8 +107,8 @@ class _YogaDetailsState extends State<YogaDetails> {
               Column(children: [
                 VxArc(
                     height: 15.0,
-                    edge: VxEdge.TOP,
-                    arcType: VxArcType.CONVEY,
+                    //edge: VxEdge.TOP,
+                    //arcType: VxArcType.CONVEY,
                     child: Container(
                       color: context.canvasColor,
                       width: context.screenWidth,

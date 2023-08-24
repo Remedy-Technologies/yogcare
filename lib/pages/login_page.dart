@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   //void registerUser(){
-  // Navigator.popAndPushNamed(context, "/register");
+  // Navigator.popAndPushNamed(context.theme, "/register");
   // }
 
   void wrongEmail() {
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: context.cardColor,
+        backgroundColor: context.theme.cardColor,
         //logo
         body: SingleChildScrollView(
           child: SafeArea(
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                   "Welcome!",
                   style: TextStyle(
                     fontSize: 24,
-                    color: context.primaryColor,
+                    color: context.theme.primaryColor,
                   ),
                 ),
                 Padding(
@@ -120,11 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       labelText: "Email",
                       labelStyle: TextStyle(
-                        color: context.primaryColor,
+                        color: context.theme.primaryColor,
                         fontSize: 16,
                       ),
                       filled: true,
-                      fillColor: context.canvasColor,
+                      fillColor: context.theme.canvasColor,
                       prefixIcon: const Icon(Icons.person),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -132,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide:
-                            BorderSide(color: context.primaryColor, width: 3.0),
+                        borderSide: BorderSide(
+                            color: context.theme.primaryColor, width: 3.0),
                       ),
                     ),
                   ),
@@ -147,11 +147,11 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       labelText: "Password",
                       labelStyle: TextStyle(
-                        color: context.primaryColor,
+                        color: context.theme.primaryColor,
                         fontSize: 16,
                       ),
                       filled: true,
-                      fillColor: context.canvasColor,
+                      fillColor: context.theme.canvasColor,
                       prefixIcon: const Icon(Icons.remove_red_eye),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -159,8 +159,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide:
-                            BorderSide(color: context.primaryColor, width: 3.0),
+                        borderSide: BorderSide(
+                            color: context.theme.primaryColor, width: 3.0),
                       ),
                     ),
                   ),
@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                       "Sign In",
                       style: TextStyle(
-                          color: context.canvasColor,
+                          color: context.theme.canvasColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     )),
@@ -197,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: context.primaryColor,
+                        color: context.theme.primaryColor,
                       ),
                     ),
                     const Padding(
@@ -207,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: context.primaryColor,
+                        color: context.theme.primaryColor,
                       ),
                     ),
                   ],
@@ -234,8 +234,9 @@ class _LoginPageState extends State<LoginPage> {
                       child: Container(
                           padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                           decoration: BoxDecoration(
-                              border: Border.all(color: context.canvasColor),
-                              color: context.canvasColor,
+                              border:
+                                  Border.all(color: context.theme.canvasColor),
+                              color: context.theme.canvasColor,
                               borderRadius: BorderRadius.circular(15)),
                           child: isLoading
                               ? Row(
@@ -290,7 +291,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           "Register Now",
                           style: TextStyle(
-                              color: context.primaryColor,
+                              color: context.theme.primaryColor,
                               fontWeight: FontWeight.bold),
                         ),
                       ),

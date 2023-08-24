@@ -130,7 +130,9 @@ class _MyAppState extends State<MyApp> {
               //creating routes for different pages in app
               "/": (context) => AuthPage(), //main root
               Myroutes.homeRoute: (context) => HomePage(),
-              // Myroutes.loginRoute: (context) => LoginPage(),
+              Myroutes.loginRoute: (context) => LoginPage(
+                    onTap: () {},
+                  ),
               // Myroutes.registerRoute: (context) => RegisterPage(),
               Myroutes.meditationRoute: (context) => MeditationPage(),
               Myroutes.meditationGridRoute: (context) => MeditationGrid(),
